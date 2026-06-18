@@ -3257,32 +3257,31 @@ function renderSpellSlots() {
 
   slotsGrid.innerHTML = "";
 
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 9; i++) {
     const slot = char.spellSlots[i] || { current: 0, max: 0 };
     
-    // Crear contenedor de burbujas
-    let bubblesHTML = "";
-    for (let b = 0; b < slot.max; b++) {
-      const activeClass = b < slot.current ? "active" : "";
-      bubblesHTML += `<div class="slot-bubble ${activeClass}" onclick="updateSlotBubble(${i}, ${b})" title="Slot de Nivel ${i} (${b < slot.current ? 'Disponible' : 'Gastado'})"></div>`;
-    }
+    // Solo dibujar si tiene slots máximos mayores a 0 para este nivel (comportamiento dinámico)
+    if (slot.max > 0) {
+      // Crear contenedor de burbujas
+      let bubblesHTML = "";
+      for (let b = 0; b < slot.max; b++) {
+        const activeClass = b < slot.current ? "active" : "";
+        bubblesHTML += `<div class="slot-bubble ${activeClass}" onclick="updateSlotBubble(${i}, ${b})" title="Slot de Nivel ${i} (${b < slot.current ? 'Disponible' : 'Gastado'})"></div>`;
+      }
 
-    if (slot.max === 0) {
-      bubblesHTML = `<span style="font-size:10px;color:var(--text-dim);font-style:italic;">Sin slots</span>`;
+      const card = document.createElement("div");
+      card.className = "spell-slot-card";
+      card.innerHTML = `
+        <div class="spell-slot-lvl" data-es="Nivel ${i}" data-en="Level ${i}">Nivel ${i}</div>
+        <div class="spell-slot-bubbles">${bubblesHTML}</div>
+        <div class="slot-edit-vals">
+          <input type="number" class="slot-input" value="${slot.current}" min="0" max="${slot.max}" onchange="handleSlotInputChange(${i}, 'curr', this.value)" title="Disponibles">
+          <span>/</span>
+          <input type="number" class="slot-input" value="${slot.max}" min="0" max="9" onchange="handleSlotInputChange(${i}, 'max', this.value)" title="Máximos">
+        </div>
+      `;
+      slotsGrid.appendChild(card);
     }
-
-    const card = document.createElement("div");
-    card.className = "spell-slot-card";
-    card.innerHTML = `
-      <div class="spell-slot-lvl">Nivel ${i}</div>
-      <div class="spell-slot-bubbles">${bubblesHTML}</div>
-      <div class="slot-edit-vals">
-        <input type="number" class="slot-input" value="${slot.current}" min="0" max="${slot.max}" onchange="handleSlotInputChange(${i}, 'curr', this.value)" title="Disponibles">
-        <span>/</span>
-        <input type="number" class="slot-input" value="${slot.max}" min="0" max="9" onchange="handleSlotInputChange(${i}, 'max', this.value)" title="Máximos">
-      </div>
-    `;
-    slotsGrid.appendChild(card);
   }
 
   // PACT SLOTS (BRUJO)
