@@ -1326,13 +1326,14 @@ function loadData() {
       updated = true;
       
       if (!char.spellSlots) {
-        char.spellSlots = {
-          1: { current: 0, max: 0 },
-          2: { current: 0, max: 0 },
-          3: { current: 0, max: 0 },
-          4: { current: 0, max: 0 },
-          5: { current: 0, max: 0 }
-        };
+        char.spellSlots = {};
+        for (let i = 1; i <= 9; i++) char.spellSlots[i] = { current: 0, max: 0 };
+        setupDefaultSpellSlots(char);
+        updated = true;
+      } else if (!char.spellSlots[6]) {
+        // Migración: personaje existente solo tiene slots 1-5, hay que añadir 6-9
+        for (let i = 6; i <= 9; i++) char.spellSlots[i] = { current: 0, max: 0 };
+        // Recalcular todos los slots para aplicar la nueva tabla de nivel 11-20
         setupDefaultSpellSlots(char);
         updated = true;
       }

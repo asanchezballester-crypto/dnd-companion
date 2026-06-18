@@ -1,5 +1,5 @@
 // Service Worker para D&D 5.5 Compañero de Partida PWA
-const CACHE_NAME = 'dnd55-companion-cache-v44';
+const CACHE_NAME = 'dnd55-companion-cache-v45';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -80,6 +80,7 @@ self.addEventListener('fetch', event => {
       })
   );
 });
+
 
 
 
