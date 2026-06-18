@@ -1,0 +1,36 @@
+{
+  "name": "DnD 5.5 Companion",
+  "short_name": "DnD 5.5",
+  "description": "Ficha de personaje interactiva y buscador de conjuros SRD para D&D 5.5e (2024).",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0c0907",
+  "theme_color": "#15110d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

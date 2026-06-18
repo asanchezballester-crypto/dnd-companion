@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head><title>Spell DB Test</title></head>
+<body style="background:#1a1a2e;color:#fff;font-family:sans-serif;padding:20px;">
+  <h1>Spell Database Test</h1>
+  <div id="results">Loading...</div>
+  
+  <script src="spells_db.js"></script>
+  <script src="spells_db_en.js"></script>
+  <script>
+    const r = document.getElementById('results');
+    let html = '';
+    
+    html += '<p>typeof SPELLS_DB_ES: ' + typeof SPELLS_DB_ES + '</p>';
+    html += '<p>SPELLS_DB_ES.length: ' + (typeof SPELLS_DB_ES !== 'undefined' ? SPELLS_DB_ES.length : 'N/A') + '</p>';
+    html += '<p>typeof SPELLS_DB_EN: ' + typeof SPELLS_DB_EN + '</p>';
+    html += '<p>SPELLS_DB_EN.length: ' + (typeof SPELLS_DB_EN !== 'undefined' ? SPELLS_DB_EN.length : 'N/A') + '</p>';
+    html += '<p>typeof SPELLS_DB: ' + typeof SPELLS_DB + '</p>';
+    html += '<p>SPELLS_DB.length: ' + (typeof SPELLS_DB !== 'undefined' ? SPELLS_DB.length : 'N/A') + '</p>';
+    
+    if (SPELLS_DB.length > 0) {
+      html += '<h2 style="color:#2ecc71;">✅ Database loaded correctly! ' + SPELLS_DB.length + ' spells</h2>';
+      html += '<p>First 5 spells:</p><ul>';
+      SPELLS_DB.slice(0, 5).forEach(s => {
+        html += '<li>' + s.name + ' (Level ' + s.level + ')</li>';
+      });
+      html += '</ul>';
+    } else {
+      html += '<h2 style="color:#e74c3c;">❌ Database is EMPTY!</h2>';
+    }
+    
+    r.innerHTML = html;
+  </script>
+</body>
+</html>

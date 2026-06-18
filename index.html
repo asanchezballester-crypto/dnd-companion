@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>DnD 5.5 Companion</title>
+  
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#15110d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- PANTALLA DE INTRO (SPLASH SCREEN) -->
+  <div id="splashScreen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #1a0f00; z-index: 99999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.5s ease; color: #ffb12b;">
+    <div style="background: white; padding: 15px; border-radius: 20px; margin-bottom: 25px; box-shadow: 0 0 30px rgba(255, 177, 43, 0.3); border: 2px solid #ffb12b;">
+      <img src="sqlito_wizard.png" alt="SQLito Logo Wizard" style="width: 230px; height: auto; border-radius: 10px; display: block;">
+    </div>
+    <div style="font-family: 'Georgia', serif; font-size: 18px; color: #ffb12b; letter-spacing: 2px; font-weight: bold; text-shadow: 0 0 10px rgba(255, 177, 43, 0.5);">D&D COMPANION</div>
+    <div style="margin-top: 30px; width: 40px; height: 40px; border: 4px solid rgba(255, 177, 43, 0.2); border-top-color: #ffb12b; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+  </div>
+
+  <!-- ESTADO VACÍO (SIN PERSONAJES) -->
+  <div id="emptyAppState" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: radial-gradient(ellipse at center, #1a1410 0%, #0a0806 70%); z-index:2000; flex-direction:column; align-items:center; justify-content:center; padding:20px; text-align:center;">
+    <div style="font-size:64px; margin-bottom:20px;">🛡️</div>
+    <h1 style="font-family:var(--font-header); font-size:28px; color:var(--gold-bright); margin-bottom:15px;">DnD 5.5 Companion</h1>
+    <p style="color:var(--text-dim); margin-bottom:30px; font-size:15px; max-width:300px;">¡Bienvenido a tu nueva hoja de personaje digital! Para empezar la aventura, crea tu primer héroe.</p>
+    <button class="btn btn-primary" style="padding:15px 30px; font-size:16px; font-weight:bold; box-shadow:0 4px 15px rgba(212,175,55,0.3);" onclick="openNewCharacterModal()">Crear Personaje</button>
+  </div>
+
+  <!-- ESTADO DE SELECCIÓN DE PERSONAJE (MENÚ PRINCIPAL) -->
+  <div id="characterSelectionState" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: radial-gradient(ellipse at center, #1a1410 0%, #0a0806 70%); z-index:2000; flex-direction:column; padding:20px; overflow-y:auto;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; margin-top: 20px;">
+      <h1 style="font-family:var(--font-header); font-size:32px; color:var(--gold-bright); margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Elige a tu Héroe</h1>
+      <button class="btn btn-secondary" onclick="openGlobalSettingsModal()" style="padding: 10px; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;" title="Ajustes">⚙️</button>
+    </div>
+    
+    <div id="characterSelectionGrid" class="character-selection-grid">
+      <!-- Las tarjetas se generan dinámicamente -->
+    </div>
+    
+    <div style="margin-top: auto; padding-top: 30px; display: flex; justify-content: center; padding-bottom: 20px;">
+      <button class="btn btn-primary" style="padding:15px 40px; font-size:18px; font-weight:bold; box-shadow:0 4px 15px rgba(212,175,55,0.3); border-radius: var(--border-radius-lg);" onclick="openNewCharacterModal()">+ Crear Nuevo Personaje</button>
+    </div>
+  </div>
+
+  <!-- Modal de Selección de Idioma Inicial (Primera vez) -->
+  <div id="firstTimeLanguageModal" class="modal-overlay" style="display:none; z-index:3000; align-items:center; justify-content:center;">
+    <div class="modal-content" style="max-width:380px; width:90%; border:1px solid var(--gold-dark); border-radius:var(--border-radius-md); background:radial-gradient(ellipse at center, #1a1410 0%, #0a0806 70%); box-shadow:var(--shadow-lg);">
+      <div class="modal-header" style="justify-content:center; border-bottom:none; padding-bottom:0;">
+        <h3 class="modal-title" style="font-family:var(--font-header); font-size:22px; color:var(--gold-bright); text-align:center;">Selecciona tu Idioma<br><span style="font-size:16px;color:var(--text-dim)">Select Language</span></h3>
+      </div>
+      <div class="modal-body" style="display:flex; flex-direction:column; gap:12px; padding:20px; text-align:center;">
+        <p style="color:var(--text-dim); font-size:13px; line-height:1.4; margin-bottom:15px;">¡Bienvenido a tu hoja de personaje digital! Para comenzar, selecciona tu idioma de preferencia:</p>
+        <button class="btn btn-primary" style="padding:12px; font-size:15px; font-weight:bold;" onclick="selectInitialLanguage('es')">Español 🇪🇸</button>
+        <button class="btn btn-secondary" style="padding:12px; font-size:15px; font-weight:bold; border-color:var(--gold-dark);" onclick="selectInitialLanguage('en')">English (Beta) 🇬🇧</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cabecera de la Aplicación -->
+  <header>
+    <div class="char-header-container">
+      <div class="char-basic-info" style="align-items:center; display:flex; flex-direction:row; gap:12px; width:100%;">
+        <div style="display:flex; flex-direction:column; flex:1; width:100%;">
+          
+          <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div id="charPortraitContainer" style="width:38px; height:38px; border-radius:50%; border:2px solid var(--gold-dark); background:var(--bg-deep); overflow:hidden; display:flex; align-items:center; justify-content:center; flex-shrink:0; cursor:pointer;" onclick="triggerPortraitRoll()" title="Tocar para cambiar retrato">
+                <!-- Cargado por JS -->
+              </div>
+              <h1 id="headerCharName" style="font-family:var(--font-header); font-size:22px; color:var(--gold-bright); margin:0; line-height:1;">Cargando...</h1>
+              <button class="action-btn" onclick="openEditCharacterModal()" title="Editar personaje" style="padding:0; display:flex;">
+                <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--gold-bright)"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+              </button>
+              <button class="action-btn" onclick="openNewCharacterModal()" title="Crear nuevo personaje" style="padding:0; display:flex; margin-left:2px;">
+                <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:var(--gold-bright)"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+              </button>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <button class="action-btn" onclick="openQuickDiceModal()" id="btnQuickDiceOpen" title="Lanzar Dados" style="padding:0; margin:0; display:flex;">
+                <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:var(--gold-bright)"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM8 18c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm0-6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm8 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm0-6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+              </button>
+              <button class="action-btn" onclick="openQuickRefModal()" title="Chuleta de Reglas" style="padding:0; margin:0; display:flex;">
+                <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:var(--gold)"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+              </button>
+              <button class="action-btn" onclick="openGlobalSettingsModal()" title="Ajustes Globales" style="padding:0; margin:0; display:flex;">
+                <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:var(--text-dim)"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49-.12-.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2-3.46c.12-.22.07-.49-.12-.64l-2-3.46c.12-.22.07-.49-.12-.64zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+              </button>
+            </div>
+          </div>
+          
+          <div id="charRaceClassLvl" class="char-meta" style="margin-top:2px;">
+            <!-- Cargado por JS -->
+          </div>
+        </div>
+      </div>
+      <!-- Condiciones Activas -->
+      <div class="active-conditions-container">
+          <div id="activeConditionsList" class="conditions-list">
+            <!-- Cargado por JS -->
+          </div>
+          <button class="add-condition-btn" onclick="openConditionsModal()" title="Añadir Condición">+</button>
+        </div>
+
+      </div>
+      
+      <!-- Puntos de Vida -->
+      <div class="hp-container">
+        <div class="hp-info">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="hp-label">Puntos de Vida</span>
+            <button id="btnInspiration" class="inspiration-btn" onclick="toggleInspiration()" title="Inspiración Heroica">
+              <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            </button>
+          </div>
+          <div class="hp-values">
+            <input type="number" id="hpCurrent" class="hp-current-input" value="10">
+            <span id="hpMax" class="hp-max">/ 10</span>
+            <span id="hpTemp" class="hp-temp" style="display:none;" title="Puntos de Golpe Temporales">+0 temp</span>
+          </div>
+        </div>
+        <div class="hp-bar-bg">
+          <div id="hpBarFill" class="hp-bar-fill"></div>
+        </div>
+        
+        <!-- Salvaciones contra la Muerte -->
+        <div id="deathSavesContainer" class="death-saves-container" style="display: none;">
+          <div class="death-saves-label">Salvaciones de Muerte</div>
+          <div class="death-saves-row">
+            <span class="ds-sublabel">Éxito:</span>
+            <div class="ds-bubbles" id="dsSuccesses">
+              <input type="checkbox" class="ds-checkbox success" id="dsSuccess1" onclick="toggleDeathSave('success', 1)">
+              <input type="checkbox" class="ds-checkbox success" id="dsSuccess2" onclick="toggleDeathSave('success', 2)">
+              <input type="checkbox" class="ds-checkbox success" id="dsSuccess3" onclick="toggleDeathSave('success', 3)">
+            </div>
+          </div>
+          <div class="death-saves-row">
+            <span class="ds-sublabel">Fallo:</span>
+            <div class="ds-bubbles" id="dsFailures">
+              <input type="checkbox" class="ds-checkbox failure" id="dsFail1" onclick="toggleDeathSave('failure', 1)">
+              <input type="checkbox" class="ds-checkbox failure" id="dsFail2" onclick="toggleDeathSave('failure', 2)">
+              <input type="checkbox" class="ds-checkbox failure" id="dsFail3" onclick="toggleDeathSave('failure', 3)">
+            </div>
+          </div>
+          <div id="deathStatusText" class="death-status-text">Tira salvaciones al inicio de tu turno</div>
+        </div>
+        <div class="hp-controls">
+          <button id="btnDamage" class="hp-btn damage">
+            <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor;"><path d="M19 13H5v-2h14v2z"/></svg> Daño
+          </button>
+          <button id="btnHeal" class="hp-btn heal">
+            <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg> Curar
+          </button>
+          <button id="btnTempHP" class="hp-btn temp-hp">
+            <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor;"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg> Temp
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main>
+    
+    <!-- PESTAÑA 1: FICHA BÁSICA -->
+    <div id="tab-ficha" class="tab-panel active">
+      <!-- Estadísticas Rápidas -->
+      <div class="quick-stats" style="margin-bottom: 16px;">
+        <div class="quick-stat-box" title="Clase de Armadura">
+          <div class="quick-stat-label">CA</div>
+          <div id="statAC" class="quick-stat-val">10</div>
+        </div>
+        <div class="quick-stat-box" title="Iniciativa (Modificador de Destreza)">
+          <div class="quick-stat-label">Inic</div>
+          <div id="statInit" class="quick-stat-val">+0</div>
+        </div>
+        <div class="quick-stat-box" title="Velocidad de movimiento">
+          <div class="quick-stat-label">Veloc</div>
+          <div id="statSpeed" class="quick-stat-val">30p</div>
+        </div>
+        <div class="quick-stat-box" title="Bonificador de Competencia">
+          <div class="quick-stat-label">Compet.</div>
+          <div id="statProf" class="quick-stat-val">+2</div>
+        </div>
+      </div>
+      
+      <!-- Atributos -->
+      <div class="grid-attributes" id="secAttributes">
+        <div class="attr-card" id="attr-str">
+          <div class="attr-name">Fuerza</div>
+          <div class="attr-mod">+0</div>
+          <div class="attr-score-container" onclick="editAttribute('str')" title="Haga clic para cambiar">10</div>
+        </div>
+        <div class="attr-card" id="attr-dex">
+          <div class="attr-name">Destreza</div>
+          <div class="attr-mod">+0</div>
+          <div class="attr-score-container" onclick="editAttribute('dex')" title="Haga clic para cambiar">10</div>
+        </div>
+        <div class="attr-card" id="attr-con">
+          <div class="attr-name">Constitución</div>
+          <div class="attr-mod">+0</div>
+          <div class="attr-score-container" onclick="editAttribute('con')" title="Haga clic para cambiar">10</div>
+        </div>
+        <div class="attr-card" id="attr-int">
+          <div class="attr-name">Inteligencia</div>
+          <div class="attr-mod">+0</div>
+          <div class="attr-score-container" onclick="editAttribute('int')" title="Haga clic para cambiar">10</div>
+        </div>
+        <div class="attr-card" id="attr-wis">
+          <div class="attr-name">Sabiduría</div>
+          <div class="attr-mod">+0</div>
+          <div class="attr-score-container" onclick="editAttribute('wis')" title="Haga clic para cambiar">10</div>
+        </div>
+        <div class="attr-card" id="attr-cha">
+          <div class="attr-name">Carisma</div>
+          <div class="attr-mod">+0</div>
+          <div class="attr-score-container" onclick="editAttribute('cha')" title="Haga clic para cambiar">10</div>
+        </div>
+      </div>
+
+      <!-- Habilidades (Desplegable) -->
+      <div id="secSkills" class="sheet-details mt-3" style="padding:0; border-radius:10px; overflow:hidden;">
+        <div id="skillsToggleHeader" onclick="toggleSkillsPanel()" style="display:flex; justify-content:space-between; align-items:center; padding:12px 15px; cursor:pointer; user-select:none;">
+          <h2 style="font-size:15px;margin:0;color:var(--gold);" id="lblSkillsHeader">Habilidades</h2>
+          <span id="skillsToggleIcon" style="color:var(--gold); font-size:18px; transition:transform 0.3s ease;">▶</span>
+        </div>
+        <div id="skillsGridWrapper" style="display:none; padding:0 15px 15px 15px;">
+          <div id="skillsGrid" class="skills-grid">
+            <!-- Generado por JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Recursos de Clase y Descansos -->
+      <div class="resources-card" id="secResources">
+        <h2 style="font-size:15px;margin-bottom:12px;text-align:center;color:var(--gold);">Recursos y Descansos</h2>
+        <div class="resources-grid">
+          <!-- Dados de Golpe -->
+          <div class="resource-item">
+            <span class="resource-label">Dados de Golpe</span>
+            <div class="hit-dice-display" style="display:flex; align-items:center; gap:8px;">
+              <span id="hitDiceVal">1d8 / 1d8</span>
+              <button class="hit-dice-spend-btn" onclick="rollHitDieWithAnimation()" title="Gastar y tirar Dado de Golpe para curarte" style="padding:4px 8px; font-size:11px;">🎲 Tirar</button>
+            </div>
+          </div>
+          <!-- Recurso de Clase -->
+          <div id="classResourceContainer" class="resource-item" style="display: none;">
+            <div class="resource-header-row">
+              <span id="classResourceLabel" class="resource-label">Recurso</span>
+              <span id="classResourceDesc" class="resource-desc-inline"></span>
+            </div>
+            <div class="class-resource-tracker">
+              <div id="classResourceBubbles" class="resource-bubbles">
+                <!-- Se poblará por JS -->
+              </div>
+              <div id="classResourceNumeric" class="resource-numeric" style="display: none;">
+                <input type="number" id="classResourceNumCurrent" min="0" value="0">
+                <span>/</span>
+                <span id="classResourceNumMax">0</span>
+              </div>
+            </div>
+          </div>
+          <!-- Recurso de Subclase -->
+          <div id="subclassResourceContainer" class="resource-item" style="display: none;">
+            <div class="resource-header-row">
+              <span id="subclassResourceLabel" class="resource-label">Recurso de Subclase</span>
+              <span id="subclassResourceDesc" class="resource-desc-inline"></span>
+            </div>
+            <div class="subclass-resource-tracker">
+              <div id="subclassResourceBubbles" class="resource-bubbles" style="display: none;">
+                <!-- Se poblará por JS -->
+              </div>
+              <div id="subclassResourceNumeric" class="resource-numeric" style="display: none;">
+                <input type="number" id="subclassResourceNumCurrent" min="0" value="0">
+                <span>/</span>
+                <span id="subclassResourceNumMax">0</span>
+              </div>
+              <div id="subclassResourcePortent" class="portent-tracker" style="display: none;">
+                <!-- Se poblará por JS con dados clickeables -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="rest-actions">
+          <button class="rest-btn short-rest" onclick="triggerShortRest()">
+            <svg viewBox="0 0 24 24" class="rest-icon"><path d="M12 3a9 9 0 1 0 9 9h-2a7 7 0 1 1-7-7V3z"/></svg>
+            Descanso Corto
+          </button>
+          <button class="rest-btn long-rest" onclick="triggerLongRest()">
+            <svg viewBox="0 0 24 24" class="rest-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.4z"/></svg>
+            Descanso Largo
+          </button>
+        </div>
+      </div>
+
+      <!-- Ficha Detallada -->
+      <div class="sheet-details" id="secDetails">
+        <h2 style="font-size:16px;margin-bottom:10px;text-align:center;">Detalles del Personaje</h2>
+        <div class="details-grid">
+          <div class="detail-item">
+            <span class="detail-label">Raza</span>
+            <div id="detailRace" class="detail-val"></div>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Clase y Subclase</span>
+            <div id="detailClass" class="detail-val"></div>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Nivel</span>
+            <div class="level-display-row">
+              <div id="detailLevel" class="detail-val"></div>
+              <button type="button" class="level-up-btn" onclick="triggerLevelUp()" title="Subir de nivel (Level Up)">▲ Subir</button>
+            </div>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Trasfondo</span>
+            <div id="detailBg" class="detail-val"></div>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Clase de Armadura (CA)</span>
+            <div id="detailAC" class="detail-val"></div>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Velocidad</span>
+            <div id="detailSpeed" class="detail-val"></div>
+          </div>
+        </div>
+        <div class="text-center mt-3">
+          <p style="font-size:11px;color:var(--text-dim);">Haz clic en los círculos de atributos para editarlos directamente.</p>
+        </div>
+      </div>
+
+      <!-- Combate y Armas Equipadas -->
+      <div id="combatCard" class="sheet-details mt-3" style="display: none;">
+        <h2 style="font-size:16px;margin-bottom:10px;text-align:center;color:var(--gold);">Ataques y Acciones</h2>
+        <div id="equippedWeaponsList" class="spells-list">
+          <!-- Cargado por JS con armas equipadas -->
+        </div>
+      </div>
+
+      <!-- Forma Salvaje (Sólo Druida) -->
+      <div id="wildShapeCard" class="sheet-details mt-3" style="display: none;">
+        <h2 style="font-size:16px;margin-bottom:10px;text-align:center;color:var(--gold);" id="lblWildShapeTitle">Forma Salvaje</h2>
+        
+        <!-- Banner de Forma Salvaje Activa -->
+        <div id="activeWildShapeBanner" style="display: none; background: rgba(212, 175, 55, 0.12); border: 1px solid var(--gold); padding: 12px; border-radius: var(--border-radius-sm); margin-bottom: 12px; text-align: center;">
+          <h3 style="font-size: 14px; margin: 0 0 4px 0; color: var(--gold-bright);" id="activeWildShapeName">Forma Salvaje Activa: Oso Pardo</h3>
+          <p style="font-size: 11px; color: var(--text-dim); margin: 0 0 10px 0;" id="activeWildShapeDetails">Fuerza: 19 | Destreza: 10 | Con: 16 | CA: 11 (Círculo de la Luna: 16)</p>
+          <button class="rest-btn" style="background: var(--danger); border-color: var(--danger); color: white; display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; font-size: 11px; margin: 0 auto; cursor: pointer;" onclick="deactivateWildShape()">
+            ❌ Desactivar
+          </button>
+        </div>
+        
+        <div id="wildShapeSelectorArea">
+          <div class="form-group">
+            <label for="wildShapeSelect" id="lblWildShapeSelect" style="display: block; margin-bottom: 4px; font-size: 12px; color: var(--text-dim);">Seleccionar Forma de Bestia</label>
+            <div style="display: flex; gap: 8px;">
+              <select id="wildShapeSelect" class="form-select" style="flex: 1;">
+                <!-- Poblado dinámicamente -->
+              </select>
+              <button class="btn btn-primary" style="padding: 0 16px; font-size: 12px; height: auto;" onclick="activateWildShape()" id="btnActivateWildShape">
+                Transformarse
+              </button>
+            </div>
+          </div>
+          
+          <!-- Previsualización de estadísticas de la bestia -->
+          <div id="wildShapePreview" style="margin-top: 12px; background: rgba(0,0,0,0.2); padding: 12px; border-radius: var(--border-radius-sm); border: 1px solid var(--border); font-size: 11px; line-height: 1.4; display: none;">
+            <!-- JS cargará la previsualización del stats de la bestia -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Rasgos de Origen y Especie -->
+      <div id="originTraitsCard" class="sheet-details mt-3" style="display: none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <h2 style="font-size:16px;margin:0;color:var(--gold);" id="lblOriginTraitsTitle">Rasgos de Origen y Especie</h2>
+        </div>
+        <div id="originTraitsList" class="origin-traits-list">
+          <!-- Cargado por JS -->
+        </div>
+      </div>
+
+      <!-- Dotes Adicionales -->
+      <div id="featsCard" class="sheet-details mt-3">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <h2 style="font-size:16px;margin:0;color:var(--gold);">Dotes Adicionales</h2>
+        </div>
+        <div id="featsList" class="origin-traits-list">
+          <!-- Cargado por JS -->
+        </div>
+      </div>
+
+      <!-- Elecciones de Clase (Dinámico D&D 2024) -->
+      <div id="classChoicesCard" class="sheet-details mt-3" style="display: none;">
+        <h2 style="font-size:16px;margin-bottom:10px;text-align:center;color:var(--gold);">Elecciones de Clase</h2>
+        <div id="classChoicesContent" style="display: flex; flex-direction: column; gap: 15px;">
+          <!-- Cargado por JS según clase -->
+        </div>
+      </div>
+    </div>
+
+    <!-- PESTAÑA 2: INVENTARIO -->
+    <div id="tab-inventario" class="tab-panel">
+      <div class="inventory-header">
+        <div class="gold-container" title="Monedas de Oro">
+          <svg class="gold-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+          <input type="number" id="goldInput" class="gold-input" value="0">
+          <span style="font-size:11px;color:var(--gold-bright);font-weight:600;text-transform:uppercase;">po</span>
+        </div>
+        <button class="btn btn-primary" onclick="openAddItemModal()">+ Añadir Objeto</button>
+      </div>
+
+      <div class="items-list" id="itemsList">
+        <!-- Cargado por JS -->
+      </div>
+      <div class="autosave-status">Guardado automático</div>
+    </div>
+
+    <!-- PESTAÑA 3: HECHIZOS -->
+    <div id="tab-hechizos" class="tab-panel">
+      <!-- Ranuras de Hechizos (Espacios) -->
+      <h2 style="font-size:14px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em;">Ranuras de Hechizo</h2>
+      <div class="spell-slots-grid" id="spellSlotsGrid">
+        <!-- Cargado por JS -->
+      </div>
+
+      <!-- Hechizos preparados -->
+      <h2 class="spell-section-title" id="lblPreparedSpellsHeader">Hechizos preparados</h2>
+      <div class="spells-list" id="spellsListPrepared">
+        <!-- Cargado por JS -->
+      </div>
+
+      <!-- Libro de hechizos (Desplegable) -->
+      <details class="spellbook-details" id="spellbookDetails" style="margin-top: 15px; margin-bottom: 15px;">
+        <summary class="spellbook-summary" style="background: linear-gradient(145deg, var(--bg-card) 0%, #1a1410 100%); border: 1px solid var(--gold-dark); border-radius: var(--border-radius-md); padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--gold-bright); font-family: var(--font-header); font-size: 18px; box-shadow: var(--shadow-sm); transition: all 0.3s ease;">
+          <span style="display:flex; align-items:center; gap:10px;">📖 <span id="lblSpellbookHeader">Libro de hechizos (Conocidos)</span></span>
+        </summary>
+        <div class="spellbook-content" style="padding: 15px 0;">
+          <div class="spells-list" id="spellsListKnown">
+            <!-- Cargado por JS -->
+          </div>
+        </div>
+      </details>
+
+      <!-- Buscador SRD -->
+      <h2 class="spell-section-title" style="margin-top:20px;" id="lblSpellSearchHeader">Buscador de Hechizos (SRD)</h2>
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="spellSearch" class="search-input" placeholder="Buscar conjuro por nombre o descripción...">
+        </div>
+        <div class="filters-row" style="align-items:center; flex-wrap:wrap;">
+          <select id="filterSpellLvl" class="filter-select">
+            <option value="all">Todos los niveles</option>
+            <option value="0">Trucos (Nivel 0)</option>
+            <option value="1">Nivel 1</option>
+            <option value="2">Nivel 2</option>
+            <option value="3">Nivel 3</option>
+            <option value="4">Nivel 4</option>
+            <option value="5">Nivel 5</option>
+          </select>
+          <select id="filterSpellClass" class="filter-select">
+            <option value="all">Todas las clases</option>
+            <option value="Mago">Mago</option>
+            <option value="Hechicero">Hechicero</option>
+            <option value="Clérigo">Clérigo</option>
+            <option value="Bardo">Bardo</option>
+            <option value="Druida">Druida</option>
+            <option value="Brujo">Brujo</option>
+            <option value="Paladín">Paladín</option>
+            <option value="Explorador">Explorador</option>
+          </select>
+          <label style="display:flex; align-items:center; gap:5px; color:var(--text-dim); font-size:14px; cursor:pointer;">
+            <input type="checkbox" id="filterSpellRitual" style="accent-color:var(--gold-bright); width:16px; height:16px;">
+            Solo Rituales 🕯️
+          </label>
+        </div>
+      </div>
+
+      <div class="spells-list" id="spellsListSearch">
+        <!-- Cargado por JS -->
+      </div>
+      <div class="autosave-status" style="margin-top:10px;">Guardado automático</div>
+    </div>
+
+    <!-- PESTAÑA 4: NOTAS -->
+    <div id="tab-notas" class="tab-panel">
+      <div class="notes-container">
+        <div class="note-box">
+          <h3>Notas del Personaje</h3>
+          <textarea id="notesChar" class="note-textarea" placeholder="Trasfondo, historia, rasgos de personalidad, objetivos, deidades..."></textarea>
+          <div class="autosave-status">Guardado automático</div>
+        </div>
+        
+        <div class="note-box">
+          <h3>Notas de Campaña y Sesión</h3>
+          <textarea id="notesCampaign" class="note-textarea" placeholder="Pistas, PNJs conocidos, lugares clave, eventos de la sesión actual..."></textarea>
+          <div class="autosave-status">Guardado automático</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Botón Flotante eliminado a petición del usuario -->
+
+  <!-- Barra de Navegación Inferior -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-tab="ficha">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      Ficha
+    </button>
+    <button class="nav-btn" data-tab="inventario">
+      <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-8-2h4v2h-4V4zm8 15H4v-8h16v8z"/></svg>
+      Inventario
+    </button>
+    <button class="nav-btn" data-tab="hechizos">
+      <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+      Hechizos
+    </button>
+    <button class="nav-btn" data-tab="notas">
+      <svg viewBox="0 0 24 24"><path d="M14 17H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2zm2-5H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM5 19V5h14v14H5z"/></svg>
+      Notas
+    </button>
+  </nav>
+
+  <!-- MODAL: CREAR PERSONAJE -->
+  <div id="newCharModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Nuevo Personaje</h3>
+        <button class="modal-close" onclick="closeNewCharacterModal()">&times;</button>
+      </div>
+      <form onsubmit="createCharacterSubmit(event)">
+        <div class="modal-body">
+          
+          <!-- PASO 1: IDENTIDAD -->
+          <div class="wizard-step active" id="wizard-step-1">
+            <h4 class="fantasy-font" style="font-size:14px; color:var(--gold-bright); margin-bottom:10px; border-bottom:1px solid var(--gold-dark); padding-bottom:5px;">Paso 1: Identidad del Héroe</h4>
+            
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="newCharRace">Especie (Raza)</label>
+                <select id="newCharRace" class="form-select">
+                  <option value="Humano">Humano</option>
+                  <option value="Elfo">Elfo</option>
+                  <option value="Enano">Enano</option>
+                  <option value="Mediano">Mediano</option>
+                  <option value="Dracónido">Dracónido</option>
+                  <option value="Gnomo">Gnomo</option>
+                  <option value="Tiefling">Tiefling</option>
+                  <option value="Aasimar">Aasimar</option>
+                  <option value="Goliat">Goliat</option>
+                  <option value="Orco">Orco</option>
+                </select>
+              </div>
+              <div class="form-group" id="newCharSubraceGroup" style="display:none;">
+                <label for="newCharSubrace">Linaje / Ancestro</label>
+                <select id="newCharSubrace" class="form-select"></select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="newCharName">Nombre del Héroe</label>
+              <div style="display: flex; gap: 8px; align-items: center; width: 100%;">
+                <input type="text" id="newCharName" class="form-input" placeholder="Ej. Thorin Escudo de Roble" required style="flex: 1; margin: 0;">
+                <button type="button" class="btn btn-secondary" onclick="generateRandomName()" title="Generar nombre aleatorio" style="padding: 12px; display: flex; align-items: center; justify-content: center; height: 42px; width: 42px; margin: 0; border-color: var(--gold-dark);">
+                  🎲
+                </button>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="newCharClass">Clase Principal</label>
+                <select id="newCharClass" class="form-select">
+                  <option value="Guerrero">Guerrero</option>
+                  <option value="Mago">Mago</option>
+                  <option value="Clérigo">Clérigo</option>
+                  <option value="Pícaro">Pícaro</option>
+                  <option value="Bardo">Bardo</option>
+                  <option value="Druida">Druida</option>
+                  <option value="Bárbaro">Bárbaro</option>
+                  <option value="Hechicero">Hechicero</option>
+                  <option value="Brujo">Brujo</option>
+                  <option value="Paladín">Paladín</option>
+                  <option value="Explorador">Explorador</option>
+                  <option value="Monje">Monje</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="newCharSubclass">Subclase</label>
+                <select id="newCharSubclass" class="form-select">
+                  <!-- Se poblará dinámicamente -->
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="newCharLevel">Nivel Inicial</label>
+              <input type="number" id="newCharLevel" class="form-input" value="1" min="1" max="20" required>
+            </div>
+          </div>
+
+          <!-- PASO 2: TRASFONDO -->
+          <div class="wizard-step" id="wizard-step-2">
+            <h4 class="fantasy-font" style="font-size:14px; color:var(--gold-bright); margin-bottom:10px; border-bottom:1px solid var(--gold-dark); padding-bottom:5px;">Paso 2: Trasfondo</h4>
+
+            <div class="form-group">
+              <label for="newCharBg">Trasfondo</label>
+              <select id="newCharBg" class="form-select">
+                <option value="Acólito">Acólito</option>
+                <option value="Artesano">Artesano</option>
+                <option value="Artista">Artista</option>
+                <option value="Charlatán">Charlatán</option>
+                <option value="Criminal">Criminal</option>
+                <option value="Ermitaño">Ermitaño</option>
+                <option value="Escriba">Escriba</option>
+                <option value="Granjero">Granjero</option>
+                <option value="Guardia">Guardia</option>
+                <option value="Guía">Guía</option>
+                <option value="Marinero">Marinero</option>
+                <option value="Mercader">Mercader</option>
+                <option value="Noble">Noble</option>
+                <option value="Sabio" selected>Sabio</option>
+                <option value="Soldado">Soldado</option>
+                <option value="Vagabundo">Vagabundo</option>
+              </select>
+            </div>
+
+            <!-- Nuevo contenedor para info del trasfondo -->
+            <div id="newCharBgInfoContainer" class="epic-box" style="margin-top: 10px; display: none; padding: 10px;">
+              <p id="newCharBgDesc" style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.3; font-style: italic;"></p>
+              <div id="newCharFeatDesc" style="font-size: 11.5px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 6px;"></div>
+            </div>
+
+            <!-- Bonificaciones de Características del Trasfondo -->
+            <div id="newCharAsiSection" class="form-group" style="margin-top: 10px; background: rgba(0,0,0,0.15); padding: 10px; border-radius: var(--border-radius-sm); border: 1px solid var(--border);">
+              <h5 style="color: var(--gold); font-size: 13px; margin-bottom: 10px;">Mejora de Características (ASI)</h5>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="form-group">
+                  <label for="newCharAsiPlus2">Bono +2 a</label>
+                  <select id="newCharAsiPlus2" class="form-select"></select>
+                </div>
+                <div class="form-group">
+                  <label for="newCharAsiPlus1">Bono +1 a</label>
+                  <select id="newCharAsiPlus1" class="form-select"></select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PASO 3: COMPETENCIAS -->
+          <div class="wizard-step" id="wizard-step-3">
+            <h4 class="fantasy-font" style="font-size:14px; color:var(--gold-bright); margin-bottom:10px; border-bottom:1px solid var(--gold-dark); padding-bottom:5px;">Paso 3: Competencias</h4>
+            
+            <div style="margin-top:10px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px dashed var(--gold-dark); padding-bottom:5px; margin-bottom:10px;">
+              <h4 class="fantasy-font" style="font-size:13px; margin:0; color:var(--gold-bright);">Habilidades</h4>
+              <div style="display:flex; gap:5px; background:rgba(0,0,0,0.3); border-radius:var(--border-radius-sm); padding:2px;">
+                <button type="button" id="btnSkillMethodAuto" class="btn btn-secondary active" style="padding: 4px 8px; font-size: 10px; min-width:0;" onclick="setSkillMethod('auto')">Reglas Oficiales</button>
+                <button type="button" id="btnSkillMethodManual" class="btn btn-secondary" style="padding: 4px 8px; font-size: 10px; min-width:0;" onclick="setSkillMethod('manual')">Manual</button>
+              </div>
+            </div>
+            
+            <p id="newCharSkillsHelp" style="font-size: 11px; color: var(--text-dim); margin-bottom: 10px; font-style: italic;">Selecciona las habilidades de tu Clase.</p>
+            
+            <div id="newCharSkillsContainer" style="display:grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; background: rgba(0,0,0,0.15); padding: 10px; border-radius: var(--border-radius-sm); border: 1px solid var(--border);">
+              <!-- Rendered via JS -->
+            </div>
+
+            <div class="form-group" style="margin-top: 10px;">
+              <label style="color: var(--gold-bright); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 8px; border-bottom:1px dashed var(--gold-dark); padding-bottom:5px;">Otras Competencias</label>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="newCharArmorProf">Armaduras</label>
+                  <input type="text" id="newCharArmorProf" class="form-input" placeholder="Ej. Ligeras, Medianas, Escudos">
+                </div>
+                <div class="form-group">
+                  <label for="newCharWeaponProf">Armas</label>
+                  <input type="text" id="newCharWeaponProf" class="form-input" placeholder="Ej. Sencillas, Marciales">
+                </div>
+              </div>
+              <div class="form-row-2" style="margin-top: 8px;">
+                <div class="form-group">
+                  <label for="newCharToolProf">Herramientas</label>
+                  <input type="text" id="newCharToolProf" class="form-input" placeholder="Ej. De ladrón, Flauta">
+                </div>
+                <div class="form-group">
+                  <label for="newCharLanguages">Idiomas</label>
+                  <input type="text" id="newCharLanguages" class="form-input" placeholder="Ej. Común, Élfico">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PASO 4: ATRIBUTOS Y ESTADÍSTICAS -->
+          <div class="wizard-step" id="wizard-step-4">
+            <h4 class="fantasy-font" style="font-size:14px; color:var(--gold-bright); margin-bottom:10px; border-bottom:1px solid var(--gold-dark); padding-bottom:5px;">Paso 4: Estadísticas</h4>
+            
+            <div class="form-row-2" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+              <div class="form-group">
+                <label for="newCharAC">CA Inicial</label>
+                <input type="number" id="newCharAC" class="form-input" value="10" min="1" required>
+              </div>
+              <div class="form-group">
+                <label for="newCharSpeed">Velocidad (p)</label>
+                <input type="number" id="newCharSpeed" class="form-input" value="30" min="0" required>
+              </div>
+            </div>
+
+            <div style="margin-top:15px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--gold-dark); padding-bottom:5px;">
+              <h4 class="fantasy-font" style="font-size:12px; margin:0;">Atributos de Base</h4>
+              <div style="display:flex; gap:5px; background:rgba(0,0,0,0.3); border-radius:var(--border-radius-sm); padding:2px;">
+                <button type="button" id="btnMethodPointBuy" class="btn btn-secondary active" style="padding: 4px 8px; font-size: 10px; min-width:0;" onclick="setStatMethod('pointbuy')">Compra de Puntos</button>
+                <button type="button" id="btnMethodManual" class="btn btn-secondary" style="padding: 4px 8px; font-size: 10px; min-width:0;" onclick="setStatMethod('manual')">Manual</button>
+              </div>
+            </div>
+
+            <div id="pointBuyBanner" style="display:none; text-align:center; background:rgba(212,175,55,0.1); border:1px solid var(--gold-dark); padding:8px; border-radius:var(--border-radius-md); margin-top:10px; margin-bottom:5px;">
+              <span style="font-size:12px; color:var(--text-light); text-transform:uppercase; letter-spacing:1px;">Puntos Restantes:</span>
+              <span id="pbPointsDisplay" class="fantasy-font" style="font-size:18px; color:var(--gold-bright); margin-left:5px; font-weight:bold;">27</span>
+            </div>
+
+            <div class="form-row-3" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:10px; margin-top:10px;">
+              <div class="form-group">
+                <label style="text-align:center;">FUE</label>
+                <div class="stat-control">
+                  <button type="button" onclick="changeStat('newCharStr', -1)">-</button>
+                  <input type="number" id="newCharStr" class="form-input" value="10" min="1" max="25" style="text-align:center; padding: 5px;">
+                  <button type="button" onclick="changeStat('newCharStr', 1)">+</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label style="text-align:center;">DES</label>
+                <div class="stat-control">
+                  <button type="button" onclick="changeStat('newCharDex', -1)">-</button>
+                  <input type="number" id="newCharDex" class="form-input" value="10" min="1" max="25" style="text-align:center; padding: 5px;">
+                  <button type="button" onclick="changeStat('newCharDex', 1)">+</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label style="text-align:center;">CON</label>
+                <div class="stat-control">
+                  <button type="button" onclick="changeStat('newCharCon', -1)">-</button>
+                  <input type="number" id="newCharCon" class="form-input" value="10" min="1" max="25" style="text-align:center; padding: 5px;">
+                  <button type="button" onclick="changeStat('newCharCon', 1)">+</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label style="text-align:center;">INT</label>
+                <div class="stat-control">
+                  <button type="button" onclick="changeStat('newCharInt', -1)">-</button>
+                  <input type="number" id="newCharInt" class="form-input" value="10" min="1" max="25" style="text-align:center; padding: 5px;">
+                  <button type="button" onclick="changeStat('newCharInt', 1)">+</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label style="text-align:center;">SAB</label>
+                <div class="stat-control">
+                  <button type="button" onclick="changeStat('newCharWis', -1)">-</button>
+                  <input type="number" id="newCharWis" class="form-input" value="10" min="1" max="25" style="text-align:center; padding: 5px;">
+                  <button type="button" onclick="changeStat('newCharWis', 1)">+</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label style="text-align:center;">CAR</label>
+                <div class="stat-control">
+                  <button type="button" onclick="changeStat('newCharCha', -1)">-</button>
+                  <input type="number" id="newCharCha" class="form-input" value="10" min="1" max="25" style="text-align:center; padding: 5px;">
+                  <button type="button" onclick="changeStat('newCharCha', 1)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="wizard-footer">
+          <button type="button" class="btn btn-secondary" id="wizardPrevBtn" onclick="prevWizardStep()" style="display: none;">Anterior</button>
+          <button type="button" class="btn btn-secondary" id="wizardCancelBtn" onclick="closeNewCharacterModal()">Cancelar</button>
+          
+          <div style="flex:1;"></div>
+          
+          <button type="button" class="btn btn-primary" id="wizardNextBtn" onclick="nextWizardStep()">Siguiente</button>
+          <button type="submit" class="btn btn-primary" id="wizardSubmitBtn" style="display: none;">Crear Héroe</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: EDITAR PERSONAJE -->
+  <div id="editCharModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Editar Personaje</h3>
+        <button class="modal-close" onclick="closeEditCharacterModal()">&times;</button>
+      </div>
+      <form onsubmit="editCharacterSubmit(event)">
+        <div class="modal-body" style="padding: 0; display: flex; flex-direction: column;">
+          <!-- Pestañas de Navegación -->
+          <div class="edit-tabs">
+            <button type="button" class="edit-tab-btn active" data-tab="editTabBasic" onclick="switchEditTab('editTabBasic')">Básico</button>
+            <button type="button" class="edit-tab-btn" data-tab="editTabCombat" onclick="switchEditTab('editTabCombat')">Combate</button>
+            <button type="button" class="edit-tab-btn" data-tab="editTabSkills" onclick="switchEditTab('editTabSkills')">Habilidades</button>
+            <button type="button" class="edit-tab-btn" data-tab="editTabTraits" onclick="switchEditTab('editTabTraits')">Rasgos</button>
+            <button type="button" class="edit-tab-btn" data-tab="editTabAdv" onclick="switchEditTab('editTabAdv')">Avanzado</button>
+          </div>
+
+          <div class="edit-tabs-content-wrapper" style="flex: 1; overflow-y: auto; padding: 18px;">
+            
+            <!-- PESTAÑA: BÁSICO -->
+            <div id="editTabBasic" class="edit-tab-content active">
+              <div class="form-group">
+                <label for="editCharName">Nombre</label>
+                <div style="display: flex; gap: 8px; align-items: center; width: 100%;">
+                  <input type="text" id="editCharName" class="form-input" required style="flex: 1; margin: 0;">
+                  <button type="button" class="btn btn-secondary" onclick="generateRandomName('edit')" title="Generar nombre aleatorio" style="padding: 12px; display: flex; align-items: center; justify-content: center; height: 42px; width: 42px; margin: 0; border-color: var(--gold-dark);">
+                    🎲
+                  </button>
+                </div>
+              </div>
+              
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="editCharClass">Clase</label>
+                  <select id="editCharClass" class="form-select">
+                    <option value="Guerrero">Guerrero</option>
+                    <option value="Mago">Mago</option>
+                    <option value="Clérigo">Clérigo</option>
+                    <option value="Pícaro">Pícaro</option>
+                    <option value="Bardo">Bardo</option>
+                    <option value="Druida">Druida</option>
+                    <option value="Bárbaro">Bárbaro</option>
+                    <option value="Hechicero">Hechicero</option>
+                    <option value="Brujo">Brujo</option>
+                    <option value="Paladín">Paladín</option>
+                    <option value="Explorador">Explorador</option>
+                    <option value="Monje">Monje</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="editCharSubclass">Subclase</label>
+                  <select id="editCharSubclass" class="form-select"></select>
+                </div>
+              </div>
+
+              <!-- Multiclase Section -->
+              <div class="form-group" style="margin-top: 15px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: var(--border-radius-sm); border: 1px solid var(--border);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <label style="margin: 0;">Clases Secundarias (Multiclase)</label>
+                  <button type="button" class="btn btn-secondary" onclick="addMulticlassRow()" style="padding: 4px 8px; font-size: 11px;">+ Añadir Clase</button>
+                </div>
+                <div id="multiclassContainer" style="display: flex; flex-direction: column; gap: 8px;">
+                  <!-- Dinámicamente poblado en JS -->
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="editCharLevel">Nivel</label>
+                  <input type="number" id="editCharLevel" class="form-input" min="1" max="20" required>
+                </div>
+                <div class="form-group">
+                  <label for="editCharRace">Raza (Especie)</label>
+                  <select id="editCharRace" class="form-select">
+                    <option value="Humano">Humano</option>
+                    <option value="Elfo">Elfo</option>
+                    <option value="Enano">Enano</option>
+                    <option value="Mediano">Mediano</option>
+                    <option value="Dracónido">Dracónido</option>
+                    <option value="Gnomo">Gnomo</option>
+                    <option value="Tiefling">Tiefling</option>
+                    <option value="Aasimar">Aasimar</option>
+                    <option value="Goliat">Goliat</option>
+                    <option value="Orco">Orco</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group" id="editCharSubraceGroup" style="display:none;">
+                <label for="editCharSubrace">Linaje / Ancestro</label>
+                <select id="editCharSubrace" class="form-select"></select>
+              </div>
+
+              <div class="form-group">
+                <label for="editCharBg">Trasfondo</label>
+                <select id="editCharBg" class="form-select">
+                  <option value="Acólito">Acólito</option>
+                  <option value="Artesano">Artesano</option>
+                  <option value="Artista">Artista</option>
+                  <option value="Charlatán">Charlatán</option>
+                  <option value="Criminal">Criminal</option>
+                  <option value="Ermitaño">Ermitaño</option>
+                  <option value="Escriba">Escriba</option>
+                  <option value="Granjero">Granjero</option>
+                  <option value="Guardia">Guardia</option>
+                  <option value="Guía">Guía</option>
+                  <option value="Marinero">Marinero</option>
+                  <option value="Mercader">Mercader</option>
+                  <option value="Noble">Noble</option>
+                  <option value="Sabio">Sabio</option>
+                  <option value="Soldado">Soldado</option>
+                  <option value="Vagabundo">Vagabundo</option>
+                </select>
+              </div>
+
+              <div class="form-group" style="margin-top: 10px;">
+                <label style="color: var(--gold-bright); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 8px;">Competencias e Idiomas</label>
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="editCharArmorProf">Armaduras</label>
+                    <input type="text" id="editCharArmorProf" class="form-input" placeholder="Ej. Ligeras, Medianas, Escudos">
+                  </div>
+                  <div class="form-group">
+                    <label for="editCharWeaponProf">Armas</label>
+                    <input type="text" id="editCharWeaponProf" class="form-input" placeholder="Ej. Sencillas, Marciales">
+                  </div>
+                </div>
+                <div class="form-row-2" style="margin-top: 8px;">
+                  <div class="form-group">
+                    <label for="editCharToolProf">Herramientas</label>
+                    <input type="text" id="editCharToolProf" class="form-input" placeholder="Ej. De ladrón, Flauta">
+                  </div>
+                  <div class="form-group">
+                    <label for="editCharLanguages">Idiomas</label>
+                    <input type="text" id="editCharLanguages" class="form-input" placeholder="Ej. Común, Élfico">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PESTAÑA: COMBATE -->
+            <div id="editTabCombat" class="edit-tab-content">
+              <div class="form-row-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+                <div class="form-group">
+                  <label for="editCharHPMax" style="display:flex; justify-content:space-between;">
+                    PV Máx
+                    <label style="font-size:10px; display:flex; align-items:center; gap:2px; font-weight:normal; text-transform:none;">
+                      <input type="checkbox" id="editCharAutoHP" checked> Auto
+                    </label>
+                  </label>
+                  <input type="number" id="editCharHPMax" class="form-input" min="1" required>
+                </div>
+                <div class="form-group">
+                  <label for="editCharAC">CA</label>
+                  <input type="number" id="editCharAC" class="form-input" min="1" required>
+                </div>
+                <div class="form-group">
+                  <label for="editCharSpeed">Vel (p)</label>
+                  <input type="number" id="editCharSpeed" class="form-input" min="0" required>
+                </div>
+              </div>
+              <div class="form-group" style="flex-direction:row;align-items:center;gap:8px;margin-top:8px;margin-bottom:10px;">
+                <input type="checkbox" id="editCharAutoAC" style="width:18px;height:18px;accent-color:var(--gold);" checked>
+                <label for="editCharAutoAC" style="cursor:pointer;font-size:13px;color:var(--gold-bright);">Autocalcular CA según equipo y destreza</label>
+              </div>
+            </div>
+
+            <!-- PESTAÑA: HABILIDADES -->
+            <div id="editTabSkills" class="edit-tab-content">
+              <p style="font-size:11px;color:var(--text-dim);margin-bottom:15px;" id="lblEditSkillsHelp">Selecciona el nivel de competencia para cada habilidad.</p>
+              <div id="editSkillsContainer" style="display:flex; flex-direction:column; gap:10px;">
+                <!-- Rellenado por JS -->
+              </div>
+            </div>
+
+            <!-- PESTAÑA: RASGOS -->
+            <div id="editTabTraits" class="edit-tab-content">
+              <!-- Retrato del Personaje -->
+              <div style="margin-bottom: 20px;">
+                <label style="font-size: 13px; color: var(--gold-bright); display: block; margin-bottom: 8px;">Retrato del Personaje</label>
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="editCharPortraitType">Estilo Visual</label>
+                    <select id="editCharPortraitType" class="form-select">
+                      <option value="avatar">Avatar de Aventura</option>
+                      <option value="pixel">Avatar RPG (Píxeles)</option>
+                      <option value="lorelei">Avatar Anime</option>
+                      <option value="bottts">Avatar Artificioso</option>
+                      <option value="micah">Avatar Boceto</option>
+                      <option value="open-peeps">Avatar Cómic</option>
+                      <option value="crest">Escudo (Local)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="editCharPortraitSeed">Semilla Generadora</label>
+                    <div style="display: flex; gap: 6px;">
+                      <input type="text" id="editCharPortraitSeed" class="form-input" style="flex: 1;" placeholder="ej. nombre">
+                      <button type="button" class="btn btn-primary" style="padding: 0 10px; display: flex; align-items: center; justify-content: center; height: auto;" onclick="rollEditPortraitSeed()" title="Generar aleatorio">🎲</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rasgos de Origen -->
+              <div style="margin-bottom: 20px;">
+                <label style="font-size: 13px; color: var(--gold-bright); display: block; margin-bottom: 8px;">Rasgos de Origen</label>
+                <p style="font-size:11px;color:var(--text-dim);margin-bottom:10px;">Administra rasgos de origen personalizados u otros rasgos de especie/trasfondo.</p>
+                <button type="button" class="btn btn-secondary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; border-color: var(--gold);" onclick="openAddOriginTraitModal()">
+                  <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                  Gestionar Rasgos de Origen
+                </button>
+              </div>
+
+              <!-- Dotes -->
+              <div>
+                <label style="font-size: 13px; color: var(--gold-bright); display: block; margin-bottom: 8px;">Dotes Adicionales</label>
+                <p style="font-size:11px;color:var(--text-dim);margin-bottom:10px;">Administra dotes adicionales otorgadas por el DM o que no se incluyen automáticamente.</p>
+                <button type="button" class="btn btn-secondary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; border-color: var(--gold);" onclick="openAddFeatModal()">
+                  <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                  Gestionar Dotes
+                </button>
+              </div>
+            </div>
+
+            <!-- PESTAÑA: AVANZADO -->
+            <div id="editTabAdv" class="edit-tab-content">
+              <p style="font-size:11px;color:var(--text-dim);margin-bottom:15px;">Forzar valores para corregir errores, jugar con reglas homebrew o personalizar a fondo:</p>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="editCharProfBonus">Bono de Competencia</label>
+                  <input type="number" id="editCharProfBonus" class="form-input" min="1" max="99">
+                </div>
+                <div class="form-group">
+                  <label for="editCharHitDiceType">Tipo Dado de Golpe</label>
+                  <select id="editCharHitDiceType" class="form-select">
+                    <option value="d6">d6</option>
+                    <option value="d8">d8</option>
+                    <option value="d10">d10</option>
+                    <option value="d12">d12</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group" style="margin-top:8px;">
+                <label for="editCharHitDiceMax">Dados de Golpe Máximos</label>
+                <input type="number" id="editCharHitDiceMax" class="form-input" min="1">
+              </div>
+              
+              <h4 class="fantasy-font" style="font-size:11px;margin-top:15px;color:var(--gold);">Recurso de Clase Personalizado</h4>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="editCharClassResName">Nombre (Ej. Ki)</label>
+                  <input type="text" id="editCharClassResName" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label for="editCharClassResMax">Cargas Máximas</label>
+                  <input type="number" id="editCharClassResMax" class="form-input" min="0">
+                </div>
+              </div>
+
+              <h4 class="fantasy-font" style="font-size:11px;margin-top:15px;color:var(--gold);">Recurso de Subclase Personalizado</h4>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="editCharSubclassResName">Nombre (Ej. Dados d8)</label>
+                  <input type="text" id="editCharSubclassResName" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label for="editCharSubclassResMax">Cargas Máximas</label>
+                  <input type="number" id="editCharSubclassResMax" class="form-input" min="0">
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="modal-footer" style="justify-content: space-between;">
+          <button type="button" class="btn btn-danger" onclick="confirmDeleteActiveCharacter(this)">Eliminar</button>
+          <div style="display:flex;gap:10px;">
+            <button type="button" class="btn btn-secondary" onclick="closeEditCharacterModal()">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: AÑADIR/EDITAR OBJETO -->
+  <div id="itemModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="itemModalTitle">Añadir Objeto</h3>
+        <button class="modal-close" onclick="closeItemModal()">&times;</button>
+      </div>
+      <form onsubmit="saveItemSubmit(event)">
+        <input type="hidden" id="itemId">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="itemName">Nombre del Objeto</label>
+            <input type="text" id="itemName" class="form-input" placeholder="Ej. Espada larga +1, Raciones" required>
+          </div>
+          <div class="form-row-2" style="margin-top: 8px; margin-bottom: 8px;">
+            <div class="form-group">
+              <label for="itemTemplate">Plantilla de Equipo</label>
+              <select id="itemTemplate" class="form-select" onchange="onItemTemplateChange()">
+                <option value="none">-- Ninguno (Personalizado) --</option>
+                <optgroup label="Armas">
+                  <option value="Espada corta">Espada corta (1d6 Perf, Sutil, Ligera)</option>
+                  <option value="Espada larga">Espada larga (1d8 Cort, Versátil)</option>
+                  <option value="Mandoble">Mandoble (2d6 Cort, Dos manos)</option>
+                  <option value="Daga">Daga (1d4 Perf, Sutil, Ligera, Arrojadiza)</option>
+                  <option value="Bastón">Bastón (1d6 Cont, Versátil)</option>
+                  <option value="Arco corto">Arco corto (1d6 Perf, Dos manos)</option>
+                  <option value="Arco largo">Arco largo (1d8 Perf, Dos manos)</option>
+                  <option value="Ballesta ligera">Ballesta ligera (1d8 Perf, Recarga)</option>
+                </optgroup>
+                <optgroup label="Armaduras">
+                  <option value="Armadura de Cuero">Armadura de Cuero (CA 11, Ligera)</option>
+                  <option value="Armadura de Cuero Tachonado">Armadura de Cuero Tachonado (CA 12, Ligera)</option>
+                  <option value="Camisote de Malla">Camisote de Malla (CA 13, Media)</option>
+                  <option value="Coraza">Coraza (CA 14, Media)</option>
+                  <option value="Cota de Malla">Cota de Malla (CA 16, Pesada)</option>
+                  <option value="Armadura de Placas">Armadura de Placas (CA 18, Pesada)</option>
+                </optgroup>
+                <optgroup label="Escudos">
+                  <option value="Escudo">Escudo (+2 CA)</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="itemType">Tipo de Objeto</label>
+              <select id="itemType" class="form-select" onchange="onItemTypeChange()">
+                <option value="Otro">Otro / General</option>
+                <option value="Arma">Arma</option>
+                <option value="Armadura">Armadura</option>
+                <option value="Escudo">Escudo</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Campos condicionales para Armas -->
+          <div id="weaponFields" class="conditional-fields" style="display: none; background: rgba(0,0,0,0.15); padding: 10px; border-radius: var(--border-radius-sm); border: 1px solid var(--border); margin-bottom: 10px;">
+            <h4 class="fantasy-font" style="font-size: 11px; color: var(--gold-bright); margin-bottom: 8px;">Estadísticas del Arma</h4>
+            <div class="form-row-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+              <div class="form-group">
+                <label for="itemWeaponDamage">Daño (Dado)</label>
+                <input type="text" id="itemWeaponDamage" class="form-input" placeholder="ej. 1d8">
+              </div>
+              <div class="form-group">
+                <label for="itemWeaponDamageType">Tipo de Daño</label>
+                <input type="text" id="itemWeaponDamageType" class="form-input" placeholder="ej. Cortante">
+              </div>
+              <div class="form-group">
+                <label for="itemWeaponAttr">Atributo</label>
+                <select id="itemWeaponAttr" class="form-select">
+                  <option value="Fuerza">Fuerza (FUE)</option>
+                  <option value="Destreza">Destreza (DES)</option>
+                  <option value="Sutil">Sutil (FUE/DES)</option>
+                  <option value="Carisma">Carisma (CAR)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row-3" style="display:grid;grid-template-columns:1.2fr 1.2fr 0.6fr;gap:10px;margin-top:8px;">
+              <div class="form-group">
+                <label for="itemWeaponMastery">Maestría (2024)</label>
+                <input type="text" id="itemWeaponMastery" class="form-input" placeholder="ej. Sap, Vex">
+              </div>
+              <div class="form-group">
+                <label for="itemWeaponProps">Propiedades</label>
+                <input type="text" id="itemWeaponProps" class="form-input" placeholder="ej. Versátil">
+              </div>
+              <div class="form-group">
+                <label for="itemWeaponMagicBonus">Mágico</label>
+                <input type="number" id="itemWeaponMagicBonus" class="form-input" value="0">
+              </div>
+            </div>
+          </div>
+
+          <!-- Campos condicionales para Armaduras -->
+          <div id="armorFields" class="conditional-fields" style="display: none; background: rgba(0,0,0,0.15); padding: 10px; border-radius: var(--border-radius-sm); border: 1px solid var(--border); margin-bottom: 10px;">
+            <h4 class="fantasy-font" style="font-size: 11px; color: var(--gold-bright); margin-bottom: 8px;">Estadísticas de la Armadura</h4>
+            <div class="form-row-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+              <div class="form-group">
+                <label for="itemArmorAC">CA Base</label>
+                <input type="number" id="itemArmorAC" class="form-input" placeholder="ej. 14">
+              </div>
+              <div class="form-group">
+                <label for="itemArmorType">Tipo</label>
+                <select id="itemArmorType" class="form-select">
+                  <option value="Ligera">Ligera (+DES total)</option>
+                  <option value="Media">Media (+DES máx +2)</option>
+                  <option value="Pesada">Pesada (sin DES)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="itemArmorStr">Fuerza Mín.</label>
+                <input type="number" id="itemArmorStr" class="form-input" value="0">
+              </div>
+            </div>
+            <div class="form-group" style="flex-direction:row;align-items:center;gap:8px;margin-top:8px;">
+              <input type="checkbox" id="itemArmorStealth" style="width:18px;height:18px;accent-color:var(--gold);">
+              <label for="itemArmorStealth" style="cursor:pointer;">¿Desventaja en Sigilo (Sigilo Desv.)?</label>
+            </div>
+          </div>
+
+          <!-- Campos condicionales para Escudos -->
+          <div id="shieldFields" class="conditional-fields" style="display: none; background: rgba(0,0,0,0.15); padding: 10px; border-radius: var(--border-radius-sm); border: 1px solid var(--border); margin-bottom: 10px;">
+            <h4 class="fantasy-font" style="font-size: 11px; color: var(--gold-bright); margin-bottom: 8px;">Estadísticas del Escudo</h4>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="itemShieldAC">CA Adicional</label>
+                <input type="number" id="itemShieldAC" class="form-input" value="2" min="0">
+              </div>
+              <div class="form-group">
+                <!-- Vacio -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Propiedades Mágicas (Modificadores de Atributo) -->
+          <div style="background: rgba(255,215,0,0.05); padding: 10px; border-radius: var(--border-radius-sm); border: 1px solid rgba(212,175,55,0.5); margin-bottom: 10px;">
+            <h4 class="fantasy-font" style="font-size: 11px; color: var(--gold-bright); margin-bottom: 8px;">Bonificador Mágico a Estadísticas</h4>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="itemStatBoostType">Atributo Afectado</label>
+                <select id="itemStatBoostType" class="form-select">
+                  <option value="none">-- Ninguno --</option>
+                  <option value="str">Fuerza</option>
+                  <option value="dex">Destreza</option>
+                  <option value="con">Constitución</option>
+                  <option value="int">Inteligencia</option>
+                  <option value="wis">Sabiduría</option>
+                  <option value="cha">Carisma</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="itemStatBoostValue">Valor (+ / -)</label>
+                <input type="number" id="itemStatBoostValue" class="form-input" value="0">
+              </div>
+            </div>
+            <p style="font-size:10px; color:var(--text-dim); margin-top:4px; font-style:italic;">Solo se aplica cuando el objeto está Equipado.</p>
+          </div>
+          <div class="form-group">
+            <label for="itemDesc">Descripción / Efectos</label>
+            <input type="text" id="itemDesc" class="form-input" placeholder="Ej. Daño 1d8 cortante. Otorga +1 a tiradas.">
+          </div>
+          <div class="form-group">
+            <label for="itemQty">Cantidad</label>
+            <input type="number" id="itemQty" class="form-input" value="1" min="1" required>
+          </div>
+          <div class="form-row-2" style="margin-top: 5px;">
+            <div class="form-group" style="flex-direction:row;align-items:center;gap:8px;">
+              <input type="checkbox" id="itemEquipped" style="width:18px;height:18px;accent-color:var(--gold);">
+              <label for="itemEquipped" style="cursor:pointer;">¿Equipado?</label>
+            </div>
+            <div class="form-group" style="flex-direction:row;align-items:center;gap:8px;">
+              <input type="checkbox" id="itemFav" style="width:18px;height:18px;accent-color:var(--gold);">
+              <label for="itemFav" style="cursor:pointer;">¿Favorito?</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeItemModal()">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: SELECCIONAR CONDICIONES -->
+  <div id="conditionsModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Condiciones y Estados</h3>
+        <button class="modal-close" onclick="closeConditionsModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 13px; color: var(--text-dim); margin-bottom: 12px;">Selecciona las condiciones que afectan al personaje:</p>
+        <div class="conditions-grid-select" id="conditionsGridSelect">
+          <!-- Cargado por JS -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeConditionsModal()">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="saveConditionsSubmit()">Guardar Estados</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PARA AÑADIR DOTE -->
+  <div class="modal-overlay" id="addFeatModal" onclick="if(event.target===this) closeAddFeatModal()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Añadir Dote (Feat)</h3>
+        <button class="modal-close" onclick="closeAddFeatModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <label style="font-size:12px; color:var(--text-dim);" id="lblSelectFeat">Selecciona una Dote:</label>
+        <select id="featSelect" onchange="updateFeatPreview()" class="form-select" style="margin-top: 4px;"></select>
+        <p id="featPreviewDesc" style="font-size:11.5px;color:var(--text-dim);margin-top:12px;line-height:1.3;font-style:italic;background:var(--bg-card);padding:10px;border-radius:var(--border-radius-sm); border: 1px solid var(--border);"></p>
+        
+        <div id="featCustomInputs" style="display: none; margin-top: 12px; flex-direction: column; gap: 8px;">
+          <div class="form-group" style="margin: 0;">
+            <label for="featCustomName" style="font-size:11px;" id="lblFeatCustomName">Nombre de la Dote</label>
+            <input type="text" id="featCustomName" class="form-input" placeholder="Ej. Puntería Celestial">
+          </div>
+          <div class="form-group" style="margin: 0;">
+            <label for="featCustomDesc" style="font-size:11px;" id="lblFeatCustomDesc">Descripción</label>
+            <textarea id="featCustomDesc" class="form-input" placeholder="Escribe los efectos de la dote..." style="min-height: 80px; font-family: inherit; font-size: 12px; padding: 8px;"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeAddFeatModal()">Cancelar</button>
+        <button class="btn btn-primary" onclick="addFeat()">Guardar Dote</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PARA AÑADIR ELECCIÓN DE CLASE -->
+  <div class="modal-overlay" id="classChoiceModal" onclick="if(event.target===this) closeClassChoiceModal()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="classChoiceModalTitle">Añadir Característica</h3>
+        <button class="modal-close" onclick="closeClassChoiceModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <label id="classChoiceLabel" style="font-size:12px; color:var(--text-dim);">Selecciona una opción:</label>
+        <select id="classChoiceSelect" onchange="updateClassChoicePreview()" class="form-select" style="margin-top: 4px;"></select>
+        <p id="classChoicePreviewDesc" style="font-size:11.5px;color:var(--text-dim);margin-top:12px;line-height:1.3;font-style:italic;background:var(--bg-card);padding:10px;border-radius:var(--border-radius-sm); border: 1px solid var(--border);"></p>
+        
+        <div id="classChoiceCustomInputs" style="display: none; margin-top: 12px; flex-direction: column; gap: 8px;">
+          <div class="form-group" style="margin: 0;">
+            <label for="classChoiceCustomName" style="font-size:11px;" id="lblClassChoiceCustomName">Nombre de la Característica</label>
+            <input type="text" id="classChoiceCustomName" class="form-input" placeholder="Ej. Estilo de Combate: Francotirador">
+          </div>
+          <div class="form-group" style="margin: 0;">
+            <label for="classChoiceCustomDesc" style="font-size:11px;" id="lblClassChoiceCustomDesc">Descripción</label>
+            <textarea id="classChoiceCustomDesc" class="form-input" placeholder="Escribe los efectos..." style="min-height: 80px; font-family: inherit; font-size: 12px; padding: 8px;"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeClassChoiceModal()">Cancelar</button>
+        <button class="btn btn-primary" onclick="addClassChoice()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PARA AÑADIR RASGO DE ORIGEN PERSONALIZADO -->
+  <div class="modal-overlay" id="addOriginTraitModal" onclick="if(event.target===this) closeAddOriginTraitModal()">
+    <div class="modal-content" style="max-width: 400px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="originTraitModalTitle">Añadir Rasgo de Origen</h3>
+        <button class="modal-close" onclick="closeAddOriginTraitModal()">&times;</button>
+      </div>
+      <div class="modal-body" style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="form-group" style="margin: 0;">
+          <label for="originTraitName" id="lblOriginTraitName">Nombre del Rasgo</label>
+          <input type="text" id="originTraitName" class="form-input" placeholder="Ej. Resistencia Celestial" required>
+        </div>
+        <div class="form-group" style="margin: 0;">
+          <label for="originTraitDesc" id="lblOriginTraitDesc">Descripción</label>
+          <textarea id="originTraitDesc" class="form-input" placeholder="Escribe los efectos del rasgo..." style="min-height: 100px; font-family: inherit; font-size: 12px; padding: 8px;" required></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeAddOriginTraitModal()" id="btnOriginTraitCancel">Cancelar</button>
+        <button class="btn btn-primary" onclick="addOriginTrait()" id="btnOriginTraitSave" style="flex:1;">Guardar Rasgo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: COPIA DE SEGURIDAD (BACKUP) -->
+  <div id="backupModal" class="modal-overlay" onclick="if(event.target===this) closeBackupModal()">
+    <div class="modal-content" style="max-width: 450px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="backupModalTitle">Copia de Seguridad (Backup)</h3>
+        <button class="modal-close" onclick="closeBackupModal()">&times;</button>
+      </div>
+      <div class="modal-body" style="display: flex; flex-direction: column; gap: 12px;">
+        <p style="font-size: 12px; color: var(--text-dim); line-height: 1.4;" id="backupModalIntro">
+          Usa las opciones de texto (portapapeles) para exportar/importar personajes en Android de forma 100% fiable, o las opciones de archivo en navegadores tradicionales.
+        </p>
+        
+        <textarea id="backupTextarea" class="note-textarea" style="min-height: 150px; font-family: monospace; font-size: 11px; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: var(--border-radius-sm);" placeholder="Pega aquí tu código JSON de copia de seguridad..."></textarea>
+        
+        <div style="display: flex; gap: 10px; width: 100%;">
+          <button type="button" class="btn btn-primary" style="flex: 1; font-size: 13px; font-weight: bold; padding: 12px;" onclick="copyBackupToClipboard()">📋 Copiar Texto</button>
+          <button type="button" class="btn btn-primary" style="flex: 1; font-size: 13px; font-weight: bold; padding: 12px; background: var(--success); border-color: var(--success);" onclick="importBackupFromTextarea()">📥 Importar Texto</button>
+        </div>
+        
+        <div style="margin-top: 10px; border-top: 1px dashed var(--border); padding-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+          <label style="font-size: 12px; color: var(--gold-bright); font-weight: 600;">Opciones de Archivos (Navegadores)</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <button type="button" class="btn btn-secondary" style="font-size: 12px; padding: 10px;" onclick="exportCharactersJSON()">💾 Guardar Archivo</button>
+            <button type="button" class="btn btn-secondary" style="font-size: 12px; padding: 10px;" onclick="document.getElementById('backupFileInput').click()">📂 Cargar Archivo</button>
+          </div>
+          <input type="file" id="backupFileInput" style="display: none;" accept=".json" onchange="importCharactersJSON(event)">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHULETA (REFERENCIA RÁPIDA) -->
+  <div id="quickRefModal" class="modal-overlay" onclick="if(event.target===this) closeQuickRefModal()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Chuleta de Reglas (2024)</h3>
+        <button class="modal-close" onclick="closeQuickRefModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="margin-bottom:16px;">
+          <h4 style="color:var(--gold-bright); margin-bottom:8px; font-size:14px;">ACCIONES EN COMBATE</h4>
+          <div style="font-size:13px; color:var(--text-main); line-height:1.5;">
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Atacar:</b> Realiza un ataque con un arma.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Lanzar Conjuro:</b> Usa un conjuro de 1 Accion.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Correr:</b> Ganas velocidad adicional igual a tu velocidad.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Desengancharse:</b> Tu movimiento no provoca Ataques de Oportunidad este turno.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Esquivar:</b> Ataques contra ti tienen Desventaja; Ventaja en salvaciones de DES.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Ayudar:</b> Das Ventaja al ataque o prueba de un aliado.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Preparar:</b> Defines un gatillo y usas tu Reaccion para actuar fuera de tu turno.</p>
+          </div>
+        </div>
+        
+        <div style="margin-bottom:16px;">
+          <h4 style="color:var(--gold-bright); margin-bottom:8px; font-size:14px;">COBERTURA</h4>
+          <div style="font-size:13px; color:var(--text-main); line-height:1.5;">
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Media:</b> +2 a la CA y a las Salvaciones de DES.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Tres Cuartos:</b> +5 a la CA y a las Salvaciones de DES.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Total:</b> No puedes ser objetivo de ataques o conjuros.</p>
+          </div>
+        </div>
+
+        <div style="margin-bottom:16px;">
+          <h4 style="color:var(--gold-bright); margin-bottom:8px; font-size:14px;">CANSANCIO (5.5e)</h4>
+          <p style="font-size:13px; color:var(--text-main); line-height:1.5;">
+            El nivel va del 1 al 10. Tu nivel <b>se resta</b> de tus tiradas de d20 y de la CD de tus conjuros.
+            Si llegas al Nivel 10, mueres. Un Descanso Largo reduce el nivel en 1.
+          </p>
+        </div>
+        
+        <div style="margin-bottom:16px;">
+          <h4 style="color:var(--gold-bright); margin-bottom:8px; font-size:14px;">ESTADOS ALTERADOS</h4>
+          <div style="font-size:13px; color:var(--text-main); line-height:1.5;">
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Cegado:</b> Falla pruebas de vista. Desventaja en ataques. Atacantes tienen Ventaja.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Ensordecido:</b> Falla pruebas de oido.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Asustado:</b> Desventaja en pruebas/ataques si ve la fuente. No puede acercarse voluntariamente.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Agarrado:</b> Velocidad = 0.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Incapacitado:</b> No puede hacer acciones ni reacciones.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Invisible:</b> Ventaja en ataques. Atacantes tienen Desventaja.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Derribado:</b> Desventaja en ataques. Ataques cuerpo a cuerpo tienen Ventaja contra ti.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Envenenado:</b> Desventaja en ataques y pruebas de caracteristica.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Paralizado:</b> Incapacitado. Falla salvaciones FUE/DES. Impactos cuerpo a cuerpo son criticos.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Petrificado:</b> Peso x10. Resistencia a todo el dano. Incapacitado.</p>
+            <p style="margin-bottom:5px;"><b style="color:var(--gold);">Aturdido:</b> Incapacitado. Falla salvaciones FUE/DES. Atacantes tienen Ventaja.</p>
+            <p style="margin-bottom:0;"><b style="color:var(--gold);">Inconsciente:</b> Como Paralizado + Cegado. Cae al suelo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="globalSettingsModal" class="modal-overlay" onclick="if(event.target===this) closeGlobalSettingsModal()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Ajustes Globales</h3>
+        <button class="modal-close" onclick="closeGlobalSettingsModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Cambiar de Personaje activo</label>
+          <select id="charSelect" class="form-select" style="margin-bottom: 10px;"></select>
+          <button class="btn btn-secondary" style="width: 100%; font-size: 14px;" onclick="closeGlobalSettingsModal(); showCharacterSelectionScreen();">Volver al Menú Principal</button>
+        </div>
+        <div class="form-group" style="margin-top: 15px;">
+          <label>Unidad de Distancia Global</label>
+          <select id="unitSelect" onchange="toggleDistanceUnit(this.value)" class="form-select">
+            <option value="pies">Pies (ft)</option>
+            <option value="metros">Metros (m)</option>
+            <option value="casillas">Casillas (sq)</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-top: 15px;">
+          <label>Tipografía / Fuente Visual</label>
+          <select id="fontSelect" onchange="changeFontTheme(this.value)" class="form-select">
+            <option value="classic">Fantasía Clásica (Cinzel / Outfit)</option>
+            <option value="medieval">Manuscrito Épico (Almendra)</option>
+            <option value="gothic">Gótico Medieval (MedievalSharp)</option>
+            <option value="nordic">Nórdico Oscuro (Grenze Gotisch)</option>
+            <option value="retro">Retro RPG de Píxeles (VT323)</option>
+            <option value="modern">Moderna y Limpia (Montserrat / Inter)</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-top: 15px;">
+          <label>Idioma / Language</label>
+          <select id="langSelect" onchange="changeLanguage(this.value)" class="form-select">
+            <option value="es">Español</option>
+            <option value="en">English (Beta)</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-top: 20px;">
+          <label id="lblVisibleSections" style="font-size: 13px; color: var(--gold-bright); display: block; margin-bottom: 8px;">Secciones Visibles de la Ficha</label>
+          <div style="display: flex; flex-direction: column; gap: 8px; text-align: left; font-size: 12px; color: var(--text-dim);">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; text-shadow: none; font-weight: normal; color: var(--text-light); margin: 0;">
+              <input type="checkbox" id="toggleSecAttributes" onchange="toggleSectionVisibility('attributes', this.checked)" checked style="accent-color: var(--gold); width: 16px; height: 16px; margin: 0;">
+              <span id="lblSecAttributes">Atributos</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; text-shadow: none; font-weight: normal; color: var(--text-light); margin: 0;">
+              <input type="checkbox" id="toggleSecSkills" onchange="toggleSectionVisibility('skills', this.checked)" checked style="accent-color: var(--gold); width: 16px; height: 16px; margin: 0;">
+              <span id="lblSecSkillsToggle">Habilidades</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; text-shadow: none; font-weight: normal; color: var(--text-light); margin: 0;">
+              <input type="checkbox" id="toggleSecResources" onchange="toggleSectionVisibility('resources', this.checked)" checked style="accent-color: var(--gold); width: 16px; height: 16px; margin: 0;">
+              <span id="lblSecResources">Recursos y Descansos</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; text-shadow: none; font-weight: normal; color: var(--text-light); margin: 0;">
+              <input type="checkbox" id="toggleSecDetails" onchange="toggleSectionVisibility('details', this.checked)" checked style="accent-color: var(--gold); width: 16px; height: 16px; margin: 0;">
+              <span id="lblSecDetails">Detalles de Personaje</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; text-shadow: none; font-weight: normal; color: var(--text-light); margin: 0;">
+              <input type="checkbox" id="toggleSecAttacks" onchange="toggleSectionVisibility('attacks', this.checked)" checked style="accent-color: var(--gold); width: 16px; height: 16px; margin: 0;">
+              <span id="lblSecAttacks">Ataques y Acciones</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; text-shadow: none; font-weight: normal; color: var(--text-light); margin: 0;">
+              <input type="checkbox" id="toggleSecOrigin" onchange="toggleSectionVisibility('origin', this.checked)" checked style="accent-color: var(--gold); width: 16px; height: 16px; margin: 0;">
+              <span id="lblSecOrigin">Rasgos de Origen</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; text-shadow: none; font-weight: normal; color: var(--text-light); margin: 0;">
+              <input type="checkbox" id="toggleSecFeats" onchange="toggleSectionVisibility('feats', this.checked)" checked style="accent-color: var(--gold); width: 16px; height: 16px; margin: 0;">
+              <span id="lblSecFeats">Dotes Adicionales</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; text-shadow: none; font-weight: normal; color: var(--text-light); margin: 0;">
+              <input type="checkbox" id="toggleSecClassChoices" onchange="toggleSectionVisibility('classChoices', this.checked)" checked style="accent-color: var(--gold); width: 16px; height: 16px; margin: 0;">
+              <span id="lblSecClassChoices">Elecciones de Clase</span>
+            </label>
+          </div>
+        </div>
+        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border);">
+          <label style="font-size: 13px; color: var(--gold-bright); display: block; margin-bottom: 8px;">Copias de Seguridad (Backup)</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <button class="btn btn-primary" style="font-size: 12px; padding: 10px;" onclick="openBackupModal(true)">Exportar JSON</button>
+            <button class="btn btn-secondary" style="font-size: 12px; padding: 10px;" onclick="openBackupModal(false)">Importar JSON</button>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border);">
+          <label style="font-size: 13px; color: var(--gold-bright); display: block; margin-bottom: 8px;">Exportar Ficha (PDF / Imprimir)</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <button type="button" class="btn btn-primary" style="font-size: 12px; padding: 10px;" onclick="printCharacterSheet()">📄 Ficha (Sin Hechizos)</button>
+            <button type="button" class="btn btn-secondary" style="font-size: 12px; padding: 10px; border-color: var(--gold);" onclick="printSpellSheet()">🔮 Libro de Hechizos</button>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border);">
+          <label style="font-size: 13px; color: var(--gold-bright); display: block; margin-bottom: 8px;" id="creditsTitle">Créditos y Licencia</label>
+          <div style="font-size: 11px; color: var(--text-dim); line-height: 1.4; margin-bottom: 12px; text-align: justify;" id="creditsDisclaimer">
+            Esta aplicación es contenido no oficial permitido bajo la Política de Contenido para Fans de Wizards of the Coast. No está aprobado ni respaldado por Wizards. Parte de los materiales utilizados son propiedad de Wizards of the Coast. ©Wizards of the Coast LLC.
+          </div>
+          <a href="https://ko-fi.com/sqlito" target="_blank" class="btn btn-secondary" style="font-size: 11px; padding: 8px; display: block; text-align: center; text-decoration: none;" id="supportDevBtn">
+            ¡Invítame a un café!
+          </a>
+        </div>
+
+        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border);">
+          <button class="btn btn-secondary" style="width: 100%; border-color: var(--fire);" onclick="clearAllData()">Borrar todos los datos (Reset)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Scripts -->
+  <script src="spells_db.js"></script>
+  <script src="spells_db_en.js"></script>
+  <script src="subclass_traits.js"></script>
+  <script src="subclass_traits_en.js"></script>
+  <script src="feats_db.js"></script>
+  <script src="feats_db_en.js"></script>
+  <script src="class_features_db.js"></script>
+  <script src="class_features_db_en.js"></script>
+  <script src="app.js"></script>
+  <!-- MODAL: LANZADOR DE DADOS RÁPIDO -->
+  <div id="quickDiceModal" class="modal-overlay" onclick="if(event.target===this) closeQuickDiceModal()">
+    <div class="modal-content" style="max-width: 400px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="quickDiceTitle">Tirada de Dados Rápida</h3>
+        <button class="modal-close" onclick="closeQuickDiceModal()">&times;</button>
+      </div>
+      <div class="modal-body" style="display: flex; flex-direction: column; gap: 15px;">
+        
+        <div>
+          <label style="font-size:12px; color:var(--text-dim); display:block; margin-bottom:8px;" id="lblSelectDie">Selecciona un Dado:</label>
+          <div class="quick-dice-grid">
+            <button type="button" class="quick-dice-box active" data-sides="20" onclick="selectQuickDie(20)">
+              <div class="quick-dice-icon">d20</div>
+            </button>
+            <button type="button" class="quick-dice-box" data-sides="12" onclick="selectQuickDie(12)">
+              <div class="quick-dice-icon">d12</div>
+            </button>
+            <button type="button" class="quick-dice-box" data-sides="10" onclick="selectQuickDie(10)">
+              <div class="quick-dice-icon">d10</div>
+            </button>
+            <button type="button" class="quick-dice-box" data-sides="8" onclick="selectQuickDie(8)">
+              <div class="quick-dice-icon">d8</div>
+            </button>
+            <button type="button" class="quick-dice-box" data-sides="6" onclick="selectQuickDie(6)">
+              <div class="quick-dice-icon">d6</div>
+            </button>
+            <button type="button" class="quick-dice-box" data-sides="4" onclick="selectQuickDie(4)">
+              <div class="quick-dice-icon">d4</div>
+            </button>
+            <button type="button" class="quick-dice-box" data-sides="100" onclick="selectQuickDie(100)">
+              <div class="quick-dice-icon">d100</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="quickDiceQty" id="lblDiceQty">Cantidad de Dados</label>
+            <input type="number" id="quickDiceQty" class="form-input" value="1" min="1" max="50">
+          </div>
+          <div class="form-group">
+            <label for="quickDiceMod" id="lblDiceMod">Modificador</label>
+            <input type="number" id="quickDiceMod" class="form-input" value="0">
+          </div>
+        </div>
+
+        <div id="quickDiceAdvSection">
+          <label style="font-size:12px; color:var(--text-dim); display:block; margin-bottom:6px;" id="lblAdvType">Tirada con (Solo d20):</label>
+          <div style="display:flex; gap:10px;">
+            <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-size:13px; color:var(--text-light); margin:0;">
+              <input type="radio" name="quickDiceAdv" value="normal" checked style="accent-color:var(--gold); width:16px; height:16px; margin:0;">
+              <span id="lblAdvNormal">Normal</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-size:13px; color:var(--text-light); margin:0;">
+              <input type="radio" name="quickDiceAdv" value="advantage" style="accent-color:var(--gold); width:16px; height:16px; margin:0;">
+              <span id="lblAdvAdv">Ventaja</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-size:13px; color:var(--text-light); margin:0;">
+              <input type="radio" name="quickDiceAdv" value="disadvantage" style="accent-color:var(--gold); width:16px; height:16px; margin:0;">
+              <span id="lblAdvDis">Desventaja</span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeQuickDiceModal()" id="btnQuickDiceCancel">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="rollQuickDice()" id="btnQuickDiceRoll" style="flex:1;">🎲 ¡Tirar Dados!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE DESCANSOS (Corto/Largo) -->
+  <div id="restModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content" style="max-width: 450px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="restModalTitle">Descanso Corto</h3>
+        <button class="modal-close" onclick="closeRestModal()">&times;</button>
+      </div>
+      <div class="modal-body" style="display: flex; flex-direction: column; gap: 15px;">
+        <div id="restStatusMsg" style="font-size: 13px; color: var(--text-dim); line-height: 1.4; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; border: 1px solid var(--border);">
+          <!-- Mensaje cargado dinámicamente -->
+        </div>
+        
+        <!-- Sección de Dados de Golpe para Descanso Corto -->
+        <div id="restHitDiceSection" style="display: none; border-top: 1px solid var(--border); padding-top: 15px; flex-direction: column; gap: 10px;">
+          <h4 style="font-family:var(--font-header); font-size:14px; color:var(--gold-bright);">Gastar Dados de Golpe para Sanar</h4>
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+            <span>Vida actual: <strong id="restCurrentHP" style="color:var(--text-light);">0/0</strong></span>
+            <span>Dados restantes: <strong id="restHitDiceCount" style="color:var(--gold);">0d8</strong></span>
+          </div>
+          <button type="button" class="btn btn-primary" id="restRollHitDieBtn" onclick="rollHitDieFromRestModal()" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            🎲 Gastar y Tirar Dado de Golpe
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" style="width: 100%;" onclick="closeRestModal()">Finalizar Descanso</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERLAY DE DADOS VIRTUALES -->
+  <div id="diceOverlay" class="dice-overlay" style="display: none;" onclick="closeDiceOverlay()">
+    <div class="dice-modal-content" onclick="event.stopPropagation()">
+      <div id="diceRollHeader" class="dice-roll-header">Tirando dados...</div>
+      <div class="dice-container-3d">
+        <div id="virtualDie" class="virtual-die d20-die">20</div>
+      </div>
+      <div id="diceRollMath" class="dice-roll-math">1d20 (15) + 5 = 20</div>
+      <div id="diceRollResult" class="dice-roll-result">20</div>
+      <div id="diceRollDescription" class="dice-roll-description">¡Impacto!</div>
+      <button class="btn btn-primary" onclick="closeDiceOverlay()" style="margin: 15px auto 0 auto; display: block;">Continuar</button>
+    </div>
+  </div>
+
+  <script>
+    // Evitar problemas de caché persistente en desarrollo local (localhost / 127.0.0.1)
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    
+    if (isLocalhost) {
+      // Omitir y limpiar Service Worker en desarrollo local para cargar siempre lo último
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(registrations => {
+          for (let registration of registrations) {
+            registration.unregister().then(() => {
+              console.log('Service Worker desregistrado para desarrollo local.');
+            });
+          }
+        });
+      }
+      // Limpiar todas las cachés
+      caches.keys().then(keys => {
+        keys.forEach(key => {
+          caches.delete(key).then(() => {
+            console.log('Caché local borrada:', key);
+          });
+        });
+      });
+    } else {
+      // Registro normal del Service Worker para PWA en producción (funcionamiento offline)
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js')
+            .then(reg => {
+              console.log('Service Worker registrado con éxito. Scope:', reg.scope);
+              reg.addEventListener('updatefound', () => {
+                const newWorker = reg.installing;
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'activated') {
+                    console.log('Nueva versión detectada. Recargando...');
+                    window.location.reload();
+                  }
+                });
+              });
+            })
+            .catch(err => console.error('Error al registrar Service Worker:', err));
+        });
+
+        // Detectar cambio de controlador y recargar para activar la nueva caché
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (!refreshing) {
+            refreshing = true;
+            window.location.reload();
+          }
+        });
+      }
+    }
+  </script>
+  <div id="printArea" class="print-only"></div>
+</body>
+</html>
+
+

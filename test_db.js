@@ -1,0 +1,1 @@
+const fs = require('fs'); eval(fs.readFileSync('spells_db.js', 'utf8')); let errors = []; SPELLS_DB.forEach(s => { if (!s.name) errors.push(s.id + ' no name'); if (!s.description) errors.push(s.id + ' no desc'); if (!s.class || !Array.isArray(s.class)) errors.push(s.id + ' no class array'); }); console.log('Errors:', errors.length, errors);
