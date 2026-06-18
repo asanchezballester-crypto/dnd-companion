@@ -4710,4 +4710,4660 @@ const SPELLS_DB_EN = [
     "duration": "Concentration, up to 1 minute",
     "description": "You summon a storm into a cylinder 10 feet in radius and 40 feet high, with the center of the base positioned at a point you can see within range. The storm unleashes a fury of intense thunder and flashing lights, affecting all creatures inside it with the states of blinded and deafened, preventing them from casting spells that require a verbal component.<br><br>At the moment the storm appears, it will deal 2d10 radiant damage and 2d10 thunder damage to all creatures inside it that fail a Constitution saving throw. Those who exceed it will receive half the damage. Any creature that begins or ends its turn inside this cylinder must make the same saving throw, taking damage at most once per turn.<br><br><b><i>With a higher-level spell slot.</i></b> Radiant and thunder damage increases by 1d10 for each level above 5 that the slot has."
   }
+,
+{
+  "id": "abhorrent_apparition",
+  "name": "Abhorrent Apparition",
+  "level": 4,
+  "school": "illusion",
+  "class": [
+    "Bard",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "M",
+  "duration": "Instantaneous",
+  "description": "You imbue a terrifying visage onto a gourd and toss it ahead of you to a spot of your choosing within range. Each creature within 15 feet of that spot takes 6d8 psychic damage and becomes frightened of you for 1 minute; a successful Wisdom saving throw halves the damage and negates the fright. A creature frightened in this way repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.\n"
+},
+{
+  "id": "abrupt_hug",
+  "name": "Abrupt Hug",
+  "level": 1,
+  "school": "transmutation",
+  "class": [
+    "Ranger"
+  ],
+  "castTime": "1 reaction, which you take when you or a creature within 30 feet of you takes an Attack action",
+  "range": "30 Feet",
+  "components": "V",
+  "duration": "Instantaneous",
+  "description": "You or the creature taking the Attack action can immediately make an unarmed strike. In addition to dealing damage with the unarmed strike, the target can grapple the creature it hit with the unarmed strike."
+},
+{
+  "id": "absolute_command",
+  "name": "Absolute Command",
+  "level": 4,
+  "school": "transmutation",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "10 Minutes",
+  "description": "Deep Magic: clockwork You can control a construct you have built with a challenge rating of 6 or less. You can manipulate objects with your construct as precisely as its construction allows, and you perceive its surroundings through its sensory inputs as if you inhabited its body. The construct uses the caster's Proficiency bonus (modified by the construct's Strength and Dexterity scores). You can use the manipulators of the construct to perform any number of skill-based tasks, using the construct's Strength and Dexterity modifiers when using skills based on those particular abilities. Your body remains immobile, as if paralyzed, for the duration of the spell. The construct must remain within 100 feet of you. If it moves beyond this distance, the spell immediately ends and the caster's mind returns to his or her body."
+},
+{
+  "id": "accelerando",
+  "name": "Accelerando",
+  "level": 4,
+  "school": "Transmutation",
+  "class": [
+    "Bard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Up to 6 rounds",
+  "description": "You play a complex and quick up-tempo piece that gradually gets faster and more complex, instilling the targets with its speed. You cannot cast another spell through your spellcasting focus while concentrating on this spell.\n\nUntil the spell ends, targets gain cumulative benefits the longer you maintain concentration on this spell (including the turn you cast it).\n\n* **1 Round:** Double Speed.\n* **2 Rounds:** +2 bonus to AC.\n* **3 Rounds:** Advantage on Dexterity saving throws.\n* **4 Rounds:** An additional action each turn. This action can be used only to take the Attack (one weapon attack only), Dash, Disengage, Hide, or Use an Object action.\n\nWhen the spell ends, a target can't move or take actions until after its next turn as the impact of their frenetic speed catches up to it."
+},
+{
+  "id": "accelerate",
+  "name": "Accelerate",
+  "level": 3,
+  "school": "transmutation",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "Choose up to three willing creatures within range, which can include you. For the duration of the spell, each target’s walking speed is doubled. Each target can also use a bonus action on each of its turns to take the Dash action, and it has advantage on Dexterity saving throws.\n"
+},
+{
+  "id": "acid_arrow",
+  "name": "Acid Arrow",
+  "level": 2,
+  "school": "Evocation",
+  "class": [
+    "Druid",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "90 feet",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "A shimmering green arrow streaks toward a target within range and bursts in a spray of acid. Make a ranged spell attack against the target. On a hit, the target takes 4d4 acid damage immediately and 2d4 acid damage at the end of its next turn. On a miss, the arrow splashes the target with acid for half as much of the initial damage and no damage at the end of its next turn."
+},
+{
+  "id": "acid_arrow",
+  "name": "Acid Arrow",
+  "level": 2,
+  "school": "Evocation",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "A jet of acid streaks towards the target like a hissing, green arrow. Make a ranged spell attack.\n\nOn a hit the target takes 4d4 acid damage and 2d4 ongoing acid damage for 1 round. On a miss the target takes half damage."
+},
+{
+  "id": "acid_gate",
+  "name": "Acid Gate",
+  "level": 7,
+  "school": "conjuration",
+  "class": [],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You create a portal of swirling, acidic green vapor in an unoccupied space you can see. This portal connects with a target destination within 100 miles that you are personally familiar with and have seen with your own eyes, such as your wizard’s tower or an inn you have stayed at. You and up to three creatures of your choice can enter the portal and pass through it, arriving at the target destination (or within 10 feet of it, if it is currently occupied). If the target destination doesn’t exist or is inaccessible, the spell automatically fails and the gate doesn’t form.\n\nAny creature that tries to move through the gate, other than those selected by you when the spell was cast, takes 10d6 acid damage and is teleported 1d100 × 10 feet in a random, horizontal direction. If the creature makes a successful Intelligence saving throw, it can’t be teleported by this portal, but it still takes acid damage when it enters the acid-filled portal and every time it ends its turn in contact with it.\n"
+},
+{
+  "id": "acid_rain",
+  "name": "Acid Rain",
+  "level": 5,
+  "school": "conjuration",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "150 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You unleash a storm of swirling acid in a cylinder 20 feet wide and 30 feet high, centered on a point you can see. The area is heavily obscured by the driving acidfall. A creature that starts its turn in the area or that enters the area for the first time on its turn takes 6d6 acid damage, or half as much damage if it makes a successful Dexterity saving throw. A creature takes half as much damage from the acid (as if it had made a successful saving throw) at the start of its first turn after leaving the affected area.\n"
+},
+{
+  "id": "acid_splash",
+  "name": "Acid Splash",
+  "level": 6,
+  "school": "Conjuration",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a dexterity saving throw or take 1d6 acid damage."
+},
+{
+  "id": "acid_splash",
+  "name": "Acid Splash",
+  "level": 6,
+  "school": "Conjuration",
+  "class": [
+    "Artificer",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage."
+},
+{
+  "id": "adjust_position",
+  "name": "Adjust Position",
+  "level": 1,
+  "school": "transmutation",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 Feet",
+  "components": "V",
+  "duration": "Instantaneous",
+  "description": "You adjust the location of an ally to a better tactical position. You move one willing creature within range 5 feet. This movement does not provoke opportunity attacks. The creature moves bodily through the intervening space (as opposed to teleporting), so there can be no physical obstacle (such as a wall or a door) in the path."
+},
+{
+  "id": "afflict_line",
+  "name": "Afflict Line",
+  "level": 9,
+  "school": "necromancy",
+  "class": [
+    "Cleric",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 hour",
+  "range": "1 mile",
+  "components": "V, S, M",
+  "duration": "Permanent; one generation",
+  "description": "You invoke the darkest curses upon your victim and his or her descendants. This spell does not require that you have a clear path to your target, only that your target is within range. The target must make a successful Wisdom saving throw or be cursed until the magic is dispelled. While cursed, the victim has disadvantage on ability checks and saving throws made with the ability score that you used when you cast the spell. In addition, the target’s firstborn offspring is also targeted by the curse. That individual is allowed a saving throw of its own if it is currently alive, or it makes one upon its birth if it is not yet born when the spell is cast. If the target’s firstborn has already died, the curse passes to the target’s next oldest offspring.\n\n**Ritual Focus.** If you expend your ritual focus, the curse becomes hereditary, passing from firstborn to firstborn for the entire length of the family’s lineage until one of them successfully saves against the curse and throws off your dark magic."
+},
+{
+  "id": "agonizing_mark",
+  "name": "Agonizing Mark",
+  "level": 1,
+  "school": "evocation",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Ranger",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "90 feet",
+  "components": "S",
+  "duration": "Up to 1 minute",
+  "description": "You choose a creature you can see within range to mark as your prey, and a ray of black energy issues forth from you. Until the spell ends, each time you deal damage to the target it must make a Charisma saving throw. On a failed save, it falls prone as its body is filled with torturous agony."
+},
+{
+  "id": "aid",
+  "name": "Aid",
+  "level": 2,
+  "school": "Abjuration",
+  "class": [
+    "Cleric",
+    "Paladin"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "8 hours",
+  "description": "Your spell bolsters your allies with toughness and resolve. Choose up to three creatures within range. Each target's hit point maximum and current hit points increase by 5 for the duration."
+},
+{
+  "id": "aid",
+  "name": "Aid",
+  "level": 2,
+  "school": "Abjuration",
+  "class": [
+    "Cleric",
+    "Herald"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "8 hours",
+  "description": "You draw upon divine power, imbuing the targets with fortitude. Until the spell ends, each target increases its hit point maximum and current hit points by 5."
+},
+{
+  "id": "air_wave",
+  "name": "Air Wave",
+  "level": 1,
+  "school": "Conjuration",
+  "class": [
+    "Artificer",
+    "Bard",
+    "Warlock"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V",
+  "duration": "Instantaneous",
+  "description": "Your deft weapon swing sends a wave of cutting air to assault a creature within range. Make a melee weapon attack against the target. If you are wielding one weapon in each hand, your attack deals an additional 1d6 damage. Regardless of the weapon you are wielding, your attack deals slashing damage."
+},
+{
+  "id": "alarm",
+  "name": "Alarm",
+  "level": 1,
+  "school": "Abjuration",
+  "class": [
+    "Ranger",
+    "Ritual Caster",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "8 hours",
+  "description": "You set an alarm against unwanted intrusion. Choose a door, a window, or an area within range that is no larger than a 20-foot cube. Until the spell ends, an alarm alerts you whenever a Tiny or larger creature touches or enters the warded area. \n\nWhen you cast the spell, you can designate creatures that won't set off the alarm. You also choose whether the alarm is mental or audible. A mental alarm alerts you with a ping in your mind if you are within 1 mile of the warded area. This ping awakens you if you are sleeping. An audible alarm produces the sound of a hand bell for 10 seconds within 60 feet."
+},
+{
+  "id": "alarm",
+  "name": "Alarm",
+  "level": 1,
+  "school": "Abjuration",
+  "class": [
+    "Artificer",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "8 hours",
+  "description": "You set an alarm against unwanted intrusion that alerts you whenever a creature of size Tiny or larger touches or enters the warded area. When you cast the spell, choose any number of creatures. These creatures don't set off the alarm.\n\nChoose whether the alarm is silent or audible. The silent alarm is heard in your mind if you are within 1 mile of the warded area and it awakens you if you are sleeping. An audible alarm produces a loud noise of your choosing for 10 seconds within 60 feet."
+},
+{
+  "id": "alchemical_form",
+  "name": "Alchemical Form",
+  "level": 6,
+  "school": "transmutation",
+  "class": [],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "1 minute",
+  "description": "You transform into an amoebic form composed of highly acidic and poisonous alchemical jelly. While in this form:\n* you are immune to acid and poison damage and to the poisoned and stunned conditions;\n* you have resistance to nonmagical fire, piercing, and slashing damage;\n* you can’t speak, cast spells, use items or weapons, or manipulate objects;\n* your gear melds into your body and reappears when the spell ends;\n* you don't need to breathe;\n* your speed is 20 feet;\n* your size doesn’t change, but you can move through and between obstructions as if you were two size categories smaller; and\n* you gain the following action: **Melee Weapon Attack:** spellcasting ability modifier + proficiency bonus to hit, range 5 ft., one target; **Hit:** 4d6 acid or poison damage (your choice), and the target must make a successful Constitution saving throw or be poisoned until the start of your next turn."
+},
+{
+  "id": "ale_dritch_blast",
+  "name": "Ale-dritch Blast",
+  "level": 6,
+  "school": "Conjuration",
+  "class": [
+    "Bard",
+    "Druid",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "A stream of ice-cold ale blasts from your outstretched hands toward a creature or object within range. Make a ranged spell attack against the target. On a hit, it takes 1d8 cold damage and it must make a successful Constitution saving throw or be poisoned until the end of its next turn. A targeted creature has disadvantage on the saving throw if it has drunk any alcohol within the last hour."
+},
+{
+  "id": "ally_aegis",
+  "name": "Ally Aegis",
+  "level": 6,
+  "school": "abjuration",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 reaction, which you take when your ally is hit by an attack or is targeted by a spell that deals damage other than psychic damage",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "1 round",
+  "description": "When you see an ally within range in imminent danger, you can use your reaction to protect that creature with a shield of magical force. Until the start of your next turn, your ally has a +5 bonus to AC and is immune to force damage. In addition, if your ally must make a saving throw against an enemy’s spell that deals damage, the ally takes half as much damage on a failed saving throw and no damage on a successful save. Ally aegis offers no protection, however, against psychic damage from any source.\n"
+},
+{
+  "id": "alone",
+  "name": "Alone",
+  "level": 3,
+  "school": "enchantment",
+  "class": [
+    "Cleric",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You cause a creature within range to believe its allies have been banished to a different realm. The target must succeed on a Wisdom saving throw, or it treats its allies as if they were invisible and silenced. The affected creature cannot target, perceive, or otherwise interact with its allies for the duration of the spell. If one of its allies hits it with a melee attack, the affected creature can make another Wisdom saving throw. On a successful save, the spell ends."
+},
+{
+  "id": "alter_arrow_s_fortune",
+  "name": "Alter Arrow’s Fortune",
+  "level": 1,
+  "school": "divination",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Ranger",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 reaction, which you take when an enemy makes a ranged attack that hits",
+  "range": "100 feet",
+  "components": "S",
+  "duration": "Instantaneous",
+  "description": "You clap your hands, setting off a chain of tiny events that culminate in throwing off an enemy’s aim. When an enemy makes a ranged attack with a weapon or a spell that hits one of your allies, this spell causes the enemy to reroll the attack roll unless the enemy makes a successful Charisma saving throw. The attack is resolved using the lower of the two rolls (effectively giving the enemy disadvantage on the attack)."
+},
+{
+  "id": "alter_self",
+  "name": "Alter Self",
+  "level": 2,
+  "school": "Transmutation",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You assume a different form. When you cast the spell, choose one of the following options, the effects of which last for the duration of the spell. While the spell lasts, you can end one option as an action to gain the benefits of a different one.\n\n**Aquatic Adaptation.** You adapt your body to an aquatic environment, sprouting gills and growing webbing between your fingers. You can breathe underwater and gain a swimming speed equal to your walking speed.\n\n**Change Appearance.** You transform your appearance. You decide what you look like, including your height, weight, facial features, sound of your voice, hair length, coloration, and distinguishing characteristics, if any. You can make yourself appear as a member of another race, though none of your statistics change. You also can't appear as a creature of a different size than you, and your basic shape stays the same; if you're bipedal, you can't use this spell to become quadrupedal, for instance. At any time for the duration of the spell, you can use your action to change your appearance in this way again.\n\n**Natural Weapons.** You grow claws, fangs, spines, horns, or a different natural weapon of your choice. Your unarmed strikes deal 1d6 bludgeoning, piercing, or slashing damage, as appropriate to the natural weapon you chose, and you are proficient with your unarmed strikes. Finally, the natural weapon is magic and you have a +1 bonus to the attack and damage rolls you make using it."
+},
+{
+  "id": "alter_self",
+  "name": "Alter Self",
+  "level": 2,
+  "school": "Transmutation",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "self",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You use magic to mold yourself into a new form. Choose one of the options below. Until the spell ends, you can use an action to choose a different option.\n\n* **Amphibian:** Your body takes on aquatic adaptations. You can breathe underwater normally and gain a swimming speed equal to your base Speed.\n* **Altered State:** You decide what you look like.  \n    \nNone of your gameplay statistics change but you can alter anything about your body's appearance, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, sound of your voice, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot become a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to become a quadruped. Until the spell ends, you can use an action to change your appearance.\n* **Red in Tooth and Claw:** You grow magical natural weapons of your choice with a +1 bonus to attack and damage. Your unarmed strikes deal 1d6 bludgeoning, piercing, or slashing damage of a type determined by the natural weapon you chose; for example a tentacle deals bludgeoning, a horn deals piercing, and claws deal slashing."
+},
+{
+  "id": "altered_strike",
+  "name": "Altered Strike",
+  "level": 6,
+  "school": "Transmutation",
+  "class": [
+    "Artificer",
+    "Bard",
+    "Herald",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "self",
+  "components": "V, S, M",
+  "duration": "1 round",
+  "description": "You briefly transform your weapon or fist into another material and strike with it, making a melee weapon attack against a target within your reach.\n\nYou use your spellcasting ability for your attack and damage rolls, and your melee weapon attack counts as if it were made with a different material for the purpose of overcoming resistance and immunity to nonmagical attacks and damage: either bone, bronze, cold iron, steel, stone, or wood."
+},
+{
+  "id": "althea_s_travel_tent",
+  "name": "Althea’s Travel Tent",
+  "level": 2,
+  "school": "conjuration",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "5 minutes",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "8 hours",
+  "description": "You touch an ordinary, properly pitched canvas tent to create a space where you and a companion can sleep in comfort. From the outside, the tent appears normal, but inside it has a small foyer and a larger bedchamber. The foyer contains a writing desk with a chair; the bedchamber holds a soft bed large enough to sleep two, a small nightstand with a candle, and a small clothes rack. The floor of both rooms is a clean, dry, hard-packed version of the local ground. When the spell ends, the tent and the ground return to normal, and any creatures inside the tent are expelled to the nearest unoccupied spaces.\n"
+},
+{
+  "id": "ambush",
+  "name": "Ambush",
+  "level": 1,
+  "school": "illusion",
+  "class": [
+    "Druid",
+    "Ranger",
+    "Sorceror",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "S, M",
+  "duration": "Up to 1 hour",
+  "description": "The forest floor swirls and shifts around you to welcome you into its embrace. While in a forest, you have advantage on Dexterity (Stealth) checks to Hide. While hidden in a forest, you have advantage on your next Initiative check. The spell ends if you attack or cast a spell."
+},
+{
+  "id": "ambush_chute",
+  "name": "Ambush Chute",
+  "level": 3,
+  "school": "conjuration",
+  "class": [
+    "Sorceror",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Up to 10 minutes",
+  "description": "You touch a wooden, plaster, or stone surface and create a passage with two trapdoors. The first trapdoor appears where you touch the surface, and the other appears at a point you can see up to 30 feet away. The two trapdoors can be wooden with a metal ring handle, or they can match the surrounding surfaces, each with a small notch for opening the door. The two trapdoors are connected by an extradimensional passage that is up to 5 feet wide, up to 5 feet tall, and up to 30 feet long. The trapdoors don't need to be on the same surface, allowing the passage to connect two separated locations, such as the two sides of a chasm or river. The passage is always straight and level for creatures inside it, and the creatures exit the tunnel in such a way that allows them to maintain the same orientation as when they entered the passage. No more than five creatures can transit the passage at the same time.\n  When the spell ends and the trapdoors disappear, any creatures or objects still in the passage created by the spell are safely ejected to an unoccupied space nearest the end of the passage closest to them."
+},
+{
+  "id": "amplify_gravity",
+  "name": "Amplify Gravity",
+  "level": 7,
+  "school": "transmutation",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "100 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "This spell intensifies gravity in a 50-foot-radius area within range. Inside the area, damage from falling is quadrupled (2d6 per 5 feet fallen) and maximum damage from falling is 40d6. Any creature on the ground in the area when the spell is cast must make a successful Strength saving throw or be knocked prone; the same applies to a creature that enters the area or ends its turn in the area. A prone creature in the area must make a successful Strength saving throw to stand up. A creature on the ground in the area moves at half speed and has disadvantage on Dexterity checks and ranged attack rolls."
+},
+{
+  "id": "amplify_ley_field",
+  "name": "Amplify Ley Field",
+  "level": 5,
+  "school": "evocation",
+  "class": [
+    "Sorceror",
+    "Warlock",
+    "Wizard",
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "10 Minutes",
+  "description": "You create a faintly shimmering field of charged energy around yourself. Within that area, the intensity of ley lines you're able to draw on increases from weak to strong, or from strong to titanic. If no ley lines are near enough for you to draw on, you can treat the area of the spell itself as an unlocked, weak ley line."
+},
+{
+  "id": "analyze_device",
+  "name": "Analyze Device",
+  "level": 1,
+  "school": "divination",
+  "class": [
+    "Bard",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 hour",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "You discover all mechanical properties, mechanisms, and functions of a single construct or clockwork device, including how to activate or deactivate those functions, if appropriate."
+},
+{
+  "id": "ancestor_s_strength",
+  "name": "Ancestor’s Strength",
+  "level": 1,
+  "school": "transmutation",
+  "class": [
+    "Cleric",
+    "Druid",
+    "Paladin"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Up to 8 hours",
+  "description": "Choose a willing creature you can see and touch. Its muscles bulge and become invigorated. For the duration, the target is considered one size category larger for determining its carrying capacity, the maximum weight it can lift, push, or pull, and its ability to break objects. It also has advantage on Strength checks."
+},
+{
+  "id": "anchoring_rope",
+  "name": "Anchoring Rope",
+  "level": 1,
+  "school": "evocation",
+  "class": [
+    "Bard",
+    "Druid",
+    "Ranger"
+  ],
+  "castTime": "1 action, or 1 reaction that you take while falling",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "5 minutes",
+  "description": "You create a spectral lanyard. One end is tied around your waist, and the other end is magically anchored in the air at a point you select within range. You can choose to make the rope from 5 to 30 feet long, and it can support up to 800 pounds. The point where the end of the rope is anchored in midair can’t be moved after the spell is cast. If this spell is cast as a reaction while you are falling, you stop at a point of your choosing in midair and take no falling damage. You can dismiss the rope as a bonus action.\n"
+},
+{
+  "id": "ancient_shade",
+  "name": "Ancient Shade",
+  "level": 5,
+  "school": "necromancy",
+  "class": [
+    "Cleric",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "10 feet",
+  "components": "V, S, M",
+  "duration": "10 minutes",
+  "description": "You grant the semblance of life and intelligence to a pile of bones (or even bone dust) of your choice within range, allowing the ancient spirit to answer the questions you pose. These remains can be the remnants of undead, including animated but unintelligent undead, such as skeletons and zombies. (Intelligent undead are not affected.) Though it can have died centuries ago, the older the spirit called, the less it remembers of its mortal life.\n\nUntil the spell ends, you can ask the ancient spirit up to five questions if it died within the past year, four questions if it died within ten years, three within one hundred years, two within one thousand years, and but a single question for spirits more than one thousand years dead. The ancient shade knows only what it knew in life, including languages. Answers are usually brief, cryptic, or repetitive, and the corpse is under no compulsion to offer a truthful answer if you are hostile to it or it recognizes you as an enemy. This spell doesn’t return the creature’s soul to its body, only its animating spirit. Thus, the corpse can’t learn new information, doesn’t comprehend anything that has happened since it died, and can’t speculate about future events."
+},
+{
+  "id": "angel_paradox",
+  "name": "Angel Paradox",
+  "level": 7,
+  "school": "Evocation",
+  "class": [
+    "Cleric",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V",
+  "duration": "7 days",
+  "description": "The target is bombarded with a fraction of energy stolen from some slumbering, deific source, immediately taking 40 radiant damage. This spell ignores resistances but does not ignore immunities. A creature killed by this spell does not decay and cannot become undead for the spell's duration. Days spent under the influence of this spell don't count against the time limit of spells such as _raise dead_. This effect ends early if the corpse takes necrotic damage."
+},
+{
+  "id": "angelic_guardian",
+  "name": "Angelic Guardian",
+  "level": 1,
+  "school": "conjuration",
+  "class": [
+    "Cleric",
+    "Paladin",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You conjure a minor celestial manifestation to protect a creature you can see within range. A faintly glowing image resembling a human head and shoulders hovers within 5 feet of the target for the duration. The manifestation moves to interpose itself between the target and any incoming attacks, granting the target a +2 bonus to AC.\n\nAlso, the first time the target gets a failure on a Dexterity saving throw while the spell is active, it can use its reaction to reroll the save. The spell then ends."
+},
+{
+  "id": "animal_friendship",
+  "name": "Animal Friendship",
+  "level": 1,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Druid",
+    "Ranger",
+    "Ritual Caster"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "24 hours",
+  "description": "This spell lets you convince a beast that you mean it no harm. Choose a beast that you can see within range. It must see and hear you. If the beast's Intelligence is 4 or higher, the spell fails. Otherwise, the beast must succeed on a Wisdom saving throw or be charmed by you for the spell's duration. If you or one of your companions harms the target, the spells ends."
+},
+{
+  "id": "animal_friendship",
+  "name": "Animal Friendship",
+  "level": 1,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "24 hours",
+  "description": "You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Until the spell ends or one of your companions harms it (whichever is sooner), the target is charmed by you."
+},
+{
+  "id": "animal_messenger",
+  "name": "Animal Messenger",
+  "level": 2,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Druid",
+    "Ranger",
+    "Ritual Caster"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "24 hours",
+  "description": "By means of this spell, you use an animal to deliver a message. Choose a Tiny beast you can see within range, such as a squirrel, a blue jay, or a bat. You specify a location, which you must have visited, and a recipient who matches a general description, such as \"a man or woman dressed in the uniform of the town guard\" or \"a red-haired dwarf wearing a pointed hat.\" You also speak a message of up to twenty-five words. The target beast travels for the duration of the spell toward the specified location, covering about 50 miles per 24 hours for a flying messenger, or 25 miles for other animals. \n\nWhen the messenger arrives, it delivers your message to the creature that you described, replicating the sound of your voice. The messenger speaks only to a creature matching the description you gave. If the messenger doesn't reach its destination before the spell ends, the message is lost, and the beast makes its way back to where you cast this spell."
+},
+{
+  "id": "animal_messenger",
+  "name": "Animal Messenger",
+  "level": 2,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "24 hours",
+  "description": "You call a Tiny beast to you, whisper a message to it, and then give it directions to the message's recipient. It is now your messenger.\n\nSpecify a location you have previously visited and a recipient who matches a general description, such as \"a person wearing a pointed red hat in Barter Town\" or \"a half-orc in a wheelchair at the Striped Lion Inn.\" Speak a message of up to 25 words. For the duration of the spell, the messenger travels towards the location at a rate of 50 miles per day for a messenger with a flying speed, or else 25 miles without.\n\nWhen the messenger arrives, it delivers your message to the first creature matching your description, replicating the sound of your voice exactly. If the messenger can't find the recipient or reach its destination before the spell ends, the message is lost, and the beast makes its way back to where you cast this spell."
+},
+{
+  "id": "animal_shapes",
+  "name": "Animal Shapes",
+  "level": 8,
+  "school": "Transmutation",
+  "class": [
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Up to 24 hours",
+  "description": "Your magic turns others into beasts. Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower. On subsequent turns, you can use your action to transform affected creatures into new forms. \n\nThe transformation lasts for the duration for each target, or until the target drops to 0 hit points or dies. You can choose a different form for each target. A target's game statistics are replaced by the statistics of the chosen beast, though the target retains its alignment and Intelligence, Wisdom, and Charisma scores. The target assumes the hit points of its new form, and when it reverts to its normal form, it returns to the number of hit points it had before it transformed. If it reverts as a result of dropping to 0 hit points, any excess damage carries over to its normal form. As long as the excess damage doesn't reduce the creature's normal form to 0 hit points, it isn't knocked unconscious. The creature is limited in the actions it can perform by the nature of its new form, and it can't speak or cast spells. \n\nThe target's gear melds into the new form. The target can't activate, wield, or otherwise benefit from any of its equipment."
+},
+{
+  "id": "animal_shapes",
+  "name": "Animal Shapes",
+  "level": 8,
+  "school": "Transmutation",
+  "class": [
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Up to 24 hours",
+  "description": "You transform the bodies of creatures into beasts without altering their minds. Each target transforms into a Large or smaller beast with a Challenge Rating of 4 or lower. Each target may have the same or a different form than other targets.\n\nOn subsequent turns, you can use your action to transform targets into new forms, gaining new hit points when they do so.\n\nUntil the spell ends or it is dropped to 0 hit points, the target's game statistics (including its hit points) are replaced by the statistics of the chosen beast excepting its Intelligence, Wisdom, and Charisma scores. The target is limited to actions that it is physically capable of doing, and it can't speak or cast spells. The target's gear melds into the new form. Equipment that merges with a target's form has no effect until it leaves the form.\n\nWhen the target reverts to its normal form, it returns to the number of hit points it had before it transformed. If the spell's effect on the target end early from dropping to 0 hit points, any excess damage carries over to its normal form and knocks it unconscious if the damage reduces it to 0 hit points."
+},
+{
+  "id": "animate_construct",
+  "name": "Animate Construct",
+  "level": 1,
+  "school": "transmutation",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 Feet",
+  "components": "V, S, M",
+  "duration": "10 Minutes",
+  "description": "Deep Magic: clockwork This spell animates a carefully prepared construct of Tiny size. The object acts immediately, on your turn, and can attack your opponents to the best of its ability. You can direct it not to attack, to attack particular enemies, or to perform other actions. You choose the object to animate, and you can change that choice each time you cast the spell. The cost of the body to be animated is 10 gp x its hit points. The body can be reused any number of times, provided it isn't severely damaged or destroyed. If no prepared construct body is available, you can animate a mass of loose metal or stone instead. Before casting, the loose objects must be arranged in a suitable shape (taking up to a minute), and the construct's hit points are halved. An animated construct has a Constitution of 10, Intelligence and Wisdom 3, and Charisma 1. Other characteristics are determined by the construct's size as follows. Size HP AC Attack STR DEX Spell Slot Tiny 15 12 +3, 1d4+4 4 16 1st Small 25 13 +4, 1d8+2 6 14 2nd Medium 40 14 +5, 2d6+1 10 12 3rd Large 50 15 +6, 2d10+2 14 10 4th Huge 80 16 +8, 2d12+4 18 8 5th Gargantuan 100 17 +10, 4d8+6 20 6 6th"
+},
+{
+  "id": "animate_dead",
+  "name": "Animate Dead",
+  "level": 3,
+  "school": "Necromancy",
+  "class": [
+    "Cleric",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "10 feet",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "This spell creates an undead servant. Choose a pile of bones or a corpse of a Medium or Small humanoid within range. Your spell imbues the target with a foul mimicry of life, raising it as an undead creature. The target becomes a skeleton if you chose bones or a zombie if you chose a corpse (the DM has the creature's game statistics). \n\nOn each of your turns, you can use a bonus action to mentally command any creature you made with this spell if the creature is within 60 feet of you (if you control multiple creatures, you can command any or all of them at the same time, issuing the same command to each one). You decide what action the creature will take and where it will move during its next turn, or you can issue a general command, such as to guard a particular chamber or corridor. If you issue no commands, the creature only defends itself against hostile creatures. Once given an order, the creature continues to follow it until its task is complete. \n\nThe creature is under your control for 24 hours, after which it stops obeying any command you've given it. To maintain control of the creature for another 24 hours, you must cast this spell on the creature again before the current 24-hour period ends. This use of the spell reasserts your control over up to four creatures you have animated with this spell, rather than animating a new one."
+},
+{
+  "id": "animate_dead",
+  "name": "Animate Dead",
+  "level": 3,
+  "school": "Necromancy",
+  "class": [
+    "Cleric",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "touch",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "You animate a mortal's remains to become your undead servant.\n\nIf the spell is cast upon bones you create a skeleton, and if cast upon a corpse you choose to create a skeleton or a zombie. The Narrator has the undead's statistics.\n\nWhile it is within 60 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.\n\nThe undead is under your control for 24 hours, after which it stops obeying any commands. You must cast this spell on the undead before the spell ends to maintain control of it for another 24 hours.\n\nCasting the spell in this way reasserts control over up to 4 of your previously-animated undead instead of animating a new one."
+},
+{
+  "id": "animate_ghoul",
+  "name": "Animate Ghoul",
+  "level": 2,
+  "school": "necromancy",
+  "class": [
+    "Cleric",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "You raise one Medium or Small humanoid corpse as a ghoul under your control. Any class levels or abilities the creature had in life are gone, replaced by the standard ghoul stat block.\n"
+},
+{
+  "id": "animate_greater_undead",
+  "name": "Animate Greater Undead",
+  "level": 6,
+  "school": "necromancy",
+  "class": [
+    "Cleric",
+    "Wizard"
+  ],
+  "castTime": "1 hour",
+  "range": "15 feet",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "**Animate greater undead** creates an undead servant from a pile of bones or from the corpse of a Large or Huge humanoid within range. The spell imbues the target with a foul mimicry of life, raising it as an undead skeleton or zombie. A skeleton uses the stat block of a minotaur skeleton, or a zombie uses the stat block of an ogre zombie, unless a more appropriate stat block is available.\n\nThe creature is under your control for 24 hours, after which it stops obeying your commands. To maintain control of the creature for another 24 hours, you must cast this spell on it again while you have it controlled. Casting the spell for this purpose reasserts your control over up to four creatures you have previously animated rather than animating a new one.\n"
+},
+{
+  "id": "animate_objects",
+  "name": "Animate Objects",
+  "level": 5,
+  "school": "Transmutation",
+  "class": [
+    "Bard",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "Objects come to life at your command. Choose up to ten nonmagical objects within range that are not being worn or carried. Medium targets count as two objects, Large targets count as four objects, Huge targets count as eight objects. You can't animate any object larger than Huge. Each target animates and becomes a creature under your control until the spell ends or until reduced to 0 hit points. \nAs a bonus action, you can mentally command any creature you made with this spell if the creature is within 500 feet of you (if you control multiple creatures, you can command any or all of them at the same time, issuing the same command to each one). You decide what action the creature will take and where it will move during its next turn, or you can issue a general command, such as to guard a particular chamber or corridor. If you issue no commands, the creature only defends itself against hostile creatures. Once given an order, the creature continues to follow it until its task is complete.\n### Animated Object Statistics \n| Size | HP | AC | Attack | Str | Dex |\n|--------|----|----|----------------------------|-----|-----|\n| Tiny | 20 | 18 | +8 to hit, 1d4 + 4 damage | 4 | 18 |\n| Small | 25 | 16 | +6 to hit, 1d8 + 2 damage | 6 | 14 |\n| Medium | 40 | 13 | +5 to hit, 2d6 + 1 damage | 10 | 12 |\n| Large | 50 | 10 | +6 to hit, 2d10 + 2 damage | 14 | 10 |\n| Huge | 80 | 10 | +8 to hit, 2d12 + 4 damage | 18 | 6 | \n\nAn animated object is a construct with AC, hit points, attacks, Strength, and Dexterity determined by its size. Its Constitution is 10 and its Intelligence and Wisdom are 3, and its Charisma is 1. Its speed is 30 feet; if the object lacks legs or other appendages it can use for locomotion, it instead has a flying speed of 30 feet and can hover. If the object is securely attached to a surface or a larger object, such as a chain bolted to a wall, its speed is 0. It has blindsight with a radius of 30 feet and is blind beyond that distance. When the animated object drops to 0 hit points, it reverts to its original object form, and any remaining damage carries over to its original object form. If you command an object to attack, it can make a single melee attack against a creature within 5 feet of it. It makes a slam attack with an attack bonus and bludgeoning damage determined by its size. The DM might rule that a specific object inflicts slashing or piercing damage based on its form."
+},
+{
+  "id": "animate_objects",
+  "name": "Animate Objects",
+  "level": 5,
+  "school": "Transmutation",
+  "class": [
+    "Artificer",
+    "Bard",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "Objects come to life at your command just like you dreamt of when you were an apprentice! Choose up to 6 unattended nonmagical Small or Tiny objects. You may also choose larger objects; treat Medium objects as 2 objects, Large objects as 3 objects, and Huge objects as 6 objects. You can't animate objects larger than Huge.\n\nUntil the spell ends or a target is reduced to 0 hit points, you animate the targets and turn them into constructs under your control.\n\nEach construct has Constitution 10, Intelligence 3, Wisdom 3, and Charisma 1, as well as a flying speed of 30 feet and the ability to hover (if securely fastened to something larger, it has a Speed of 0), and blindsight to a range of 30 feet (blind beyond that distance). Otherwise a construct's statistics are determined by its size.\n\nIf you animate 4 or more Small or Tiny objects, instead of controlling each construct individually they function as a construct swarm. Add together all swarm's total hit points. Attacks against a construct swarm deal half damage. The construct swarm reverts to individual constructs when it is reduced to 15 hit points or less.\n\nYou can use a bonus action to mentally command any construct made with this spell while it is within 500 feet. When you command multiple constructs using this spell, you may simultaneously give them all the same command. You decide the action the construct takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. Without commands the construct only defends itself. The construct continues to follow a command until its task is complete.\n\nWhen you command a construct to attack, it makes a single slam melee attack against a creature within 5 feet of it. On a hit the construct deals bludgeoning, piercing, or slashing damage appropriate to its shape.\n\nWhen the construct drops to 0 hit points, any excess damage carries over to its normal object form."
+},
+{
+  "id": "animated_scroll",
+  "name": "Animated Scroll",
+  "level": 6,
+  "school": "Transmutation",
+  "class": [
+    "Druid",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "24 hours",
+  "description": "The paper or parchment must be folded into the shape of an animal before casting the spell. It then becomes an animated paper animal of the kind the folded paper most closely resembles. The creature uses the stat block of any beast that has a challenge rating of 0. It is made of paper, not flesh and bone, but it can do anything the real creature can do: a paper owl can fly and attack with its talons, a paper frog can swim without disintegrating in water, and so forth. It follows your commands to the best of its ability, including carrying messages to a recipient whose location you know."
+},
+{
+  "id": "anomalous_object",
+  "name": "Anomalous Object",
+  "level": 7,
+  "school": "conjuration",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "1 Minute",
+  "description": "Deep Magic: temporal By touching an object, you retrieve another version of the object from elsewhere in time. If the object is attended, you must succeed on a melee spell attack roll against the creature holding or controlling the object. Any effect that affects the original object also affects the duplicate (charges spent, damage taken, etc.) and any effect that affects the duplicate also affects the original object. If either object is destroyed, both are destroyed. This spell does not affect sentient items or unique artifacts."
+},
+{
+  "id": "anticipate_arcana",
+  "name": "Anticipate Arcana",
+  "level": 3,
+  "school": "divination",
+  "class": [
+    "Cleric",
+    "Paladin",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 reaction, which you take when an enemy you can see casts a spell",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "Your foresight gives you an instant to ready your defenses against a magical attack. When you cast **anticipate arcana**, you have advantage on saving throws against spells and other magical effects until the start of your next turn."
+},
+{
+  "id": "anticipate_attack",
+  "name": "Anticipate Attack",
+  "level": 2,
+  "school": "divination",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Paladin",
+    "Ranger",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 reaction, which you take when you are attacked but before the attack roll is made",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "In a flash of foreknowledge, you spot an oncoming attack with enough time to avoid it. Upon casting this spell, you can move up to half your speed without provoking opportunity attacks. The oncoming attack still occurs but misses automatically if you are no longer within the attack’s range, are in a space that's impossible for the attack to hit, or can’t be targeted by that attack in your new position. If none of those circumstances apply but the situation has changed—you have moved into a position where you have cover, for example—then the attack is made after taking the new situation into account."
+},
+{
+  "id": "anticipate_weakness",
+  "name": "Anticipate Weakness",
+  "level": 1,
+  "school": "divination",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Ranger",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 bonus action",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "With a quick glance into the future, you pinpoint where a gap is about to open in your foe’s defense, and then you strike. After casting **anticipate weakness**, you have advantage on attack rolls until the end of your turn."
+},
+{
+  "id": "antilife_shell",
+  "name": "Antilife Shell",
+  "level": 5,
+  "school": "Abjuration",
+  "class": [
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "A shimmering barrier extends out from you in a 10-foot radius and moves with you, remaining centered on you and hedging out creatures other than undead and constructs. The barrier lasts for the duration. The barrier prevents an affected creature from passing or reaching through. An affected creature can cast spells or make attacks with ranged or reach weapons through the barrier. If you move so that an affected creature is forced to pass through the barrier, the spell ends."
+},
+{
+  "id": "antilife_shell",
+  "name": "Antilife Shell",
+  "level": 5,
+  "school": "Abjuration",
+  "class": [
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "self",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "A barrier that glimmers with an oily rainbow hue pops into existence around you. The barrier moves with you and prevents creatures other than undead and constructs from passing or reaching through its surface.\n\nThe barrier does not prevent spells or attacks with ranged or reach weapons from passing through the barrier.\n\nThe spell ends if you move so that a Tiny or larger living creature is forced to pass through the barrier."
+},
+{
+  "id": "antimagic_field",
+  "name": "Antimagic Field",
+  "level": 8,
+  "school": "Abjuration",
+  "class": [
+    "Cleric",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "A 10-foot-radius invisible sphere of antimagic surrounds you. This area is divorced from the magical energy that suffuses the multiverse. Within the sphere, spells can't be cast, summoned creatures disappear, and even magic items become mundane. Until the spell ends, the sphere moves with you, centered on you. Spells and other magical effects, except those created by an artifact or a deity, are suppressed in the sphere and can't protrude into it. A slot expended to cast a suppressed spell is consumed. While an effect is suppressed, it doesn't function, but the time it spends suppressed counts against its duration.\n\n**Targeted Effects.** Spells and other magical effects, such as magic missile and charm person, that target a creature or an object in the sphere have no effect on that target.\n\n**Areas of Magic.** The area of another spell or magical effect, such as fireball, can't extend into the sphere. If the sphere overlaps an area of magic, the part of the area that is covered by the sphere is suppressed. For example, the flames created by a wall of fire are suppressed within the sphere, creating a gap in the wall if the overlap is large enough.\n\n**Spells.** Any active spell or other magical effect on a creature or an object in the sphere is suppressed while the creature or object is in it.\n\n**Magic Items.** The properties and powers of magic items are suppressed in the sphere. For example, a +1 longsword in the sphere functions as a nonmagical longsword. A magic weapon's properties and powers are suppressed if it is used against a target in the sphere or wielded by an attacker in the sphere. If a magic weapon or a piece of magic ammunition fully leaves the sphere (for example, if you fire a magic arrow or throw a magic spear at a target outside the sphere), the magic of the item ceases to be suppressed as soon as it exits.\n\n**Magical Travel.** Teleportation and planar travel fail to work in the sphere, whether the sphere is the destination or the departure point for such magical travel. A portal to another location, world, or plane of existence, as well as an opening to an extradimensional space such as that created by the rope trick spell, temporarily closes while in the sphere.\n\n**Creatures and Objects.** A creature or object summoned or created by magic temporarily winks out of existence in the sphere. Such a creature instantly reappears once the space the creature occupied is no longer within the sphere.\n\n**Dispel Magic.** Spells and magical effects such as dispel magic have no effect on the sphere. Likewise, the spheres created by different antimagic field spells don't nullify each other."
+},
+{
+  "id": "antimagic_field",
+  "name": "Antimagic Field",
+  "level": 8,
+  "school": "Abjuration",
+  "class": [
+    "Cleric",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "self",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "An invisible sphere of antimagic forms around you, moving with you and suppressing all magical effects within it. At the Narrator's discretion, sufficiently powerful artifacts and deities may be able to ignore the sphere's effects.\n\n* **Area Suppression:** When a magical effect protrudes into the sphere, that part of the effect's area is suppressed. For example, the ice created by a wall of ice is suppressed within the sphere, creating a gap in the wall if the overlap is large enough.\n* **Creatures and Objects:** While within the sphere, any creatures or objects created or conjured by magic temporarily wink out of existence, reappearing immediately once the space they occupied is no longer within the sphere.\n* **Dispel Magic:** The sphere is immune to dispel magic and similar magical effects, including other antimagic field spells.\n* **Magic Items:** While within the sphere, magic items function as if they were mundane objects. Magic weapons and ammunition cease to be suppressed when they fully leave the sphere.\n* **Magical Travel:** Whether the sphere includes a destination or departure point, any planar travel or teleportation within it automatically fails. Until the spell ends or the sphere moves, magical portals and extradimensional spaces (such as that created by a bag of holding) within the sphere are closed.\n* **Spells:** Any spell cast within the sphere or at a target within the sphere is suppressed and the spell slot is consumed. Active spells and magical effects are also suppressed within the sphere. If a spell or magical effect has a duration, time spent suppressed counts against it."
+},
+{
+  "id": "antipathy_sympathy",
+  "name": "Antipathy/Sympathy",
+  "level": 8,
+  "school": "Enchantment",
+  "class": [
+    "Druid",
+    "Wizard"
+  ],
+  "castTime": "1 hour",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "10 days",
+  "description": "This spell attracts or repels creatures of your choice. You target something within range, either a Huge or smaller object or creature or an area that is no larger than a 200-foot cube. Then specify a kind of intelligent creature, such as red dragons, goblins, or vampires. You invest the target with an aura that either attracts or repels the specified creatures for the duration. Choose antipathy or sympathy as the aura's effect.\n\n**Antipathy.** The enchantment causes creatures of the kind you designated to feel an intense urge to leave the area and avoid the target. When such a creature can see the target or comes within 60 feet of it, the creature must succeed on a wisdom saving throw or become frightened. The creature remains frightened while it can see the target or is within 60 feet of it. While frightened by the target, the creature must use its movement to move to the nearest safe spot from which it can't see the target. If the creature moves more than 60 feet from the target and can't see it, the creature is no longer frightened, but the creature becomes frightened again if it regains sight of the target or moves within 60 feet of it.\n\n **Sympathy.** The enchantment causes the specified creatures to feel an intense urge to approach the target while within 60 feet of it or able to see it. When such a creature can see the target or comes within 60 feet of it, the creature must succeed on a wisdom saving throw or use its movement on each of its turns to enter the area or move within reach of the target. When the creature has done so, it can't willingly move away from the target. If the target damages or otherwise harms an affected creature, the affected creature can make a wisdom saving throw to end the effect, as described below.\n\n**Ending the Effect.** If an affected creature ends its turn while not within 60 feet of the target or able to see it, the creature makes a wisdom saving throw. On a successful save, the creature is no longer affected by the target and recognizes the feeling of repugnance or attraction as magical. In addition, a creature affected by the spell is allowed another wisdom saving throw every 24 hours while the spell persists. A creature that successfully saves against this effect is immune to it for 1 minute, after which time it can be affected again."
+},
+{
+  "id": "antipathy_sympathy",
+  "name": "Antipathy/Sympathy",
+  "level": 8,
+  "school": "Enchantment",
+  "class": [
+    "Druid",
+    "Wizard"
+  ],
+  "castTime": "1 hour",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "10 days",
+  "description": "You mystically impart great love or hatred for a place, thing, or creature. Designate a kind of intelligent creature, such as dragons, goblins, or vampires.\n\nThe target now causes either antipathy or sympathy for the specified creatures for the duration of the spell. When a designated creature successfully saves against the effects of this spell, it immediately understands it was under a magical effect and is immune to this spell's effects for 1 minute.\n\n* **Antipathy:** When a designated creature can see the target or comes within 60 feet of it, the creature makes a Wisdom saving throw or becomes frightened. While frightened the creature must use its movement to move away from the target to the nearest safe spot from which it can no longer see the target. If the creature moves more than 60 feet from the target and can no longer see it, the creature is no longer frightened, but the creature becomes frightened again if it regains sight of the target or moves within 60 feet of it.\n* **Sympathy:** When a designated creature can see the target or comes within 60 feet of it, the creature must succeed on a Wisdom saving throw. On a failure, the creature uses its movement on each of its turns to enter the area or move within reach of the target, and is unwilling to move away from the target.  \nIf the target damages or otherwise harms an affected creature, the affected creature can make a Wisdom saving throw to end the effect. An affected creature can also make a saving throw once every 24 hours while within the area of the spell, and whenever it ends its turn more than 60 feet from the target and is unable to see the target."
+},
+{
+  "id": "arcane_eye",
+  "name": "Arcane Eye",
+  "level": 4,
+  "school": "Divination",
+  "class": [
+    "Cleric",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "You create an invisible, magical eye within range that hovers in the air for the duration. You mentally receive visual information from the eye, which has normal vision and darkvision out to 30 feet. The eye can look in every direction. As an action, you can move the eye up to 30 feet in any direction. There is no limit to how far away from you the eye can move, but it can't enter another plane of existence. A solid barrier blocks the eye's movement, but the eye can pass through an opening as small as 1 inch in diameter."
+},
+{
+  "id": "arcane_eye",
+  "name": "Arcane Eye",
+  "level": 4,
+  "school": "Divination",
+  "class": [
+    "Artificer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "Until the spell ends, you create an invisible, floating magical eye that hovers in the air and sends you visual information. The eye has normal vision, darkvision to a range of 30 feet, and it can look in every direction.\n\nYou can use an action to move the eye up to 30 feet in any direction as long as it remains on the same plane of existence. The eye can pass through openings as small as 1 inch across but otherwise its movement is blocked by solid barriers."
+},
+{
+  "id": "arcane_hand",
+  "name": "Arcane Hand",
+  "level": 5,
+  "school": "Evocation",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You create a Large hand of shimmering, translucent force in an unoccupied space that you can see within range. The hand lasts for the spell's duration, and it moves at your command, mimicking the movements of your own hand. The hand is an object that has AC 20 and hit points equal to your hit point maximum. If it drops to 0 hit points, the spell ends. It has a Strength of 26 (+8) and a Dexterity of 10 (+0). The hand doesn't fill its space. When you cast the spell and as a bonus action on your subsequent turns, you can move the hand up to 60 feet and then cause one of the following effects with it.\n\n**Clenched Fist.** The hand strikes one creature or object within 5 feet of it. Make a melee spell attack for the hand using your game statistics. On a hit, the target takes 4d8 force damage.\n\n**Forceful Hand.** The hand attempts to push a creature within 5 feet of it in a direction you choose. Make a check with the hand's Strength contested by the Strength (Athletics) check of the target. If the target is Medium or smaller, you have advantage on the check. If you succeed, the hand pushes the target up to 5 feet plus a number of feet equal to five times your spellcasting ability modifier. The hand moves with the target to remain within 5 feet of it.\n\n**Grasping Hand.** The hand attempts to grapple a Huge or smaller creature within 5 feet of it. You use the hand's Strength score to resolve the grapple. If the target is Medium or smaller, you have advantage on the check. While the hand is grappling the target, you can use a bonus action to have the hand crush it. When you do so, the target takes bludgeoning damage equal to 2d6 + your spellcasting ability modifier\n\n **Interposing Hand.** The hand interposes itself between you and a creature you choose until you give the hand a different command. The hand moves to stay between you and the target, providing you with half cover against the target. The target can't move through the hand's space if its Strength score is less than or equal to the hand's Strength score. If its Strength score is higher than the hand's Strength score, the target can move toward you through the hand's space, but that space is difficult terrain for the target."
+},
+{
+  "id": "arcane_hand",
+  "name": "Arcane Hand",
+  "level": 5,
+  "school": "Evocation",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You create a Large hand of shimmering, translucent force that mimics the appearance and movements of your own hand.\n\nThe hand doesn't fill its space and has AC 20, Strength 26 (+8), Dexterity 10 (+0), maneuver DC 18, and hit points equal to your hit point maximum. The spell ends early if it is dropped to 0 hit points.\n\nWhen you cast the spell and as a bonus action on subsequent turns, you can move the hand up to 60 feet and then choose one of the following.\n\n* **_Shove:_** The hand makes a Strength saving throw against the maneuver DC of a creature within 5 feet of it, with advantage if the creature is Medium or smaller. On a success, the hand pushes the creature in a direction of your choosing for up to 5 feet plus a number of feet equal to 5 times your spellcasting ability modifier, and remains within 5 feet of it.\n* **_Smash:_** Make a melee spell attack against a creature or object within 5 feet of the hand. On a hit, the hand deals 4d8 force damage.\n* **_Snatch:_** The hand makes a Strength saving throw against the maneuver DC of a creature within 5 feet of it, with advantage if the creature is Medium or smaller. On a success, the creature is grappled by the hand. You can use a bonus action to crush a creature grappled by the hand, dealing bludgeoning damage equal to 2d6 + your spellcasting ability modifier.\n* **_Stop:_** Until the hand is given another command it moves to stay between you and a creature of your choice, providing you with three-quarters cover against the chosen creature. A creature with a Strength score of 26 or less cannot move through the hand's space, and stronger creatures treat the hand as difficult terrain."
+},
+{
+  "id": "arcane_lock",
+  "name": "Arcane Lock",
+  "level": 2,
+  "school": "Abjuration",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Until dispelled",
+  "description": "You touch a closed door, window, gate, chest, or other entryway, and it becomes locked for the duration. You and the creatures you designate when you cast this spell can open the object normally. You can also set a password that, when spoken within 5 feet of the object, suppresses this spell for 1 minute. Otherwise, it is impassable until it is broken or the spell is dispelled or suppressed. Casting knock on the object suppresses arcane lock for 10 minutes. While affected by this spell, the object is more difficult to break or force open; the DC to break it or pick any locks on it increases by 10."
+},
+{
+  "id": "arcane_lock",
+  "name": "Arcane Lock",
+  "level": 2,
+  "school": "Abjuration",
+  "class": [
+    "Artificer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "touch",
+  "components": "V, S, M",
+  "duration": "Permanent",
+  "description": "The target is sealed to all creatures except those you designate (who can open the object normally). Alternatively, you may choose a password that suppresses this spell for 1 minute when it is spoken within 5 feet of the target. The spell can also be suppressed for 10 minutes by casting _knock_ on the target. Otherwise, the target cannot be opened normally and it is more difficult to break or force open, increasing the DC to break it or pick any locks on it by 10 (minimum DC 20)."
+},
+{
+  "id": "arcane_muscles",
+  "name": "Arcane Muscles",
+  "level": 6,
+  "school": "Transmutation",
+  "class": [
+    "Artificer",
+    "Cleric",
+    "Herald",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "1 minute",
+  "description": "Your muscles swell with arcane power. They're too clumsy to effectively wield weapons but certainly strong enough for a powerful punch. Until the spell ends, you can choose to use your spellcasting ability score for Athletics checks, and for the attack and damage rolls of unarmed strikes. In addition, your unarmed strikes deal 1d6 bludgeoning damage and count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage."
+},
+{
+  "id": "arcane_riposte",
+  "name": "Arcane Riposte",
+  "level": 1,
+  "school": "Evocation",
+  "class": [
+    "Bard",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 reaction",
+  "range": "self",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "You respond to an incoming attack with a magically-infused attack of your own. Make a melee spell attack against the creature that attacked you. If you hit, the creature takes 3d6 acid, cold, fire, lightning, poison, or thunder damage."
+},
+{
+  "id": "arcane_sight",
+  "name": "Arcane Sight",
+  "level": 8,
+  "school": "divination",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "The recipient of this spell gains the benefits of both [true seeing](https://api.open5e.com/spells/true-seeing) and [detect magic](https://api.open5e.com/spells/detect-magic) until the spell ends, and also knows the name and effect of every spell he or she witnesses during the spell’s duration."
+},
+{
+  "id": "arcane_sword",
+  "name": "Arcane Sword",
+  "level": 7,
+  "school": "Evocation",
+  "class": [
+    "Bard",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You create a sword-shaped plane of force that hovers within range. It lasts for the duration. When the sword appears, you make a melee spell attack against a target of your choice within 5 feet of the sword. On a hit, the target takes 3d10 force damage. Until the spell ends, you can use a bonus action on each of your turns to move the sword up to 20 feet to a spot you can see and repeat this attack against the same target or a different one."
+},
+{
+  "id": "arcane_sword",
+  "name": "Arcane Sword",
+  "level": 7,
+  "school": "Evocation",
+  "class": [
+    "Bard",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You summon an insubstantial yet deadly sword to do your bidding.\n\nMake a melee spell attack against a target of your choice within 5 feet of the sword, dealing 3d10 force damage on a hit.\n\nUntil the spell ends, you can use a bonus action on subsequent turns to move the sword up to 20 feet to a space you can see and make an identical melee spell attack against a target."
+},
+{
+  "id": "arcanist_s_magic_aura",
+  "name": "Arcanist's Magic Aura",
+  "level": 2,
+  "school": "Illusion",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "24 hours",
+  "description": "You place an illusion on a creature or an object you touch so that divination spells reveal false information about it. The target can be a willing creature or an object that isn't being carried or worn by another creature. When you cast the spell, choose one or both of the following effects. The effect lasts for the duration. If you cast this spell on the same creature or object every day for 30 days, placing the same effect on it each time, the illusion lasts until it is dispelled.\n\n**False Aura.** You change the way the target appears to spells and magical effects, such as detect magic, that detect magical auras. You can make a nonmagical object appear magical, a magical object appear nonmagical, or change the object's magical aura so that it appears to belong to a specific school of magic that you choose. When you use this effect on an object, you can make the false magic apparent to any creature that handles the item.\n\n**Mask.** You change the way the target appears to spells and magical effects that detect creature types, such as a paladin's Divine Sense or the trigger of a symbol spell. You choose a creature type and other spells and magical effects treat the target as if it were a creature of that type or of that alignment."
+},
+{
+  "id": "arcanist_s_magic_aura",
+  "name": "Arcanist's Magic Aura",
+  "level": 2,
+  "school": "Illusion",
+  "class": [],
+  "castTime": "1 action",
+  "range": "touch",
+  "components": "V, S, M",
+  "duration": "24 hours",
+  "description": "You craft an illusion to deceive others about the target's true magical properties.\n\nChoose one or both of the following effects. When cast upon the same target with the same effect for 30 successive days, it lasts until it is dispelled.\n\n* **False Aura:** A magical target appears nonmagical, a nonmagical target appears magical, or you change a target's magical aura so that it appears to belong to a school of magic of your choosing. Additionally, you can choose to make the false magic apparent to any creature that handles the item.\n* **Masking Effect:** Choose a creature type. Spells and magical effects that detect creature types (such as a herald's Divine Sense or the trigger of a symbol spell) treat the target as if it were a creature of that type. Additionally, you can choose to mask the target's alignment trait (if it has one)."
+},
+{
+  "id": "armored_formation",
+  "name": "Armored Formation",
+  "level": 3,
+  "school": "abjuration",
+  "class": [
+    "Bard",
+    "Sorceror",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 bonus action",
+  "range": "60 Feet",
+  "components": "V, S, M",
+  "duration": "Up to 10 minutes",
+  "description": "You bolster the defenses of those nearby. Choose up to twelve willing creatures in range. When an affected creature is within 5 feet of at least one other affected creature, they create a formation. The formation must be a contiguous grouping of affected creatures, and each affected creature must be within 5 feet of at least one other affected creature within the formation. If the formation ever has less than two affected creatures, it ends, and an affected creature that moves further than 5 feet from other creatures in formation is no longer in that formation. Affected creatures don't have to all be in the same formation, and they can create or end as many formations of various sizes as they want for the duration of the spell. Each creature in a formation gains a bonus depending on how many affected creatures are in that formation.\n  ***Two or More Creatures.*** Each creature gains a +2 bonus to AC.\n  ***Four or More Creatures.*** Each creature gains a +2 bonus to AC, and when it hits with any weapon, it deals an extra 1d6 damage of the weapon's type.\n  ***Six or More Creatures.*** Each creature gains a +3 bonus to AC, and when it hits with any weapon, it deals an extra 2d6 damage of the weapon's type."
+},
+{
+  "id": "armored_heart",
+  "name": "Armored Heart",
+  "level": 1,
+  "school": "conjuration",
+  "class": [
+    "Wizard",
+    "Warlock",
+    "Sorceror",
+    "Bard"
+  ],
+  "castTime": "1 bonus action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "1 Round",
+  "description": "Deep Magic: clockwork The targeted creature gains resistance to bludgeoning, slashing, and piercing damage. This resistance can be overcome with adamantine or magical weapons."
+},
+{
+  "id": "armored_shell",
+  "name": "Armored Shell",
+  "level": 1,
+  "school": "conjuration",
+  "class": [
+    "Wizard",
+    "Warlock",
+    "Sorceror"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "1 Hour",
+  "description": "Deep Magic: clockwork This spell creates a suit of magical studded leather armor (AC 12). It does not grant you proficiency in its use. Casters without the appropriate armor proficiency suffer disadvantage on any ability check, saving throw, or attack roll that involves Strength or Dexterity and cannot cast spells."
+},
+{
+  "id": "as_you_were",
+  "name": "As You Were",
+  "level": 2,
+  "school": "necromancy",
+  "class": [
+    "Cleric",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "When cast on a dead or undead body, **as you were** returns that creature to the appearance it had in life while it was healthy and uninjured. The target must have a physical body; the spell fails if the target is normally noncorporeal.\n\nIf as you were is cast on a corpse, its effect is identical to that of [gentle repose](https://api.open5e.com/spells/gentle-repose), except that the corpse’s appearance is restored to that of a healthy, uninjured (albeit dead) person.\n\nIf the target is an undead creature, it also is restored to the appearance it had in life, even if it died from disease or from severe wounds, or centuries ago. The target looks, smells, and sounds (if it can speak) as it did in life. Friends and family can tell something is wrong only with a successful Wisdom (Insight) check against your spell save DC, and only if they have reason to be suspicious. (Knowing that the person should be dead is sufficient reason.) Spells and abilities that detect undead are also fooled, but the creature remains susceptible to Turn Undead as normal.\n\nThis spell doesn’t confer the ability to speak on undead that normally can’t speak. The creature eats, drinks, and breathes as a living creature does; it can mimic sleep, but it has no more need for it than it had before.\n\nThe effect lasts for a number of hours equal to your caster level. You can use an action to end the spell early. Any amount of radiant or necrotic damage dealt to the creature, or any effect that reduces its Constitution, also ends the spell.\n\nIf this spell is cast on an undead creature that isn’t your ally or under your control, it makes a Charisma saving throw to resist the effect."
+},
+{
+  "id": "ashen_memories",
+  "name": "Ashen Memories",
+  "level": 2,
+  "school": "divination",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "You touch the ashes, embers, or soot left behind by a fire and receive a vision of one significant event that occurred in the area while the fire was burning. For example, if you were to touch the cold embers of a campfire, you might witness a snippet of a conversation that occurred around the fire. Similarly, touching the ashes of a burned letter might grant you a vision of the person who destroyed the letter or the contents of the letter. You have no control over what information the spell reveals, but your vision usually is tied to the most meaningful event related to the fire. The GM determines the details of what is revealed."
+},
+{
+  "id": "aspect_of_the_dragon",
+  "name": "Aspect of the Dragon",
+  "level": 7,
+  "school": "transmutation",
+  "class": [],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "This spell draws out the ancient nature within your blood, allowing you to assume the form of any dragon-type creature of challenge 10 or less.\n\nYou assume the hit points and Hit Dice of the new form. When you revert to your normal form, you return to the number of hit points you had before you transformed. If you revert as a result of dropping to 0 hit points, any excess damage carries over to your normal form. As long as the excess damage doesn’t reduce your normal form to 0 hit points, you aren’t knocked unconscious.\n\nYou retain the benefits of any features from your class, race, or other source and can use them, provided that your new form is physically capable of doing so. You can speak only if the dragon can normally speak.\n\nWhen you transform, you choose whether your equipment falls to the ground, merges into the new form, or is worn by it. Worn equipment functions normally, but equipment doesn’t change shape or size to match the new form. Any equipment that the new form can’t wear must either fall to the ground or merge into the new form. The GM has final say on whether the new form can wear or use a particular piece of equipment. Equipment that merges has no effect in that state."
+},
+{
+  "id": "aspect_of_the_moon",
+  "name": "Aspect of the Moon",
+  "level": 3,
+  "school": "Transmutation",
+  "class": [
+    "Bard",
+    "Druid"
+  ],
+  "castTime": "1 bonus action",
+  "range": "self",
+  "components": "V",
+  "duration": "Up to 1 minute",
+  "description": "You throw your head back and howl like a beast, embracing your most basic impulses. Until the spell ends your hair grows, your features become more feral, and sharp claws grow on your fingers. You gain a +1 bonus to AC, your Speed increases by 10 feet, you have advantage on Perception checks, and your unarmed strikes deal 1d8 slashing damage. You may use your Strength or Dexterity for attack and damage rolls with unarmed strikes, and treat your unarmed strikes as weapons with the finesse property. You gain an additional action on your turn, which may only be used to make a melee attack with your unarmed strike. If you are hit by a silvered weapon, you have disadvantage on your Constitution saving throw to maintain concentration."
+},
+{
+  "id": "aspect_of_the_serpent",
+  "name": "Aspect of the Serpent",
+  "level": 3,
+  "school": "transmutation",
+  "class": [
+    "Druid",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "A creature you touch takes on snakelike aspects for the duration of the spell. Its tongue becomes long and forked, its canine teeth become fangs with venom sacs, and its pupils become sharply vertical. The target gains darkvision with a range of 60 feet and blindsight with a range of 30 feet. As a bonus action when you cast the spell, the target can make a ranged weapon attack with a normal range of 60 feet that deals 2d6 poison damage on a hit.\n\nAs an action, the target can make a bite attack using either Strength or Dexterity (Melee Weapon Attack: range 5 ft., one creature; Hit: 2d6 piercing damage), and the creature must make a successful DC 14 Constitution saving throw or be paralyzed for 1 minute. A creature paralyzed in this way repeats the saving throw at the end of each of its turns, ending the effect on itself on a success).\n"
+},
+{
+  "id": "astral_projection",
+  "name": "Astral Projection",
+  "level": 9,
+  "school": "Necromancy",
+  "class": [
+    "Cleric",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 hour",
+  "range": "10 feet",
+  "components": "V, S, M",
+  "duration": "Special",
+  "description": "You and up to eight willing creatures within range project your astral bodies into the Astral Plane (the spell fails and the casting is wasted if you are already on that plane). The material body you leave behind is unconscious and in a state of suspended animation; it doesn't need food or air and doesn't age. Your astral body resembles your mortal form in almost every way, replicating your game statistics and possessions. The principal difference is the addition of a silvery cord that extends from between your shoulder blades and trails behind you, fading to invisibility after 1 foot. This cord is your tether to your material body. As long as the tether remains intact, you can find your way home. If the cord is cut-something that can happen only when an effect specifically states that it does-your soul and body are separated, killing you instantly. Your astral form can freely travel through the Astral Plane and can pass through portals there leading to any other plane. If you enter a new plane or return to the plane you were on when casting this spell, your body and possessions are transported along the silver cord, allowing you to re-enter your body as you enter the new plane. Your astral form is a separate incarnation. Any damage or other effects that apply to it have no effect on your physical body, nor do they persist when you return to it. The spell ends for you and your companions when you use your action to dismiss it. When the spell ends, the affected creature returns to its physical body, and it awakens. The spell might also end early for you or one of your companions. A successful dispel magic spell used against an astral or physical body ends the spell for that creature. If a creature's original body or its astral form drops to 0 hit points, the spell ends for that creature. If the spell ends and the silver cord is intact, the cord pulls the creature's astral form back to its body, ending its state of suspended animation. If you are returned to your body prematurely, your companions remain in their astral forms and must find their own way back to their bodies, usually by dropping to 0 hit points."
+},
+{
+  "id": "astral_projection",
+  "name": "Astral Projection",
+  "level": 9,
+  "school": "Necromancy",
+  "class": [
+    "Cleric",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 hour",
+  "range": "touch",
+  "components": "V, S, M",
+  "duration": "Special",
+  "description": "Until the spell ends, the targets leave their material bodies (unconscious and in a state of suspended animation, not aging or requiring food or air) and project astral forms that resemble their mortal forms in nearly all ways, keeping their game statistics and possessions.\n\nWhile in this astral form you trail a tether, a silvery-white cord that sprouts from between your shoulder blades and fades into immateriality a foot behind you. As long as the tether remains intact you can find your way back to your material body. When it is cut—which requires an effect specifically stating that it cuts your tether —your soul and body are separated and you immediately die. Damage against and other effects on your astral form have no effect on your material body either during this spell or after its duration ends. Your astral form travels freely through the Astral Plane and can pass through interplanar portals on the Astral Plane leading to any other plane. When you enter a new plane or return to the plane you were on when casting this spell, your material body and possessions are transported along the tether, allowing you to return fully intact with all your gear as you enter the new plane.\n\nThe spell ends for all targets when you use an action to dismiss it, for an individual target when a successful dispel magic is cast upon its astral form or material body, or when either its material body or its astral form drops to 0 hit points. When the spell ends for a target and the tether is intact, the tether pulls the target's astral form back to its material body, ending the suspended animation.\n\nIf the spell ends for you prematurely, other targets remain in their astral forms and must find their own way back to their bodies (usually by dropping to 0 hit points)."
+},
+{
+  "id": "augury",
+  "name": "Augury",
+  "level": 2,
+  "school": "Divination",
+  "class": [
+    "Cleric",
+    "Ritual Caster"
+  ],
+  "castTime": "1 minute",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "By casting gem-inlaid sticks, rolling dragon bones, laying out ornate cards, or employing some other divining tool, you receive an omen from an otherworldly entity about the results of a specific course of action that you plan to take within the next 30 minutes. The DM chooses from the following possible omens: \n- Weal, for good results \n- Woe, for bad results \n- Weal and woe, for both good and bad results \n- Nothing, for results that aren't especially good or bad The spell doesn't take into account any possible circumstances that might change the outcome, such as the casting of additional spells or the loss or gain of a companion. If you cast the spell two or more times before completing your next long rest, there is a cumulative 25 percent chance for each casting after the first that you get a random reading. The DM makes this roll in secret."
+},
+{
+  "id": "augury",
+  "name": "Augury",
+  "level": 2,
+  "school": "Divination",
+  "class": [
+    "Cleric"
+  ],
+  "castTime": "1 minute",
+  "range": "self",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "With the aid of a divining tool, you receive an omen from beyond the Material Plane about the results of a specific course of action that you intend to take within the next 30 minutes. The Narrator chooses from the following:\n\n* Fortunate omen (good results)\n* Calamity omen (bad results)\n* Ambivalence omen (both good and bad results)\n* No omen (results that aren't especially good or bad)\n\nThis omen does not account for possible circumstances that could change the outcome, such as making additional preparations.\n\nWhen you cast this spell again before finishing a long rest, the chance of getting a random reading from the above options increases. The Narrator makes the following roll in secret: second casting—25%, third casting—50%, fourth casting—75%, fifth casting—100%."
+},
+{
+  "id": "aura_of_protection_or_destruction",
+  "name": "Aura of Protection or Destruction",
+  "level": 3,
+  "school": "abjuration",
+  "class": [
+    "Cleric",
+    "Paladin"
+  ],
+  "castTime": "1 action",
+  "range": "Self (30-foot radius)",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "When you cast this spell, you radiate an otherworldly energy that warps the fate of all creatures within 30 feet of you. Decide whether to call upon either a celestial or a fiend for aid. Choosing a celestial charges a 30-foot-radius around you with an aura of nonviolence; until the start of your next turn, every attack roll made by or against a creature inside the aura is treated as a natural 1. Choosing a fiend charges the area with an aura of violence; until the start of your next turn, every attack roll made by or against a creature inside the aura, including you, is treated as a natural 20.\n"
+},
+{
+  "id": "auspicious_warning",
+  "name": "Auspicious Warning",
+  "level": 1,
+  "school": "enchantment",
+  "class": [
+    "Bard",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 reaction, which you take when an ally makes an attack roll, ability check, or saving throw",
+  "range": "30 feet",
+  "components": "V",
+  "duration": "Instantaneous",
+  "description": "Just in time, you call out a fortunate warning to a creature within range. The target rolls a d4 and adds the number rolled to an attack roll, ability check, or saving throw that it has just made and uses the new result for determining success or failure."
+},
+{
+  "id": "avert_evil_eye",
+  "name": "Avert Evil Eye",
+  "level": 1,
+  "school": "abjuration",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "1 Hour",
+  "description": "The evil eye takes many forms. Any incident of bad luck can be blamed on it, especially if a character recently displayed arrogance or selfishness. When avert evil eye is cast, the recipient has a small degree of protection against the evil eye for up to 1 hour. While the spell lasts, the target of the spell has advantage on saving throws against being blinded, charmed, cursed, and frightened. During the spell's duration, the target can also cancel disadvantage on one d20 roll the target is about to make, but doing so ends the spell's effect."
+},
+{
+  "id": "avoid_grievous_injury",
+  "name": "Avoid Grievous Injury",
+  "level": 1,
+  "school": "divination",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 reaction, which you take when you are struck by a critical hit",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "You cast this spell when a foe strikes you with a critical hit but before damage dice are rolled. The critical hit against you becomes a normal hit."
+},
+{
+  "id": "avronin_s_astral_assembly",
+  "name": "Avronin’s Astral Assembly",
+  "level": 6,
+  "school": "necromancy",
+  "class": [
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "10 minutes",
+  "range": "Unlimited",
+  "components": "V, M",
+  "duration": "Up to 1 hour",
+  "description": "You alert a number of creatures that you are familiar with, up to your spellcasting ability modifier (minimum of 1), of your intent to communicate with them through spiritual projection. The invitation can extend any distance and even cross to other planes of existence. Once notified, the creatures can choose to accept this communication at any time during the duration of the spell.\n\nWhen a creature accepts, its spirit is projected into one of the gems used in casting the spell. The material body it leaves behind falls unconscious and doesn't need food or air. The creature's consciousness is present in the room with you, and its normal form appears as an astral projection within 5 feet of the gem its spirit occupies. You can see and hear all the creatures who have joined in the assembly, and they can see and hear you and each other as if they were present (which they are, astrally). They can't interact with anything physically.\n\nA creature can end the spell's effect on itself voluntarily at any time, as can you. When the effect ends or the duration expires, a creature's spirit returns to its body and it regains consciousness. A creature that withdraws voluntarily from the assembly can't rejoin it even if the spell is still active. If a gem is broken while occupied by a creature's astral self, the spirit in the gem returns to its body and the creature suffers two levels of exhaustion."
+},
+{
+  "id": "awaken",
+  "name": "Awaken",
+  "level": 5,
+  "school": "Transmutation",
+  "class": [
+    "Bard",
+    "Druid"
+  ],
+  "castTime": "8 hours",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "After spending the casting time tracing magical pathways within a precious gemstone, you touch a Huge or smaller beast or plant. The target must have either no Intelligence score or an Intelligence of 3 or less. The target gains an Intelligence of 10. The target also gains the ability to speak one language you know. If the target is a plant, it gains the ability to move its limbs, roots, vines, creepers, and so forth, and it gains senses similar to a human's. Your DM chooses statistics appropriate for the awakened plant, such as the statistics for the awakened shrub or the awakened tree. The awakened beast or plant is charmed by you for 30 days or until you or your companions do anything harmful to it. When the charmed condition ends, the awakened creature chooses whether to remain friendly to you, based on how you treated it while it was charmed."
+},
+{
+  "id": "awaken",
+  "name": "Awaken",
+  "level": 5,
+  "school": "Transmutation",
+  "class": [
+    "Bard",
+    "Druid"
+  ],
+  "castTime": "8 hours",
+  "range": "touch",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "You impart sentience in the target, granting it an Intelligence of 10 and proficiency in a language you know. A plant targeted by this spell gains the ability to move, as well as senses identical to those of a human. The Narrator assigns awakened plant statistics (such as an awakened shrub or awakened tree).\n\nThe target is charmed by you for 30 days or until you or your companions harm it. Depending on how you treated the target while it was charmed, when the condition ends the awakened creature may choose to remain friendly to you."
+},
+{
+  "id": "awaken_object",
+  "name": "Awaken Object",
+  "level": 8,
+  "school": "transmutation",
+  "class": [],
+  "castTime": "8 hours",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Permanent",
+  "description": "After spending the casting time enchanting a ruby along with a Large or smaller nonmagical object in humanoid form, you touch the ruby to the object. The ruby dissolves into the object, which becomes a living construct imbued with sentience. If the object has no face, a humanoid face appears on it in an appropriate location. The awakened object's statistics are determined by its size, as shown on the table below. An awakened object can use an action to make a melee weapon attack against a target within 5 feet of it. It has free will, acts independently, and speaks one language you know. It is initially friendly to anyone who assisted in its creation.\n\nAn awakened object's speed is 30 feet. If it has no apparent legs or other means of moving, it gains a flying speed of 30 feet and it can hover. Its sight and hearing are equivalent to a typical human's senses. Intelligence, Wisdom, and Charisma can be adjusted up or down by the GM to fit unusual circumstances. A beautiful statue might awaken with increased Charisma, for example, or the bust of a great philosopher could have surprisingly high Wisdom.\n\nAn awakened object needs no air, food, water, or sleep. Damage to an awakened object can be healed or mechanically repaired.\n\n| Size | HP | AC | Attack | Str | Dex | Con | Int | Wis | Cha |\n|---|---|---|---|---|---|---|---|---|---|\n| T | 20 | 18 | +8 to hit, 1d4 + 4 damage | 4 | 18 | 10 | 2d6 | 2d6 | 2d6 |\n| S | 25 | 16 | +6 to hit, 1d8 + 2 damage | 6 | 14 | 10  | 3d6 | 2d6 | 2d6 |\n| M | 40 | 13 | +5 to hit, 2d6 + 1 damage | 10 | 12  | 10 | 3d6 | 3d6 | 2d6 |\n| L | 50 | 10 | +6 to hit, 2d10 + 2 damage | 14 | 10 | 10 | 3d6 | 3d6 | 2d6 + 2 |\n\n"
+},
+{
+  "id": "babble",
+  "name": "Babble",
+  "level": 5,
+  "school": "enchantment",
+  "class": [
+    "Bard",
+    "Sorceror",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 Feet",
+  "components": "V, S",
+  "duration": "Up to 10 minutes",
+  "description": "This spell causes the speech of affected creatures to sound like nonsense. Each creature in a 30-foot-radius sphere centered on a point you choose within range must succeed on an Intelligence saving throw when you cast this spell or be affected by it.\n  An affected creature cannot communicate in any spoken language that it knows. When it speaks, the words come out as gibberish. Spells with verbal components cannot be cast. The spell does not affect telepathic communication, nonverbal communication, or sounds emitted by any creature that does not have a spoken language. As an action, a creature under the effect of this spell can attempt another Intelligence saving throw against the effect. On a successful save, the spell ends."
+},
+{
+  "id": "bad_timing",
+  "name": "Bad Timing",
+  "level": 2,
+  "school": "divination",
+  "class": [
+    "Bard",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V",
+  "duration": "Instantaneous",
+  "description": "You point toward a creature that you can see and twist strands of chaotic energy around its fate. If the target gets a failure on a Charisma saving throw, the next attack roll or ability check the creature attempts within 10 minutes is made with disadvantage."
+},
+{
+  "id": "bane",
+  "name": "Bane",
+  "level": 1,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Paladin"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "Up to three creatures of your choice that you can see within range must make charisma saving throws. Whenever a target that fails this saving throw makes an attack roll or a saving throw before the spell ends, the target must roll a d4 and subtract the number rolled from the attack roll or saving throw."
+},
+{
+  "id": "bane",
+  "name": "Bane",
+  "level": 1,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Cleric"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Until the spell ends, a d4 is subtracted from attack rolls and saving throws made by a target."
+},
+{
+  "id": "banishment",
+  "name": "Banishment",
+  "level": 4,
+  "school": "Abjuration",
+  "class": [
+    "Cleric",
+    "Paladin",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You attempt to send one creature that you can see within range to another plane of existence. The target must succeed on a charisma saving throw or be banished. If the target is native to the plane of existence you're on, you banish the target to a harmless demiplane. While there, the target is incapacitated. The target remains there until the spell ends, at which point the target reappears in the space it left or in the nearest unoccupied space if that space is occupied. If the target is native to a different plane of existence than the one you're on, the target is banished with a faint popping noise, returning to its home plane. If the spell ends before 1 minute has passed, the target reappears in the space it left or in the nearest unoccupied space if that space is occupied. Otherwise, the target doesn't return."
+},
+{
+  "id": "banishment",
+  "name": "Banishment",
+  "level": 4,
+  "school": "Abjuration",
+  "class": [
+    "Cleric",
+    "Herald",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1d4+2 round",
+  "description": "You employ sheer force of will to make reality question the existence of a nearby creature, causing them to warp visibly in front of you.\n\nUntil the spell ends, a target native to your current plane is banished to a harmless demiplane and incapacitated. At the end of the duration the target reappears in the space it left (or the nearest unoccupied space). A target native to a different plane is instead banished to its native plane.\n\nAt the end of each of its turns, a banished creature can repeat the saving throw with a -1 penalty for each round it has spent banished, returning on a success. If the spell ends before its maximum duration, the target reappears in the space it left (or the nearest unoccupied space) but otherwise a target native to a different plane doesn't return."
+},
+{
+  "id": "banshee_wail",
+  "name": "Banshee Wail",
+  "level": 6,
+  "school": "necromancy",
+  "class": [
+    "Wizard",
+    "Warlock",
+    "Sorceror"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "You emit a soul-shattering wail. Every creature within a 30-foot cone who hears the wail must make a Wisdom saving throw. Those that fail take 6d10 psychic damage and become frightened of you; a frightened creature repeats the saving throw at the end of its turn, ending the effect on itself on a success. Those that succeed take 3d10 psychic damage and aren't frightened. This spell has no effect on constructs and undead."
+},
+{
+  "id": "bardo",
+  "name": "Bardo",
+  "level": 3,
+  "school": "necromancy",
+  "class": [
+    "Cleric",
+    "Paladin",
+    "Sorceror",
+    "Wizard"
+  ],
+  "castTime": "1 reaction, which you take when you see a creature within 30 feet of you die",
+  "range": "30 Feet",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "You capture some of the fading life essence of the triggering creature, drawing on the energy of the tenuous moment between life and death. You can then use this essence to immediately harm or help a different creature you can see within range. If you choose to harm, the target must make a Wisdom saving throw. The target takes psychic damage equal to 6d8 + your spellcasting ability modifier on a failed save, or half as much damage on a successful one. If you choose to help, the target regains hit points equal to 3d8 + your spellcasting ability modifier. This spell can't be triggered by the death of a construct or an undead creature, and it can't restore hit points to constructs or undead."
+},
+{
+  "id": "barkskin",
+  "name": "Barkskin",
+  "level": 2,
+  "school": "Transmutation",
+  "class": [
+    "Cleric",
+    "Druid",
+    "Ranger"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "You touch a willing creature. Until the spell ends, the target's skin has a rough, bark-like appearance, and the target's AC can't be less than 16, regardless of what kind of armor it is wearing."
+},
+{
+  "id": "barkskin",
+  "name": "Barkskin",
+  "level": 2,
+  "school": "Transmutation",
+  "class": [
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "touch",
+  "components": "V, S, M",
+  "duration": "1 hour",
+  "description": "The target's skin takes on the texture and appearance of bark, increasing its AC to 16 (unless its AC is already higher)."
+},
+{
+  "id": "batsense",
+  "name": "Batsense",
+  "level": 2,
+  "school": "transmutation",
+  "class": [
+    "Bard",
+    "Druid",
+    "Ranger",
+    "Sorcerer"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "1 hour",
+  "description": "For the duration of the spell, a creature you touch can produce and interpret squeaking sounds used for echolocation, giving it blindsight out to a range of 60 feet. The target cannot use its blindsight while deafened, and its blindsight doesn't penetrate areas of magical silence. While using blindsight, the target has disadvantage on Dexterity (Stealth) checks that rely on being silent. Additionally, the target has advantage on Wisdom (Perception) checks that rely on hearing."
+},
+{
+  "id": "battle_chant",
+  "name": "Battle Chant",
+  "level": 2,
+  "school": "enchantment",
+  "class": [
+    "Warlock"
+  ],
+  "castTime": "1 minute",
+  "range": "60 Feet",
+  "components": "V, S, M",
+  "duration": "5 Minutes",
+  "description": "You bless up all allied creatures of your choice within range. Whenever a target lands a successful hit before the spell ends, the target can add 1 to the damage roll. When cast by multiple casters chanting in unison, the same increases to 2 points added to the damage roll."
+},
+{
+  "id": "battle_mind",
+  "name": "Battle Mind",
+  "level": 5,
+  "school": "divination",
+  "class": [
+    "Bard",
+    "Paladin",
+    "Sorceror",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "Up to 10 minutes",
+  "description": "You gain a preternatural sense of the surrounding area, allowing you insights you can share with comrades to provide them with an edge in combat. You gain advantage on Wisdom (Perception) checks made when determining surprise at the beginning of a combat encounter. If you are not surprised, then neither are your allies. When you are engaged in combat while the spell is active, you can use a bonus action on your turn to produce one of the following effects (allies must be able to see or hear you in order to benefit):\n* One ally gains advantage on its next attack roll, saving throw, or ability check.\n* An enemy has disadvantage on the next attack roll it makes against you or an ally.\n* You divine the location of an invisible or hidden creature and impart that knowledge to any allies who can see or hear you. This knowledge does not negate any advantages the creature has, it only allows your allies to be aware of its location at the time. If the creature moves after being detected, its new location is not imparted to your allies.\n* Three allies who can see and hear you on your turn are given the benefit of a *bless*, *guidance*, or *resistance spell* on their turns; you choose the benefit individually for each ally. An ally must use the benefit on its turn, or the benefit is lost."
+},
+{
+  "id": "battlecry_ballad",
+  "name": "Battlecry Ballad",
+  "level": 3,
+  "school": "Abjuration",
+  "class": [
+    "Bard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Up to  special",
+  "description": "You fill your allies with a thirst for glory and battle using your triumphant rallying cry. Expend and roll a Bardic Inspiration die to determine the number of rounds you can maintain concentration on this spell (minimum 1 round). Each target gains a bonus to attack and damage rolls equal to the number of rounds you have maintained concentration on this spell (maximum +4).\n\nYou cannot cast another spell through your spellcasting focus while concentrating on this spell."
+},
+{
+  "id": "beacon_of_hope",
+  "name": "Beacon of Hope",
+  "level": 3,
+  "school": "Abjuration",
+  "class": [
+    "Cleric",
+    "Paladin"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "This spell bestows hope and vitality. Choose any number of creatures within range. For the duration, each target has advantage on wisdom saving throws and death saving throws, and regains the maximum number of hit points possible from any healing."
+},
+{
+  "id": "beacon_of_hope",
+  "name": "Beacon of Hope",
+  "level": 3,
+  "school": "Abjuration",
+  "class": [
+    "Cleric"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "The targets are filled with hope and vitality.\n\nUntil the spell ends, each target gains advantage on Wisdom saving throws and death saving throws, and when a target receives healing it regains the maximum number of hit points possible."
+},
+{
+  "id": "beast_within",
+  "name": "Beast Within",
+  "level": 4,
+  "school": "transmutation",
+  "class": [
+    "Druid",
+    "Ranger",
+    "Warlock"
+  ],
+  "castTime": "1 round",
+  "range": "30 Feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "You imbue a willing creature with a touch of lycanthropy. The target gains a few bestial qualities appropriate to the type of lycanthrope you choose, such as tufts of fur, elongated claws, a fang-lined maw or tusks, and similar features. For the duration, the target has resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks that aren't silvered. In addition, the target has advantage on Wisdom (Perception) checks that rely on hearing or smell. Finally, the creature can use its new claws and jaw or tusks to make unarmed strikes. The claws deal slashing damage equal to 1d4 + the target's Strength modifier on a hit. The bite deals piercing damage equal to 1d6 + the target's Strength modifier on a hit. The target's bite doesn't inflict lycanthropy."
+},
+{
+  "id": "become_nightwing",
+  "name": "Become Nightwing",
+  "level": 6,
+  "school": "enchantment",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "This spell imbues you with wings of shadow. For the duration of the spell, you gain a flying speed of 60 feet and a new attack action: Nightwing Breath.\n\n***Nightwing Breath (Recharge 4–6).*** You exhale shadow‐substance in a 30-foot cone. Each creature in the area takes 5d6 necrotic damage, or half the damage with a successful Dexterity saving throw."
+},
+{
+  "id": "beguiling_bet",
+  "name": "Beguiling Bet",
+  "level": 2,
+  "school": "enchantment",
+  "class": [],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "1 minute",
+  "description": "You issue a challenge against one creature you can see within range, which must make a successful Wisdom saving throw or become charmed. On a failed save, you can make an ability check as a bonus action. For example, you could make a Strength (Athletics) check to climb a difficult surface or to jump as high as possible; you could make a Dexterity (Acrobatics) check to perform a backflip; or you could make a Charisma (Performance) check to sing a high note or to extemporize a clever rhyme. You can choose to use your spellcasting ability modifier in place of the usual ability modifier for this check, and you add your proficiency bonus if you're proficient in the skill being used.\n\nThe charmed creature must use its next action (which can be a legendary action) to make the same ability check in a contest against your check. Even if the creature can't perform the action—it may not be close enough to a wall to climb it, or it might not have appendages suitable for strumming a lute—it must still attempt the action to the best of its capability. If you win the contest, the spell (and the contest) continues, with you making a new ability check as a bonus action on your turn. The spell ends when it expires or when the creature wins the contest. "
+},
+{
+  "id": "beguiling_gift",
+  "name": "Beguiling Gift",
+  "level": 1,
+  "school": "enchantment",
+  "class": [
+    "Wizard",
+    "Warlock",
+    "Sorceror",
+    "Druid",
+    "Cleric",
+    "Bard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "S",
+  "duration": "Instantaneous",
+  "description": "Deep Magic: hieroglyph You implant a powerful suggestion into an item as you hand it to someone. If the person you hand it to accepts it willingly, they must make a successful Wisdom saving throw or use the object as it's meant to be used at their first opportunity: writing with a pen, consuming food or drink, wearing clothing, drawing a weapon, etc. After the first use, they're under no compulsion to continue using the object or even to keep it."
+},
+{
+  "id": "benediction",
+  "name": "Benediction",
+  "level": 6,
+  "school": "Abjuration",
+  "class": [
+    "Cleric",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You call down a blessing in the name of an angel of protection. A creature you can see within range shimmers with a faint white light. The next time the creature takes damage, it rolls a d4 and reduces the damage by the result. The spell then ends."
+},
+{
+  "id": "bestial_fury",
+  "name": "Bestial Fury",
+  "level": 2,
+  "school": "enchantment",
+  "class": [],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You instill primal fury into a creature you can see within range. The target must make a Charisma saving throw; a creature can choose to fail this saving throw. On a failure, the target must use its action to attack its nearest enemy it can see with unarmed strikes or natural weapons. For the duration, the target’s attacks deal an extra 1d6 damage of the same type dealt by its weapon, and the target can’t be charmed or frightened. If there are no enemies within reach, the target can use its action to repeat the saving throw, ending the effect on a success.\n\nThis spell has no effect on undead or constructs.\n"
+},
+{
+  "id": "bestow_curse",
+  "name": "Bestow Curse",
+  "level": 3,
+  "school": "Necromancy",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You touch a creature, and that creature must succeed on a wisdom saving throw or become cursed for the duration of the spell. When you cast this spell, choose the nature of the curse from the following options: \n- Choose one ability score. While cursed, the target has disadvantage on ability checks and saving throws made with that ability score. \n- While cursed, the target has disadvantage on attack rolls against you. \n- While cursed, the target must make a wisdom saving throw at the start of each of its turns. If it fails, it wastes its action that turn doing nothing. \n- While the target is cursed, your attacks and spells deal an extra 1d8 necrotic damage to the target. A remove curse spell ends this effect. At the DM's option, you may choose an alternative curse effect, but it should be no more powerful than those described above. The DM has final say on such a curse's effect."
+},
+{
+  "id": "bestow_curse",
+  "name": "Bestow Curse",
+  "level": 3,
+  "school": "Necromancy",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "touch",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "Choose one of the following:\n\n* Select one ability score; the target has disadvantage on ability checks and saving throws using that ability score.\n* The target makes attack rolls against you with disadvantage.\n* Each turn, the target loses its action unless it succeeds a Wisdom saving throw at the start of its turn.\n* Your attacks and spells deal an additional 1d8 necrotic damage against the target.\n\nA curse lasts until the spell ends. At the Narrator's discretion you may create a different curse effect with this spell so long as it is weaker than the options above.\n\nA _remove curse_ spell ends the effect if the spell slot used to cast it is equal to or greater than the spell slot used to cast _bestow curse_."
+},
+{
+  "id": "betraying_bauble",
+  "name": "Betraying Bauble",
+  "level": 2,
+  "school": "divination",
+  "class": [
+    "Sorceror",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "24 hours",
+  "description": "When you cast this spell, you touch a pair of objects. Each object must be small enough to fit in one hand. While holding one of the objects, you can sense the direction to the other object's location.\n  If the paired object is in motion, you know the direction and relative speed of its movement (walking, running, galloping, or similar). When the two objects are within 30 feet of each other, they vibrate faintly unless they are touching. If you aren't holding either item and the spell hasn't ended, you can sense the direction of the closest of the two objects within 1,000 feet of you, and you can sense if it is in motion. If neither object is within 1,000 feet of you, you sense the closest object as soon as you come within 1,000 feet of one of them. If an inch or more of lead blocks a direct path between you and an affected object, you can't sense that object."
+},
+{
+  "id": "binding_oath",
+  "name": "Binding Oath",
+  "level": 4,
+  "school": "necromancy",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Paladin"
+  ],
+  "castTime": "10 minutes",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Until dispelled",
+  "description": "You seal an agreement between two or more willing creatures with an oath in the name of the god of justice, using ceremonial blessings during which both the oath and the consequences of breaking it are set: if any of the sworn break this vow, they are struck by a curse. For each individual that does so, you choose one of the options given in the [bestow curse](https://api.open5e.com/spells/bestow-curse) spell. When the oath is broken, all participants are immediately aware that this has occurred, but they know no other details.\n\nThe curse effect of binding oath can’t be dismissed by [dispel magic](https://api.open5e.com/spells/dispel-magic), but it can be removed with [dispel evil and good](https://api.open5e.com/spells/dispel-evil-and-good)[remove curse](https://api.open5e.com/remove-curse), or [wish](https://api.open5e.com/spells/wish). Remove curse functions only if the spell slot used to cast it is equal to or higher than the spell slot used to cast **binding oath**. Depending on the nature of the oath, one creature’s breaking it may or may not invalidate the oath for the other targets. If the oath is completely broken, the spell ends for every affected creature, but curse effects already bestowed remain until dispelled."
+},
+{
+  "id": "biting_arrow",
+  "name": "Biting Arrow",
+  "level": 6,
+  "school": "Evocation",
+  "class": [
+    "Druid",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, M",
+  "duration": "1 round",
+  "description": "As part of the action used to cast this spell, you make a ranged weapon attack with a bow, a crossbow, or a thrown weapon. The effect is limited to a range of 120 feet despite the weapon’s range, and the attack is made with disadvantage if the target is in the weapon’s long range.\n\nIf the weapon attack hits, it deals damage as usual. In addition, the target becomes coated in thin frost until the start of your next turn. If the target uses its reaction before the start of your next turn, it immediately takes 1d6 cold damage and the spell ends."
+},
+{
+  "id": "bitter_chains",
+  "name": "Bitter Chains",
+  "level": 2,
+  "school": "transmutation",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "1 minute",
+  "description": "The spiked ring in your hand expands into a long, barbed chain to ensnare a creature you touch. Make a melee spell attack against the target. On a hit, the target is bound in metal chains for the duration. While bound, the target can move only at half speed and has disadvantage on attack rolls, saving throws, and Dexterity checks. If it moves more than 5 feet during a turn, it takes 3d6 piercing damage from the barbs.\n\nThe creature can escape from the chains by using an action and making a successful Strength or Dexterity check against your spell save DC, or if the chains are destroyed. The chains have AC 18 and 20 hit points."
+},
+{
+  "id": "black_goat_s_blessing",
+  "name": "Black Goat’s Blessing",
+  "level": 6,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Paladin",
+    "Ranger",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "1 round",
+  "description": "You raise your hand with fingers splayed and utter an incantation of the Black Goat with a Thousand Young. Your magic is blessed with the eldritch virility of the All‑Mother. The target has disadvantage on saving throws against spells you cast until the end of your next turn."
+},
+{
+  "id": "black_hand",
+  "name": "Black Hand",
+  "level": 4,
+  "school": "necromancy",
+  "class": [
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You gather the powers of darkness into your fist and fling dark, paralyzing flame at a target within 30 feet. If you make a successful ranged spell attack, this spell siphons vitality from the target into you. For the duration, the target has disadvantage (and you have advantage) on attack rolls, ability checks, and saving throws made with Strength, Dexterity, or Constitution. An affected target makes a Constitution saving throw (with disadvantage) at the end of its turn, ending the effect on a success."
+},
+{
+  "id": "black_ribbons",
+  "name": "Black Ribbons",
+  "level": 1,
+  "school": "conjuration",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "40 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You pull pieces of the plane of shadow into your own reality, causing a 20-foot cube to fill with inky ribbons that turn the area into difficult terrain and wrap around nearby creatures. Any creature that ends its turn in the area becomes restrained by the ribbons until the end of its next turn, unless it makes a successful Dexterity saving throw. Once a creature succeeds on this saving throw, it can’t be restrained again by the ribbons, but it’s still affected by the difficult terrain."
+},
+{
+  "id": "black_sunshine",
+  "name": "Black Sunshine",
+  "level": 8,
+  "school": "illusion",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self (60-foot radius)",
+  "components": "V, M",
+  "duration": "Up to 1 minute",
+  "description": "You hold up a flawed pearl and it disappears, leaving behind a magic orb in your hand that pulses with dim purple light. Allies that you designate become invisible if they're within 60 feet of you and if light from the orb can reach the space they occupy. An invisible creature still casts a faint, purple shadow.\n\nThe orb can be used as a thrown weapon to attack an enemy. On a hit, the orb explodes in a flash of light and the spell ends. The targeted enemy and each creature within 10 feet of it must make a successful Dexterity saving throw or be blinded for 1 minute. A creature blinded in this way repeats the saving throw at the end of each of its turns, ending the effect on itself on a success."
+},
+{
+  "id": "black_swan_storm",
+  "name": "Black Swan Storm",
+  "level": 2,
+  "school": "evocation",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You call forth a whirlwind of black feathers that fills a 5-foot cube within range. The feathers deal 2d8 force damage to creatures in the cube’s area and radiate darkness, causing the illumination level within 20 feet of the cube to drop by one step (from bright light to dim light, and from dim light to darkness). Creatures that make a successful Dexterity saving throw take half the damage and are still affected by the change in light.\n"
+},
+{
+  "id": "black_tentacles",
+  "name": "Black Tentacles",
+  "level": 4,
+  "school": "Conjuration",
+  "class": [
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "90 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "Squirming, ebony tentacles fill a 20-foot square on ground that you can see within range. For the duration, these tentacles turn the ground in the area into difficult terrain. When a creature enters the affected area for the first time on a turn or starts its turn there, the creature must succeed on a Dexterity saving throw or take 3d6 bludgeoning damage and be restrained by the tentacles until the spell ends. A creature that starts its turn in the area and is already restrained by the tentacles takes 3d6 bludgeoning damage. A creature restrained by the tentacles can use its action to make a Strength or Dexterity check (its choice) against your spell save DC. On a success, it frees itself."
+},
+{
+  "id": "black_tentacles",
+  "name": "Black Tentacles",
+  "level": 4,
+  "school": "Conjuration",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "Writhing black tentacles fill the ground within the area turning it into difficult terrain. When a creature starts its turn in the area or enters the area for the first time on its turn, it takes 3d6 bludgeoning damage and is restrained by the tentacles unless it succeeds on a Dexterity saving throw. A creature that starts its turn restrained by the tentacles takes 3d6 bludgeoning damage.\n\nA restrained creature can use its action to make an Acrobatics or Athletics check against the spell save DC, freeing itself on a success."
+},
+{
+  "id": "black_well",
+  "name": "Black Well",
+  "level": 6,
+  "school": "necromancy",
+  "class": [],
+  "castTime": "1 action",
+  "range": "300 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You summon a seething sphere of dark energy 5 feet in diameter at a point within range. The sphere pulls creatures toward it and devours the life force of those it envelops. Every creature other than you that starts its turn within 90 feet of the black well must make a successful Strength saving throw or be pulled 50 feet toward the well. A creature pulled into the well takes 6d8 necrotic damage and is stunned; a successful Constitution saving throw halves the damage and causes the creature to become incapacitated. A creature that starts its turn inside the well also makes a Constitution saving throw; the creature is stunned on a failed save or incapacitated on a success. An incapacitated creature that leaves the well recovers immediately and can take actions and reactions on that turn. A creature takes damage only upon entering the well—it takes no additional damage for remaining there—but if it leaves the well and is pulled back in again, it takes damage again. A total of nine Medium creatures, three Large creatures, or one Huge creature can be inside the well’s otherdimensional space at one time. When the spell’s duration ends, all creatures inside it tumble out in a heap, landing prone.\n"
+},
+{
+  "id": "blade_barrier",
+  "name": "Blade Barrier",
+  "level": 6,
+  "school": "Evocation",
+  "class": [
+    "Cleric"
+  ],
+  "castTime": "1 action",
+  "range": "90 feet",
+  "components": "V, S",
+  "duration": "Up to 10 minutes",
+  "description": "You create a vertical wall of whirling, razor-sharp blades made of magical energy. The wall appears within range and lasts for the duration. You can make a straight wall up to 100 feet long, 20 feet high, and 5 feet thick, or a ringed wall up to 60 feet in diameter, 20 feet high, and 5 feet thick. The wall provides three-quarters cover to creatures behind it, and its space is difficult terrain. When a creature enters the wall's area for the first time on a turn or starts its turn there, the creature must make a dexterity saving throw. On a failed save, the creature takes 6d10 slashing damage. On a successful save, the creature takes half as much damage."
+},
+{
+  "id": "blade_barrier",
+  "name": "Blade Barrier",
+  "level": 6,
+  "school": "Evocation",
+  "class": [
+    "Cleric"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S",
+  "duration": "Up to 10 minutes",
+  "description": "You create a wall of slashing blades. The wall can be up to 20 feet high and 5 feet thick, and can either be a straight wall up to 100 feet long or a ringed wall of up to 60 feet in diameter. The wall provides three-quarters cover and its area is difficult terrain.\n\nWhen a creature starts its turn within the wall's area or enters the wall's area for the first time on a turn, it makes a Dexterity saving throw, taking 6d10 slashing damage on a failed save, or half as much on a successful save."
+},
+{
+  "id": "blade_of_wrath",
+  "name": "Blade of Wrath",
+  "level": 3,
+  "school": "evocation",
+  "class": [
+    "Cleric",
+    "Paladin",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 bonus action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "Up to 10 minutes",
+  "description": "You create a sword of pure white fire in your free hand. The blade is similar in size and shape to a longsword, and it lasts for the duration. The blade disappears if you let go of it, but you can call it forth again as a bonus action.\n\nYou can use your action to make a melee spell attack with the blade. On a hit, the target takes 2d8 fire damage and 2d8 radiant damage. An aberration, fey, fiend, or undead creature damaged by the blade must succeed on a Wisdom saving throw or be frightened until the start of your next turn.\n\nThe blade sheds bright light in a 20-foot radius and dim light for an additional 20 feet.\n"
+},
+{
+  "id": "blade_of_my_brother",
+  "name": "Blade of my Brother",
+  "level": 4,
+  "school": "transmutation",
+  "class": [
+    "Cleric",
+    "Paladin"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Up to 4 rounds",
+  "description": "You touch a melee weapon that was used by an ally who is now dead, and it leaps into the air and flies to another ally (chosen by you) within 15 feet of you. The weapon enters that ally’s space and moves when the ally moves. If the weapon or the ally is forced to move more than 5 feet from the other, the spell ends.\n\nThe weapon acts on your turn by making an attack if a target presents itself. Its attack modifier equals your spellcasting level + the weapon’s inherent magical bonus, if any; it receives only its own inherent magical bonus to damage. The weapon fights for up to 4 rounds or until your concentration is broken, after which the spell ends and it falls to the ground."
+},
+{
+  "id": "blazing_chariot",
+  "name": "Blazing Chariot",
+  "level": 5,
+  "school": "conjuration",
+  "class": [
+    "Cleric",
+    "Paladin",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "1 hour",
+  "description": "Calling upon the might of the angels, you conjure a flaming chariot made of gold and mithral in an unoccupied 10-foot‐square space you can see within range. Two horses made of fire and light pull the chariot. You and up to three other Medium or smaller creatures you designate can board the chariot (at the cost of 5 feet of movement) and are unharmed by the flames. Any other creature that touches the chariot or hits it (or a creature riding in it) with a melee attack while within 5 feet of the chariot takes 3d6 fire damage and 3d6 radiant damage. The chariot has AC 18 and 50 hit points, is immune to fire, poison, psychic, and radiant damage, and has resistance to all other nonmagical damage. The horses are not separate creatures but are part of the chariot. The chariot vanishes if it is reduced to 0 hit points, and any creature riding it falls out. The chariot has a speed of 50 feet and a flying speed of 40 feet.\n\nOn your turn, you can guide the chariot in place of your own movement. You can use a bonus action to direct it to take the Dash, Disengage, or Dodge action. As an action, you can use the chariot to overrun creatures in its path. On this turn, the chariot can enter a hostile creature’s space. The creature takes damage as if it had touched the chariot, is shunted to the nearest unoccupied space that it can occupy, and must make a successful Strength saving throw or fall prone in that space."
+},
+{
+  "id": "bleating_call",
+  "name": "Bleating Call",
+  "level": 2,
+  "school": "enchantment",
+  "class": [
+    "Bard",
+    "Ranger",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "90 feet",
+  "components": "S, M",
+  "duration": "1 minute",
+  "description": "You create a sound on a point within range. The sound’s volume can range from a whisper to a scream, and it can be any sound you choose. The sound continues unabated throughout the duration, or you can make discrete sounds at different times before the spell ends.\n\nEach creature that starts its turn within 30 feet of the sound and can hear it must make a Wisdom saving throw. On a failed save, the target must take the Dash or Disengage action and move toward the sound by the safest available route on each of its turns. When it arrives to the source of the sound, the target must use its action to examine the sound. Once it has examined the sound, the target determines the sound is illusory and can no longer hear it, ending the spell’s effects on that target and preventing the target from being affected by the sound again for the duration of the spell. If a target takes damage from you or a creature friendly to you, it is no longer under the effects of this spell.\n\nCreatures that can’t be charmed are immune to this spell."
+},
+{
+  "id": "bleed",
+  "name": "Bleed",
+  "level": 1,
+  "school": "necromancy",
+  "class": [
+    "Ranger",
+    "Warlock"
+  ],
+  "castTime": "1 bonus action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "Crackling energy coats the blade of one weapon you are carrying that deals slashing damage. Until the spell ends, when you hit a creature with the weapon, the weapon deals an extra 1d4 necrotic damage and the creature must make a Constitution saving throw. On a failed save, the creature suffers a bleeding wound. Each time you hit a creature with this weapon while it suffers from a bleeding wound, your weapon deals an extra 1 necrotic damage for each time you have previously hit the creature with this weapon (to a maximum of 10 necrotic damage).\n\nAny creature can take an action to stanch the bleeding wound by succeeding on a Wisdom (Medicine) check against your spell save DC. The wound also closes if the target receives magical healing. This spell has no effect on undead or constructs."
+},
+{
+  "id": "bless",
+  "name": "Bless",
+  "level": 1,
+  "school": "Enchantment",
+  "class": [
+    "Cleric",
+    "Paladin"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You bless up to three creatures of your choice within range. Whenever a target makes an attack roll or a saving throw before the spell ends, the target can roll a d4 and add the number rolled to the attack roll or saving throw."
+},
+{
+  "id": "bless",
+  "name": "Bless",
+  "level": 1,
+  "school": "Enchantment",
+  "class": [
+    "Cleric",
+    "Herald"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "The blessing you bestow upon the targets makes them more durable and competent. Until the spell ends, a d4 is added to attack rolls and saving throws made by a target."
+},
+{
+  "id": "bless_the_dead",
+  "name": "Bless the Dead",
+  "level": 6,
+  "school": "Abjuration",
+  "class": [
+    "Cleric",
+    "Druid",
+    "Warlock"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "You grant a blessing to one deceased creature, enabling it to cross over to the realm of the dead in peace. A creature that benefits from **bless the dead** can’t become undead. The spell has no effect on living creatures or the undead."
+},
+{
+  "id": "blessed_halo",
+  "name": "Blessed Halo",
+  "level": 2,
+  "school": "evocation",
+  "class": [
+    "Cleric",
+    "Paladin",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "A nimbus of golden light surrounds your head for the duration. The halo sheds bright light in a 20-foot radius and dim light for an additional 20 feet.\n\nThis spell grants you a pool of 10 points of healing. When you cast the spell and as an action on subsequent turns during the spell’s duration, you can expend points from this pool to restore an equal number of hit points to one creature within 20 feet that you can see.\n\nAdditionally, you have advantage on Charisma checks made against good creatures within 20 feet.\n\nIf any of the light created by this spell overlaps an area of magical darkness created by a spell of 2nd level or lower, the spell that created the darkness is dispelled.\n"
+},
+{
+  "id": "blight",
+  "name": "Blight",
+  "level": 4,
+  "school": "Necromancy",
+  "class": [
+    "Druid",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "Necromantic energy washes over a creature of your choice that you can see within range, draining moisture and vitality from it. The target must make a constitution saving throw. The target takes 8d8 necrotic damage on a failed save, or half as much damage on a successful one. The spell has no effect on undead or constructs. If you target a plant creature or a magical plant, it makes the saving throw with disadvantage, and the spell deals maximum damage to it. If you target a nonmagical plant that isn't a creature, such as a tree or shrub, it doesn't make a saving throw; it simply withers and dies."
+},
+{
+  "id": "blight",
+  "name": "Blight",
+  "level": 4,
+  "school": "Necromancy",
+  "class": [
+    "Druid",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "Necrotic energies drain moisture and vitality from the target, dealing 8d8 necrotic damage. Undead and constructs are immune to this spell.\n\nA plant creature or magical plant has disadvantage on its saving throw and takes the maximum damage possible from this spell. A nonmagical plant that isn't a creature receives no saving throw and instead withers until dead."
+},
+{
+  "id": "blindness_deafness",
+  "name": "Blindness/Deafness",
+  "level": 2,
+  "school": "Necromancy",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V",
+  "duration": "1 minute",
+  "description": "You can blind or deafen a foe. Choose one creature that you can see within range to make a constitution saving throw. If it fails, the target is either blinded or deafened (your choice) for the duration. At the end of each of its turns, the target can make a constitution saving throw. On a success, the spell ends."
+},
+{
+  "id": "blindness_deafness",
+  "name": "Blindness/Deafness",
+  "level": 2,
+  "school": "Necromancy",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V",
+  "duration": "1 minute",
+  "description": "Until the spell ends, the target is blinded or deafened (your choice). At the end of each of its turns the target can repeat its saving throw, ending the spell on a success."
+},
+{
+  "id": "blink",
+  "name": "Blink",
+  "level": 3,
+  "school": "Transmutation",
+  "class": [
+    "Cleric",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "1 minute",
+  "description": "Roll a d20 at the end of each of your turns for the duration of the spell. On a roll of 11 or higher, you vanish from your current plane of existence and appear in the Ethereal Plane (the spell fails and the casting is wasted if you were already on that plane). At the start of your next turn, and when the spell ends if you are on the Ethereal Plane, you return to an unoccupied space of your choice that you can see within 10 feet of the space you vanished from. If no unoccupied space is available within that range, you appear in the nearest unoccupied space (chosen at random if more than one space is equally near). You can dismiss this spell as an action. While on the Ethereal Plane, you can see and hear the plane you originated from, which is cast in shades of gray, and you can't see anything there more than 60 feet away. You can only affect and be affected by other creatures on the Ethereal Plane. Creatures that aren't there can't perceive you or interact with you, unless they have the ability to do so."
+},
+{
+  "id": "blink",
+  "name": "Blink",
+  "level": 3,
+  "school": "Transmutation",
+  "class": [
+    "Artificer",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "self",
+  "components": "V, S",
+  "duration": "1 minute",
+  "description": "Until the spell ends, roll 1d20 at the end of each of your turns. When you roll an 11 or higher you disappear and reappear in the Ethereal Plane (if you are already on the Ethereal Plane, the spell fails and the spell slot is wasted). At the start of your next turn you return to an unoccupied space that you can see within 10 feet of where you disappeared from. If no unoccupied space is available within range, you reappear in the nearest unoccupied space (determined randomly when there are multiple nearest choices). As an action, you can dismiss this spell.\n\nWhile on the Ethereal Plane, you can see and hear into the plane you were originally on out to a range of 60 feet, but everything is obscured by mist and in shades of gray. You can only target and be targeted by other creatures on the Ethereal Plane.\n\nCreatures on your original plane cannot perceive or interact with you, unless they are able to interact with the Ethereal Plane."
+},
+{
+  "id": "blizzard",
+  "name": "Blizzard",
+  "level": 7,
+  "school": "conjuration",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "100 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "A howling storm of thick snow and ice crystals appears in a cylinder 40 feet high and 40 feet in diameter within range. The area is heavily obscured by the swirling snow. When the storm appears, each creature in the area takes 8d8 cold damage, or half as much damage with a successful Constitution saving throw. A creature also makes this saving throw and takes damage when it enters the area for the first time on a turn or ends its turn there. In addition, a creature that takes cold damage from this spell has disadvantage on Constitution saving throws to maintain concentration until the start of its next turn."
+},
+{
+  "id": "blood_armor",
+  "name": "Blood Armor",
+  "level": 3,
+  "school": "necromancy",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 bonus action",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "1 hour",
+  "description": "When you strike a foe with a melee weapon attack, you can immediately cast **blood armor** as a bonus action. The foe you struck must contain blood; if the target doesn’t bleed, the spell ends without effect. The blood flowing from your foe magically increases in volume and forms a suit of armor around you, granting you an Armor Class of 18 + your Dexterity modifier for the spell’s duration. This armor has no Strength requirement, doesn’t hinder spellcasting, and doesn’t incur disadvantage on Dexterity (Stealth) checks.\n\nIf the creature you struck was a celestial, **blood armor** also grants you advantage on Charisma saving throws for the duration of the spell."
+},
+{
+  "id": "blood_lure",
+  "name": "Blood Lure",
+  "level": 2,
+  "school": "enchantment",
+  "class": [
+    "Cleric",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "10 feet",
+  "components": "V, S, M",
+  "duration": "1 minute",
+  "description": "You point at any location (a jar, a bowl, even a puddle) within range that contains at least a pint of blood. Each creature that feeds on blood and is within 60 feet of that location must make a Charisma saving throw. (This includes undead, such as vampires.) A creature that has Keen Smell or any similar scent-boosting ability has disadvantage on the saving throw, while undead have advantage on the saving throw. On a failed save, the creature is attracted to the blood and must move toward it unless impeded.\n\nOnce an affected creature reaches the blood, it tries to consume it, foregoing all other actions while the blood is present. A successful attack against an affected creature ends the effect, as does the consumption of the blood, which requires an action by an affected creature."
+},
+{
+  "id": "blood_offering",
+  "name": "Blood Offering",
+  "level": 3,
+  "school": "necromancy",
+  "class": [
+    "Druid",
+    "Ranger",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "You touch the corpse of a creature that isn’t undead or a construct and consume its life force. You must have dealt damage to the creature before it died, and it must have been dead for no more than 1 hour. You regain a number of hit points equal to 1d4 × the creature's challenge rating (minimum of 1d4). The creature can be restored to life only by means of a [true resurrection](https://api.open5e.com/spells/true-resurrection) or a [wish](https://api.open5e.com/spells/wish) spell."
+},
+{
+  "id": "blood_puppet",
+  "name": "Blood Puppet",
+  "level": 4,
+  "school": "transmutation",
+  "class": [
+    "Cleric",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "100 feet",
+  "components": "V, M",
+  "duration": "Up to 1 minute",
+  "description": "With a sample of its blood, you are able to magically control a creature’s actions, like a marionette on magical strings. Choose a creature you can see within range whose blood you hold. The target must succeed on a Constitution saving throw, or you gain control over its physical activity (as long as you interact with the blood material component each round). As a bonus action on your turn, you can direct the creature to perform various activities. You can specify a simple and general course of action, such as, “Attack that creature,” “Run over there,” or, “Fetch that object.” If the creature completes the order and doesn’t receive further direction from you, it defends and preserves itself to the best of its ability. The target is aware of being controlled. At the end of each of its turns, the target can make another Constitution saving throw. On a success, the spell ends."
+},
+{
+  "id": "blood_scarab",
+  "name": "Blood Scarab",
+  "level": 1,
+  "school": "necromancy",
+  "class": [
+    "Cleric",
+    "Warlock"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, M",
+  "duration": "Instantaneous",
+  "description": "Your blood is absorbed into the beetle’s exoskeleton to form a beautiful, rubylike scarab that flies toward a creature of your choice within range. The target must make a successful Constitution saving throw or take 1d6 necrotic damage. You gain temporary hit points equal to the necrotic damage dealt.\n"
+},
+{
+  "id": "blood_spoor",
+  "name": "Blood Spoor",
+  "level": 4,
+  "school": "divination",
+  "class": [],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "Up to 10 minutes",
+  "description": "By touching a drop of your quarry’s blood (spilled or drawn within the past hour), you can follow the creature’s trail unerringly across any surface or under water, no matter how fast you are moving. If your quarry takes flight, you can follow its trail along the ground—or through the air, if you have the means to fly.\n\nIf your quarry moves magically (such as by way of a [dimension door](https://api.open5e.com/spells/dimension-door) or a [teleport](https://api.open5e.com/spells/teleport) spell), you sense its trail as a straight path leading from where the magical movement started to where it ended. Such a route might lead through lethal or impassable barriers. This spell even reveals the route of a creature using [pass without trace](https://api.open5e.com/spells/pass-without-trace), but it fails to locate a creature protected by [nondetection](https://api.open5e.com/spells/nondetection) or by other effects that prevent [scrying](https://api.open5e.com/spells/scrying) spells or cause [divination](https://api.open5e.com/spells/divination) spells to fail. If your quarry moves to another plane, its trail ends without trace, but **blood spoor** picks up the trail again if the caster moves to the same plane as the quarry before the spell’s duration expires."
+},
+{
+  "id": "blood_strike",
+  "name": "Blood Strike",
+  "level": 5,
+  "school": "necromancy",
+  "class": [],
+  "castTime": "10 minutes",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "Special (see below)",
+  "description": "By performing this ritual, you can cast a spell on one nearby creature and have it affect a different, more distant creature. Both targets must be related by blood (no more distantly than first cousins). Neither of them needs to be a willing target. The blood strike ritual is completed first, taking 10 minutes to cast on yourself. Then the spell to be transferred is immediately cast by you on the initial target, which must be close enough to touch no matter what the spell's normal range is. The secondary target must be within 1 mile and on the same plane of existence as you. If the second spell allows a saving throw, it's made by the secondary target, not the initial target. If the saving throw succeeds, any portion of the spell that's avoided or negated by the secondary target affects the initial target instead. A creature can be the secondary target of blood strike only once every 24 hours; subsequent attempts during that time take full effect against the initial target with no chance to affect the secondary target. Only spells that have a single target can be transferred via blood stike. For example, a lesser restoration) currently affecting the initial creature and transfer it to the secondary creature, which then makes any applicable saving throw against the effect. If the saving throw fails or there is no saving throw, the affliction transfers completely and no longer affects the initial target. If the saving throw succeeds, the initial creature is still afflicted and also suffers anew any damage or conditions associated with first exposure to the affliction."
+},
+{
+  "id": "blood_tide",
+  "name": "Blood Tide",
+  "level": 6,
+  "school": "Necromancy",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "25 feet",
+  "components": "V",
+  "duration": "4 rounds",
+  "description": "When you cast this spell, a creature you designate within range must succeed on a Constitution saving throw or bleed from its nose, eyes, ears, and mouth. This bleeding deals no damage but imposes a –2 penalty on the creature’s Intelligence, Charisma, and Wisdom checks. **Blood tide** has no effect on undead or constructs.\n\nA bleeding creature might attract the attention of creatures such as stirges, sharks, or giant mosquitoes, depending on the circumstances.\n\nA [cure wounds](https://api.open5e.com/spells/cure-wounds) spell stops the bleeding before the duration of blood tide expires, as does a successful DC 10 Wisdom (Medicine) check."
+},
+{
+  "id": "blood_and_steel",
+  "name": "Blood and Steel",
+  "level": 4,
+  "school": "transmutation",
+  "class": [
+    "Cleric",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "When you cast this spell, you cut your hand and take 1d4 slashing damage that can’t be healed until you take a long rest. You then touch a construct; it must make a successful Constitution saving throw or be charmed by you for the duration. If you or your allies are fighting the construct, it has advantage on the saving throw. Even constructs that are immune to charm effects can be affected by this spell.\n\nWhile the construct is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as, “Attack the ghouls,” “Block the bridge,” or, “Fetch that bucket.” If the construct completes the order and doesn’t receive further direction from you, it defends itself.\n\nYou can use your action to take total and precise control of the target. Until the end of your next turn, the construct takes only the actions you specify and does nothing you haven’t ordered it to do. During this time, you can also cause the construct to use a reaction, but doing this requires you to use your own reaction as well.\n\nEach time the construct takes damage, it makes a new Constitution saving throw against the spell. If the saving throw succeeds, the spell ends.\n\nIf the construct is already under your control when the spell is cast, it gains an Intelligence of 10 (unless its own Intelligence is higher, in which case it retains the higher score) for 4 hours. The construct is capable of acting independently, though it remains loyal to you for the spell’s duration. You can also grant the target a bonus equal to your Intelligence modifier on one skill in which you have proficiency.\n"
+},
+{
+  "id": "blood_to_acid",
+  "name": "Blood to Acid",
+  "level": 9,
+  "school": "transmutation",
+  "class": [],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "When you cast this spell, you designate a creature within range and convert its blood into virulent acid. The target must make a Constitution saving throw. On a failed save, it takes 10d12 acid damage and is stunned by the pain for 1d4 rounds. On a successful save, it takes half the damage and isn’t stunned.\n\nCreatures without blood, such as constructs and plants, are not affected by this spell. If **blood to acid** is cast on a creature composed mainly of blood, such as a [blood elemental](https://api.open5e.com/monsters/blood-elemental) or a [blood zombie](https://api.open5e.com/monsters/blood-zombie), the creature is slain by the spell if its saving throw fails."
+},
+{
+  "id": "blood_writ_bargain",
+  "name": "Blood-Writ Bargain",
+  "level": 3,
+  "school": "Conjuration",
+  "class": [
+    "Cleric",
+    "Herald",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "touch",
+  "components": "V, S, M",
+  "duration": "13 days",
+  "description": "This spell creates a pact which is enforced by celestial or fiendish forces. You and another willing creature commit to a mutual agreement, clearly declaring your parts of the agreement during the casting.\n\nUntil the spell ends, if for any reason either participant breaks the agreement or fails to uphold their part of the bargain, beings of celestial or fiendish origin appear within unoccupied spaces as close as possible to the participant who broke the bargain. The beings are hostile to the deal-breaking participant and attempt to kill them, as well as any creatures that defend them. When the dealbreaking participant is killed, or the spell's duration ends, the beings disappear in a flash of smoke.\n\nThe spellcaster chooses whether the beings are celestial or fiendish while casting the spell, and the Narrator chooses the exact creatures summoned (such as a couatl or 5 imps). There may be any number of beings, but their combined Challenge Rating can't exceed 5."
+},
+{
+  "id": "bloodhound",
+  "name": "Bloodhound",
+  "level": 1,
+  "school": "transmutation",
+  "class": [
+    "Druid",
+    "Ranger",
+    "Sorceror",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "8 hours",
+  "description": "You touch a willing creature to grant it an enhanced sense of smell. For the duration, that creature has advantage on Wisdom (Perception) checks that rely on smell and Wisdom (Survival) checks to follow tracks."
+},
+{
+  "id": "bloodlust",
+  "name": "Bloodlust",
+  "level": 2,
+  "school": "enchantment",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 Feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You imbue a willing creature that you can see within range with vitality and fury. The target gains 1d6 temporary hit points, has advantage on Strength checks, and deals an extra 1d6 damage when it hits with a weapon attack. When the spell ends, the target suffers one level of exhaustion for 1 minute."
+},
+{
+  "id": "bloodshot",
+  "name": "Bloodshot",
+  "level": 2,
+  "school": "conjuration",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "40 feet",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "You launch a jet of boiling blood from your eyes at a creature within range. You take 1d6 necrotic damage and make a ranged spell attack against the target. If the attack hits, the target takes 2d10 fire damage plus 2d8 psychic damage.\n"
+},
+{
+  "id": "bloody_hands",
+  "name": "Bloody Hands",
+  "level": 1,
+  "school": "necromancy",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You cause the hands (or other appropriate body parts, such as claws or tentacles) of a creature within range to bleed profusely. The target must succeed on a Constitution saving throw or take 1 necrotic damage each round and suffer disadvantage on all melee and ranged attack rolls that require the use of its hands for the spell’s duration.\n\nCasting any spell that has somatic or material components while under the influence of this spell requires a DC 10 Constitution saving throw. On a failed save, the spell is not cast but it is not lost; the casting can be attempted again in the next round."
+},
+{
+  "id": "bloody_smite",
+  "name": "Bloody Smite",
+  "level": 1,
+  "school": "necromancy",
+  "class": [
+    "Cleric",
+    "Druid",
+    "Ranger",
+    "Wizard"
+  ],
+  "castTime": "1 bonus action",
+  "range": "Self",
+  "components": "V",
+  "duration": "Up to 1 minute",
+  "description": "The next time during the spell’s duration that you hit a creature with a melee weapon attack, your weapon pulses with a dull red light, and the attack deals an extra 1d6 necrotic damage to the target. Until the spell ends, the target must make a Constitution saving throw at the start of each of its turns. On a failed save, it takes 1d6 necrotic damage, it bleeds profusely from the mouth, and it can’t speak intelligibly or cast spells that have a verbal component. On a successful save, the spell ends. If the target or an ally within 5 feet of it uses an action to tend the wound and makes a successful Wisdom (Medicine) check against your spell save DC, or if the target receives magical healing, the spell ends."
+},
+{
+  "id": "bloom",
+  "name": "Bloom",
+  "level": 8,
+  "school": "conjuration",
+  "class": [
+    "Cleric",
+    "Druid",
+    "Wizard"
+  ],
+  "castTime": "1 hour",
+  "range": "1 mile",
+  "components": "V, S, M",
+  "duration": "1 year",
+  "description": "You plant a silver acorn in solid ground and spend an hour chanting a litany of praises to the natural world, after which the land within 1 mile of the acorn becomes extremely fertile, regardless of its previous state. Any seeds planted in the area grow at twice the natural rate. Food harvested regrows within a week. After one year, the land slowly reverts to its normal fertility, unable to stave off the march of nature.\n\nChoose one of the following effects, which appears and grows immediately:\n* A field planted with vegetables of your choice, ready for harvest.\n* A thick forest of stout trees and ample undergrowth.\n* A grassland with wildflowers and fodder for grazing.\n* An orchard of fruit trees of your choice, growing in orderly rows and ready for harvest.\nLiving creatures that take a short rest within the area of a bloom spell receive the maximum hit points for Hit Dice expended. **Bloom** counters the effects of a [desolation](https://api.open5e.com/spells/desolation) spell.\n\n***Ritual Focus.*** If you expend your ritual focus, the duration becomes permanent."
+},
+{
+  "id": "blunted_edge",
+  "name": "Blunted Edge",
+  "level": 3,
+  "school": "enchantment",
+  "class": [
+    "Cleric",
+    "Sorceror",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 Feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "Choose a creature that you can see within range. The target must succeed on a Wisdom saving throw or have disadvantage on weapon attack rolls. In addition, when an affected creature rolls damage dice for a successful attack, it must roll the weapon's damage dice twice and use the lower total. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target."
+},
+{
+  "id": "blur",
+  "name": "Blur",
+  "level": 2,
+  "school": "Illusion",
+  "class": [
+    "Druid",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V",
+  "duration": "Up to 1 minute",
+  "description": "Your body becomes blurred, shifting and wavering to all who can see you. For the duration, any creature has disadvantage on attack rolls against you. An attacker is immune to this effect if it doesn't rely on sight, as with blindsight, or can see through illusions, as with truesight."
+},
+{
+  "id": "blur",
+  "name": "Blur",
+  "level": 2,
+  "school": "Illusion",
+  "class": [
+    "Artificer",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "self",
+  "components": "V",
+  "duration": "Up to 1 minute",
+  "description": "Until the spell ends, you are shrouded in distortion and your image is blurred. Creatures make attack rolls against you with disadvantage unless they have senses that allow them to perceive without sight or to see through illusions (like blindsight or truesight)."
+},
+{
+  "id": "boiling_blood",
+  "name": "Boiling Blood",
+  "level": 4,
+  "school": "necromancy",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You cause the blood within a creature’s body to boil with supernatural heat. Choose one creature that you can see within range that isn’t a construct or an undead. The target must make a Constitution saving throw. On a successful save, it takes 2d6 fire damage and the spell ends. On a failed save, the creature takes 4d6 fire damage and is blinded. At the end of each of its turns, the target can make another Constitution saving throw. On a success, the spell ends. On a failure, the creature takes an additional 2d6 fire damage and remains blinded.\n"
+},
+{
+  "id": "boiling_oil",
+  "name": "Boiling Oil",
+  "level": 2,
+  "school": "conjuration",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You conjure a shallow, 15-foot-radius pool of boiling oil centered on a point within range. The pool is difficult terrain, and any creature that enters the pool or starts its turn there must make a Dexterity saving throw. On a failed save, the creature takes 3d8 fire damage and falls prone. On a successful save, a creature takes half as much damage and doesn’t fall prone.\n"
+},
+{
+  "id": "bolster_fortifications",
+  "name": "Bolster Fortifications",
+  "level": 3,
+  "school": "abjuration",
+  "class": [
+    "Bard",
+    "Wizard"
+  ],
+  "castTime": "10 minutes",
+  "range": "120 Feet",
+  "components": "V, S, M",
+  "duration": "8 hours",
+  "description": "You create a ward that bolsters a structure or a collection of structures that occupy up to 2,500 square feet of floor space. The bolstered structures can be up to 20 feet tall and shaped as you desire. You can ward several small buildings in a stronghold by dividing the area among them, as long as you can walk into each contiguous area while you are casting the spell. For the purpose of this spell, “structures” include walls, such as the palisade that might surround a small fort, provided the wall is no more than 20 feet tall.\n  For the duration, each structure you bolstered has a damage threshold of 5. If a structure already has a damage threshold, that threshold increases by 5.\n  This spell protects only the walls, support beams, roofs, and similar that make up the core components of the structure. It doesn't bolster objects within the structures, such as furniture.\n  The protected structure or structures radiate magic. A *dispel magic* cast on a structure removes the bolstering from only that structure. You can create a permanently bolstered structure or collection of structures by casting this spell there every day for one year."
+},
+{
+  "id": "bolster_undead",
+  "name": "Bolster Undead",
+  "level": 1,
+  "school": "necromancy",
+  "class": [
+    "Cleric",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "1 hour",
+  "description": "You suffuse an area with negative energy to increase the difficulty of harming or affecting undead creatures.\n\nChoose up to three undead creatures within range. When a targeted creature makes a saving throw against being turned or against spells or effects that deal radiant damage, the target has advantage on the saving throw.\n"
+},
+{
+  "id": "bombardment_of_stings",
+  "name": "Bombardment of Stings",
+  "level": 2,
+  "school": "evocation",
+  "class": [
+    "Druid",
+    "Ranger",
+    "Sorceror",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self (30-foot cone)",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "Each creature in a 30-foot cone must make a Dexterity saving throw. On a failed save, a creature takes 4d6 piercing damage and is poisoned for 1 minute. On a successful save, a creature takes half as much damage and isn't poisoned. At the end of each of its turns, a poisoned target can make a Constitution saving throw. On a success, the condition ends on the target."
+},
+{
+  "id": "booster_shot",
+  "name": "Booster Shot",
+  "level": 3,
+  "school": "evocation",
+  "class": [
+    "Ranger",
+    "Sorcerer",
+    "Warlock"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You imbue a two-handed ranged weapon (typically a shortbow, longbow, light crossbow, or heavy crossbow) that you touch with a random magical benefit. While the spell lasts, a projectile fired from the weapon has an effect that occurs on a hit in addition to its normal damage. Roll a d6 to determine the additional effect for each casting of this spell.\n\n| D6 | EFFECT |\n|---|---|\n| 1 | 2d10 acid damage to all creatures within 10 feet of the target |\n| 2 | 2d10 lightning damage to the target and 1d10 lightning damage to all creatures in a 5-foot-wide line between the weapon and the target |\n| 3 | 2d10 necrotic damage to the target, and the target has disadvantage on its first attack roll before the start of the weapon user’s next turn |\n| 4 | 2d10 cold damage to the target and 1d10 cold damage to all other creatures in a 60-foot cone in front of the weapon |\n| 5 | 2d10 force damage to the target, and the target is pushed 20 feet |\n| 6 | 2d10 psychic damage to the target, and the target is stunned until the start of the weapon user’s next turn |\n\n"
+},
+{
+  "id": "boreas_s_breath",
+  "name": "Boreas’s Breath",
+  "level": 2,
+  "school": "transmutation",
+  "class": [
+    "Cleric",
+    "Druid",
+    "Ranger",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "You freeze standing water in a 20-foot cube or running water in a 10-foot cube centered on you. The water turns to solid ice. The surface becomes difficult terrain, and any creature that ends its turn on the ice must make a successful DC 10 Dexterity saving throw or fall prone.\n\nCreatures that are partially submerged in the water when it freezes become restrained. While restrained in this way, a creature takes 1d6 cold damage at the end of its turn. It can break free by using an action to make a successful Strength check against your spell save DC.\n\nCreatures that are fully submerged in the water when it freezes become incapacitated and cannot breathe. While incapacitated in this way, a creature takes 2d6 cold damage at the end of its turn. A trapped creature makes a DC 20 Strength saving throw after taking this damage at the end of its turn, breaking free from the ice on a success.\n\nThe ice has AC 10 and 15 hit points. It is vulnerable to fire damage, has resistance to nonmagical slashing and piercing damage, and is immune to cold, necrotic, poison, psychic, and thunder damage.\n"
+},
+{
+  "id": "borrowing",
+  "name": "Borrowing",
+  "level": 3,
+  "school": "necromancy",
+  "class": [
+    "Anti-Paladin"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "1 Minute",
+  "description": "By touching a target, you gain one sense, movement type and speed, feat, language, immunity, or extraordinary ability of the target for the duration of the spell. The target also retains the use of the borrowed ability. An unwilling target prevents the effect with a successful Constitution saving throw. The target can be a living creature or one that's been dead no longer than 1 minute; a corpse makes no saving throw. You can possess only one borrowed power at a time."
+},
+{
+  "id": "bottled_arcana",
+  "name": "Bottled Arcana",
+  "level": 5,
+  "school": "transmutation",
+  "class": [],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "See below",
+  "description": "By touching an empty, stoppered glass container such as a vial or flask, you magically enable it to hold a single spell. To be captured, the spell must be cast within 1 round of casting **bottled arcana** and it must be intentionally cast into the container. The container can hold one spell of 3rd level or lower. The spell can be held in the container for as much as 24 hours, after which the container reverts to a mundane vessel and any magic inside it dissipates harmlessly.\n\nAs an action, any creature can unstop the container, thereby releasing the spell. If the spell has a range of self, the creature opening the container is affected; otherwise, the creature opening the container designates the target according to the captured spell’s description. If a creature opens the container unwittingly (not knowing that the container holds a spell), the spell targets the creature opening the container or is centered on its space instead (whichever is more appropriate). [Dispel magic](https://api.open5e.com/spells/dispel-magic) cast on the container targets **bottled arcana**, not the spell inside. If **bottled arcana** is dispelled, the container becomes mundane and the spell inside dissipates harmlessly.\n\nUntil the spell in the container is released, its caster can’t regain the spell slot used to cast that spell. Once the spell is released, its caster regains the use of that slot normally.\n"
+},
+{
+  "id": "bottomless_stomach",
+  "name": "Bottomless Stomach",
+  "level": 1,
+  "school": "transmutation",
+  "class": [],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V",
+  "duration": "Up to 1 hour",
+  "description": "When you cast this spell, you gain the ability to consume dangerous substances and contain them in an extradimensional reservoir in your stomach. The spell allows you to swallow most liquids, such as acids, alcohol, poison, and even quicksilver, and hold them safely in your stomach. You are unaffected by swallowing the substance, but the spell doesn’t give you resistance or immunity to the substance in general; for example, you could safely drink a bucket of a black dragon’s acidic spittle, but you’d still be burned if you were caught in the dragon’s breath attack or if that bucket of acid were dumped over your head.\n\nThe spell allows you to store up to 10 gallons of liquid at one time. The liquid doesn’t need to all be of the same type, and different types don’t mix while in your stomach. Any liquid in excess of 10 gallons has its normal effect when you try to swallow it.\n\nAt any time before you stop concentrating on the spell, you can regurgitate up to 1 gallon of liquid stored in your stomach as a bonus action. The liquid is vomited into an adjacent 5-foot square. A target in that square must succeed on a DC 15 Dexterity saving throw or be affected by the liquid. The GM determines the exact effect based on the type of liquid regurgitated, using 1d6 damage of the appropriate type as the baseline.\n\nWhen you stop concentrating on the spell, its duration expires, or it’s dispelled, the extradimensional reservoir and the liquid it contains cease to exist."
+},
+{
+  "id": "bound_haze",
+  "name": "Bound Haze",
+  "level": 3,
+  "school": "conjuration",
+  "class": [
+    "Sorceror",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 Feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You cause a swirling gyre of dust, small rocks, and wind to encircle a creature you can see within range. The target must succeed on a Dexterity saving throw or have disadvantage on attack rolls and on Wisdom (Perception) checks. At the end of each of its turns, the target can make a Dexterity saving throw. On a success, the spell ends.\n  In addition, if the target is within a cloud or gas, such as the area of a *fog cloud* spell or a dretch's Fetid Cloud, the affected target has disadvantage on this spell's saving throws and on any saving throws associated with being in the cloud or gas, such as the saving throw to reduce the poison damage the target might take from starting its turn in the area of a *cloudkill* spell."
+},
+{
+  "id": "branding_smite",
+  "name": "Branding Smite",
+  "level": 2,
+  "school": "Evocation",
+  "class": [
+    "Paladin"
+  ],
+  "castTime": "1 bonus action",
+  "range": "Self",
+  "components": "V",
+  "duration": "Up to 1 minute",
+  "description": "The next time you hit a creature with a weapon attack before this spell ends, the weapon gleams with astral radiance as you strike. The attack deals an extra 2d6 radiant damage to the target, which becomes visible if it's invisible, and the target sheds dim light in a 5-­--foot radius and can't become invisible until the spell ends."
+},
+{
+  "id": "breathtaking_wind",
+  "name": "Breathtaking Wind",
+  "level": 1,
+  "school": "evocation",
+  "class": [
+    "Druid",
+    "Ranger",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You target a creature with a blast of wintry air. That creature must make a successful Constitution saving throw or become unable to speak or cast spells with a vocal component for the duration of the spell."
+},
+{
+  "id": "breeze_compass",
+  "name": "Breeze Compass",
+  "level": 3,
+  "school": "divination",
+  "class": [
+    "Druid",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "When you cast **breeze compass**, you must clearly imagine or mentally describe a location. It doesn’t need to be a location you’ve been to as long as you know it exists on the Material Plane. Within moments, a gentle breeze arises and blows along the most efficient path toward that destination. Only you can sense this breeze, and whenever it brings you to a decision point (a fork in a passageway, for example), you must make a successful DC 8 Intelligence (Arcana) check to deduce which way the breeze indicates you should go. On a failed check, the spell ends. The breeze guides you around cliffs, lava pools, and other natural obstacles, but it doesn’t avoid enemies or hostile creatures."
+},
+{
+  "id": "brimstone_infusion",
+  "name": "Brimstone Infusion",
+  "level": 6,
+  "school": "Transmutation",
+  "class": [],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "24 hours",
+  "description": "You infuse an ordinary flask of alchemist's fire with magical brimstone. While so enchanted, the alchemist's fire can be thrown 40 feet instead of 20, and it does 2d6 fire damage instead of 1d4. The Dexterity saving throw to extinguish the flames uses your spell save DC instead of DC 10. Infused alchemist's fire returns to its normal properties after 24 hours."
+},
+{
+  "id": "brittling",
+  "name": "Brittling",
+  "level": 4,
+  "school": "transmutation",
+  "class": [
+    "Cleric",
+    "Druid",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "This spell uses biting cold to make a metal or stone object you touch become brittle and more easily shattered. The object’s hit points are reduced by a number equal to your level as a spellcaster, and Strength checks to shatter or break the object are made with advantage if they occur within 1 minute of the spell’s casting. If the object isn’t shattered during this time, it reverts to the state it was in before the spell was cast."
+},
+{
+  "id": "broken_charge",
+  "name": "Broken Charge",
+  "level": 1,
+  "school": "enchantment",
+  "class": [
+    "Bard",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 reaction, which you take when an enemy approaches to within 5 feet of you",
+  "range": "10 feet",
+  "components": "V",
+  "duration": "Instantaneous",
+  "description": "When an enemy that you can see moves to within 5 feet of you, you utter a perplexing word that alters the foe’s course. The enemy must make a successful Wisdom saving throw or take 2d4 psychic damage and use the remainder of its speed to move in a direction of your choosing.\n"
+},
+{
+  "id": "burning_hands",
+  "name": "Burning Hands",
+  "level": 1,
+  "school": "Evocation",
+  "class": [
+    "Cleric",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "As you hold your hands with thumbs touching and fingers spread, a thin sheet of flames shoots forth from your outstretched fingertips. Each creature in a 15-foot cone must make a dexterity saving throw. A creature takes 3d6 fire damage on a failed save, or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried."
+},
+{
+  "id": "burning_hands",
+  "name": "Burning Hands",
+  "level": 1,
+  "school": "Evocation",
+  "class": [
+    "Artificer",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "self",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "A thin sheet of flames shoots forth from your outstretched hands. Each creature in the area takes 3d6 fire damage. The fire ignites any flammable unattended objects in the area."
+},
+{
+  "id": "burst_stone",
+  "name": "Burst Stone",
+  "level": 3,
+  "school": "evocation",
+  "class": [
+    "Druid",
+    "Sorceror",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 Feet",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "You cause the ground at a point you can see within range to explode. The ground must be sand, earth, or unworked rock. Each creature within 10 feet of that point must make a Dexterity saving throw. On a failed save, the creature takes 4d8 bludgeoning damage and is knocked prone. On a successful save, the creature takes half as much damage and isn't knocked prone. The area then becomes difficult terrain with a 5-foot-deep pit centered on the point you chose."
+},
+{
+  "id": "butterfly_effect",
+  "name": "Butterfly Effect",
+  "level": 2,
+  "school": "enchantment",
+  "class": [
+    "Bard",
+    "Druid",
+    "Sorceror",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 Feet",
+  "components": "V, M",
+  "duration": "Up to 1 minute",
+  "description": "You cause a cloud of illusory butterflies to swarm around a target you can see within range. The target must succeed on a Charisma saving throw or be charmed for the duration. While charmed, the target can't take reactions and must roll a d10 at the start of each of its turns to determine its behavior for that turn.\n\n| d10  | Behavior          |\n|------|-------------------|\n| 1    | The creature uses all its movement to move in a random direction. To determine the direction, roll a d8 and assign a direction to each die face. The creature doesn't take an action this turn. |\n| 2-6  | The creature doesn't take an action this turn. |\n| 7-8  | The creature uses its action to make a melee attack against a randomly determined creature within its reach. If there is no creature within its reach, the creature does nothing this turn. |\n| 9-10 | The creature can act and move normally. |\n\nAt the end of each of its turns, and each time it takes damage, the target can make another Charisma saving throw. On a success, the spell ends on the target."
+},
+{
+  "id": "by_the_light_of_the_moon",
+  "name": "By the Light of the Moon",
+  "level": 2,
+  "school": "divination",
+  "class": [
+    "Cleric",
+    "Druid",
+    "Ranger",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self (30-foot radius)",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "The area within 30 feet of you becomes bathed in magical moonlight. In addition to providing dim light, it highlights objects and locations that are hidden or that hold a useful clue. Until the spell ends, all Wisdom (Perception) and Intelligence (Investigation) checks made in the area are made with advantage."
+},
+{
+  "id": "by_the_light_of_the_watchful_moon",
+  "name": "By the Light of the Watchful Moon",
+  "level": 4,
+  "school": "divination",
+  "class": [
+    "Cleric",
+    "Druid",
+    "Paladin",
+    "Ranger",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "90 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "Regardless of the time of day or your location, you command the watchful gaze of the moon to illuminate threats to you and your allies. Shafts of bright moonlight, each 5 feet wide, shine down from the sky (or from the ceiling if you are indoors), illuminating all spaces within range that contain threats, whether they are enemies, traps, or hidden hazards. An enemy creature that makes a successful Charisma saving throw resists the effect and is not picked out by the moon’s glow.\n\nThe glow does not make invisible creatures visible, but it does indicate an invisible creature’s general location (somewhere within the 5-foot beam). The light continues to illuminate any target that moves, but a target that moves out of the spell’s area is no longer illuminated. A threat that enters the area after the spell is cast is not subject to the spell’s effect."
+},
+{
+  "id": "calculate",
+  "name": "Calculate",
+  "level": 6,
+  "school": "Divination",
+  "class": [
+    "Artificer",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "self",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You instantly know the answer to any mathematical equation that you speak aloud. The equation must be a problem that a creature with Intelligence 20 could solve using nonmagical tools with 1 hour of calculation. Additionally, you gain an expertise die on Engineering checks made during the duration of the spell.\n\nNote: Using the _calculate_ cantrip allows a player to make use of a calculator at the table in order to rapidly answer mathematical equations."
+},
+{
+  "id": "calculated_retribution",
+  "name": "Calculated Retribution",
+  "level": 1,
+  "school": "Abjuration",
+  "class": [
+    "Artificer",
+    "Cleric",
+    "Herald",
+    "Warlock"
+  ],
+  "castTime": "1 action",
+  "range": "self",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You surround yourself with a dampening magical field and collect the energy of a foe's attack to use against them. When you take damage from a weapon attack, you can end the spell to halve the attack's damage against you, gaining a retribution charge that lasts until the end of your next turn. By expending the retribution charge when you hit with a melee attack, you deal an additional 2d10 force damage."
+},
+{
+  "id": "call_lightning",
+  "name": "Call Lightning",
+  "level": 3,
+  "school": "Conjuration",
+  "class": [
+    "Cleric",
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S",
+  "duration": "Up to 10 minutes",
+  "description": "A storm cloud appears in the shape of a cylinder that is 10 feet tall with a 60-foot radius, centered on a point you can see 100 feet directly above you. The spell fails if you can't see a point in the air where the storm cloud could appear (for example, if you are in a room that can't accommodate the cloud). When you cast the spell, choose a point you can see within range. A bolt of lightning flashes down from the cloud to that point. Each creature within 5 feet of that point must make a dexterity saving throw. A creature takes 3d10 lightning damage on a failed save, or half as much damage on a successful one. On each of your turns until the spell ends, you can use your action to call down lightning in this way again, targeting the same point or a different one. If you are outdoors in stormy conditions when you cast this spell, the spell gives you control over the existing storm instead of creating a new one. Under such conditions, the spell's damage increases by 1d10."
+},
+{
+  "id": "call_lightning",
+  "name": "Call Lightning",
+  "level": 3,
+  "school": "Conjuration",
+  "class": [
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "100 feet",
+  "components": "V, S",
+  "duration": "Up to 10 minutes",
+  "description": "A 60-foot radius storm cloud that is 10 feet high appears in a space 100 feet above you. If there is not a point in the air above you that the storm cloud could appear, the spell fails (such as if you are in a small cavern or indoors).\n\nOn the round you cast it, and as an action on subsequent turns until the spell ends, you can call down a bolt of lightning to a point directly beneath the cloud. Each creature within 5 feet of the point makes a Dexterity saving throw, taking 3d10 lightning damage on a failed save or half as much on a successful one.\n\nIf you are outdoors in a storm when you cast this spell, you take control of the storm instead of creating a new cloud and the spell's damage is increased by 1d10."
+},
+{
+  "id": "call_shadow_mastiff",
+  "name": "Call Shadow Mastiff",
+  "level": 3,
+  "school": "conjuration",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You conjure a [shadow mastiff](https://api.open5e.com/monsters/shadow-mastiff) from the plane of shadow. This creature obeys your verbal commands to aid you in battle or to seek out a specific creature. It has the body of a large dog with a smooth black coat, 2 feet high at the shoulder and weighing 200 pounds.\n\nThe mastiff is friendly to you and your companions. Roll initiative for the mastiff; it acts on its own turn. It obeys simple, verbal commands from you, within its ability to act. Giving a command takes no action on your part.\n\nThe mastiff disappears when it drops to 0 hit points or when the spell ends."
+},
+{
+  "id": "call_the_hunter",
+  "name": "Call the Hunter",
+  "level": 8,
+  "school": "conjuration",
+  "class": [
+    "Cleric"
+  ],
+  "castTime": "1 minute",
+  "range": "90 Feet",
+  "components": "V, S",
+  "duration": "10 Minutes",
+  "description": "Deep Magic: clockwork You detach a portion of your soul to become the embodiment of justice in the form of a clockwork outsider known as a Zelekhut who will serve at your commands for the duration, so long as those commands are consistent with its desire to punish wrongdoers. You may give the creature commands as a bonus action; it acts either immediately before or after you."
+},
+{
+  "id": "calm_beasts",
+  "name": "Calm Beasts",
+  "level": 2,
+  "school": "enchantment",
+  "class": [
+    "Druid",
+    "Ranger"
+  ],
+  "castTime": "1 action",
+  "range": "60 Feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You attempt to calm aggressive or frightened animals. Each beast in a 20-foot-radius sphere centered on a point you choose within range must make a Charisma saving throw. If a creature fails its saving throw, choose one of the following two effects.\n  ***Suppress Hold.*** You can suppress any effect causing the target to be charmed or frightened. When this spell ends, any suppressed effect resumes, provided that its duration has not expired in the meantime.\n  ***Suppress Hostility.*** You can make a target indifferent about creatures of your choice that it is hostile toward. This indifference ends if the target is attacked or harmed by a spell or if it witnesses any of its allies being harmed. When the spell ends, the creature becomes hostile again, unless the GM rules otherwise."
+},
+{
+  "id": "calm_emotions",
+  "name": "Calm Emotions",
+  "level": 2,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Warlock"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You attempt to suppress strong emotions in a group of people. Each humanoid in a 20-foot-radius sphere centered on a point you choose within range must make a charisma saving throw; a creature can choose to fail this saving throw if it wishes. If a creature fails its saving throw, choose one of the following two effects. You can suppress any effect causing a target to be charmed or frightened. When this spell ends, any suppressed effect resumes, provided that its duration has not expired in the meantime. Alternatively, you can make a target indifferent about creatures of your choice that it is hostile toward. This indifference ends if the target is attacked or harmed by a spell or if it witnesses any of its friends being harmed. When the spell ends, the creature becomes hostile again, unless the DM rules otherwise."
+},
+{
+  "id": "calm_emotions",
+  "name": "Calm Emotions",
+  "level": 2,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Cleric"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "Strong and harmful emotions are suppressed within the area. You can choose which of the following two effects to apply to each target of this spell.\n\n* Suppress the charmed or frightened conditions, though they resume when the spell ends (time spent suppressed counts against a condition's duration).\n* Suppress hostile feelings towards creatures of your choice until the spell ends. This suppression ends if a target is attacked or sees its allies being attacked. Targets act normally when the spell ends."
+},
+{
+  "id": "calm_of_the_storm",
+  "name": "Calm of the Storm",
+  "level": 3,
+  "school": "abjuration",
+  "class": [
+    "Bard",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "While visualizing the world as you wish it was, you lay your hands upon a creature other than yourself and undo the effect of a chaos magic surge that affected the creature within the last minute. Reality reshapes itself as if the surge never happened, but only for that creature.\n"
+},
+{
+  "id": "candle_s_insight",
+  "name": "Candle’s Insight",
+  "level": 1,
+  "school": "divination",
+  "class": [
+    "Bard",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "10 feet",
+  "components": "V, S, M",
+  "duration": "10 minutes",
+  "description": "**Candle’s insight** is cast on its target as the component candle is lit. The candle burns for up to 10 minutes unless it’s extinguished normally or by the spell’s effect. While the candle burns, the caster can question the spell’s target, and the candle reveals whether the target speaks truthfully. An intentionally misleading or partial answer causes the flame to flicker and dim. An outright lie causes the flame to flare and then go out, ending the spell. The candle judges honesty, not absolute truth; the flame burns steadily through even an outrageously false statement, as long as the target believes it’s true.\n\n**Candle’s insight** is used across society: by merchants while negotiating deals, by inquisitors investigating heresy, and by monarchs as they interview foreign diplomats. In some societies, casting candle’s insight without the consent of the spell’s target is considered a serious breach of hospitality."
+},
+{
+  "id": "carmello_volta_s_irksome_preserves",
+  "name": "Carmello-Volta’s Irksome Preserves",
+  "level": 2,
+  "school": "conjuration",
+  "class": [],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "At your command, delicious fruit jam oozes from a small mechanical device (such as a crossbow trigger, a lock, or a clockwork toy), rendering the device inoperable until the spell ends and the device is cleaned with a damp cloth. Cleaning away the jam takes an action, but doing so has no effect until the spell ends. One serving of the jam can be collected in a suitable container. If it's eaten (as a bonus action) within 24 hours, the jam restores 1d4 hit points. The jam's flavor is determined by the material component.\n\nThe spell can affect constructs, with two limitations. First, the target creature negates the effect with a successful Dexterity saving throw. Second, unless the construct is Tiny, only one component (an eye, a knee, an elbow, and so forth) can be disabled. The affected construct has disadvantage on attack rolls and ability checks that depend on the disabled component until the spell ends and the jam is removed."
+},
+{
+  "id": "catapult",
+  "name": "Catapult",
+  "level": 6,
+  "school": "transmutation",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "400 feet",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "You magically hurl an object or creature weighing 500 pounds or less 40 feet through the air in a direction of your choosing (including straight up). Objects hurled at specific targets require a spell attack roll to hit. A thrown creature takes 6d10 bludgeoning damage from the force of the throw, plus any appropriate falling damage, and lands prone. If the target of the spell is thrown against another creature, the total damage is divided evenly between them and both creatures are knocked prone.\n"
+},
+{
+  "id": "catch_the_breath",
+  "name": "Catch the Breath",
+  "level": 3,
+  "school": "transmutation",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 reaction, which you take when you make a saving throw against a breath weapon attack",
+  "range": "Self",
+  "components": "V",
+  "duration": "Instantaneous",
+  "description": "You can cast this spell as a reaction when you’re targeted by a breath weapon. Doing so gives you advantage on your saving throw against the breath weapon. If your saving throw succeeds, you take no damage from the attack even if a successful save normally only halves the damage.\n\nWhether your saving throw succeeded or failed, you absorb and store energy from the attack. On your next turn, you can make a ranged spell attack against a target within 60 feet. On a hit, the target takes 3d10 force damage. If you opt not to make this attack, the stored energy dissipates harmlessly.\n"
+},
+{
+  "id": "caustic_blood",
+  "name": "Caustic Blood",
+  "level": 2,
+  "school": "transmutation",
+  "class": [
+    "Druid",
+    "Ranger",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 reaction, which you take when an enemy’s attack deals piercing or slashing damage to you",
+  "range": "Self (30-foot radius)",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "Your blood becomes caustic when exposed to the air. When you take piercing or slashing damage, you can use your reaction to select up to three creatures within 30 feet of you. Each target takes 1d10 acid damage unless it makes a successful Dexterity saving throw.\n"
+},
+{
+  "id": "caustic_torrent",
+  "name": "Caustic Torrent",
+  "level": 8,
+  "school": "conjuration",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self (60-foot line)",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "A swirling jet of acid sprays from you in a direction you choose. The acid fills a line 60 feet long and 5 feet wide. Each creature in the line takes 14d6 acid damage, or half as much damage if it makes a successful Dexterity saving throw. A creature reduced to 0 hit points by this spell is killed, and its body is liquefied. In addition, each creature other than you that’s in the line or within 5 feet of it is poisoned for 1 minute by toxic fumes. Creatures that don’t breathe or that are immune to acid damage aren’t poisoned. A poisoned creature can repeat the Constitution saving throw at the end of each of its turns, ending the effect on itself on a success."
+},
+{
+  "id": "caustic_touch",
+  "name": "Caustic Touch",
+  "level": 6,
+  "school": "Evocation",
+  "class": [
+    "Cleric",
+    "Druid",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "Your hand sweats profusely and becomes coated in a film of caustic slime. Make a melee spell attack against a creature you touch. On a hit, the target takes 1d8 acid damage. If the target was concentrating on a spell, it has disadvantage on its Constitution saving throw to maintain concentration."
+},
+{
+  "id": "celebration",
+  "name": "Celebration",
+  "level": 7,
+  "school": "enchantment",
+  "class": [
+    "Bard",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "90 feet",
+  "components": "V, S, M",
+  "duration": "1 hour",
+  "description": "You create a 30-foot-radius area around a point that you choose within range. An intelligent creature that enters the area or starts its turn there must make a Wisdom saving throw. On a failed save, the creature starts to engage in celebratory revelry: drinking, singing, laughing, and dancing. Affected creatures are reluctant to leave the area until the spell ends, preferring to continue the festivities. They forsake appointments, cease caring about their woes, and generally behave in a cordial (if not hedonistic) manner. This preoccupation with merrymaking occurs regardless of an affected creature’s agenda or alignment. Assassins procrastinate, servants join in the celebration rather than working, and guards abandon their posts.\n\nThe effect ends on a creature when it is attacked, takes damage, or is forced to leave the area. A creature that makes a successful saving throw can enter or leave the area without danger of being enchanted. A creature that fails the saving throw and is forcibly removed from the area must repeat the saving throw if it returns to the area.\n"
+},
+{
+  "id": "ceremony",
+  "name": "Ceremony",
+  "level": 1,
+  "school": "Evocation",
+  "class": [
+    "Cleric",
+    "Herald"
+  ],
+  "castTime": "1 hour",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "You perform a religious ceremony during the casting time of this spell. When you cast the spell, you choose one of the following effects, any targets of which must be within range during the entire casting.\n\n* **Funeral:** You bless one or more corpses, acknowledging their transition away from this world. For the next week, they cannot become undead by any means short of a wish spell. This benefit lasts indefinitely regarding undead of CR 1/4 or less. A corpse can only benefit from this effect once.\n* **Guide the Passing:** You bless one or more creatures within range for their passage into the next life. For the next 7 days, their souls cannot be trapped or captured by any means short of a wish spell. Once a creature benefits from this effect, it can't do so again until it has been restored to life.\n* **Offering:** The gifts of the faithful are offered to the benefit of the gods and the community. Choose one skill or tool proficiency and target a number of creatures equal to your proficiency bonus that are within range. When a target makes an ability check using the skill or tool within the next week, it can choose to use this benefit to gain an expertise die on the check. A creature can be targeted by this effect no more than once per week.\n* **Purification:** A creature you touch is washed with your spiritual energy. Choose one disease or possession effect on the target. If the save DC for that effect is equal to or lower than your spell save DC, the effect ends.\n* **Rite of Passage:** You shepherd one or more creatures into the next phase of life, such as in a child dedication, coming of age, marriage, or conversion ceremony. These creatures gain inspiration. A creature can benefit from this effect no more than once per year."
+},
+{
+  "id": "chain_lightning",
+  "name": "Chain Lightning",
+  "level": 6,
+  "school": "Evocation",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "150 feet",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "You create a bolt of lightning that arcs toward a target of your choice that you can see within range. Three bolts then leap from that target to as many as three other targets, each of which must be within 30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts. A target must make a dexterity saving throw. The target takes 10d8 lightning damage on a failed save, or half as much damage on a successful one."
+},
+{
+  "id": "chain_lightning",
+  "name": "Chain Lightning",
+  "level": 6,
+  "school": "Evocation",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "You fire a bolt of electricity at the primary target that deals 10d8 lightning damage. Electricity arcs to up to 3 additional targets you choose that are within 30 feet of the primary target."
+},
+{
+  "id": "chains_of_torment",
+  "name": "Chains of Torment",
+  "level": 4,
+  "school": "conjuration",
+  "class": [
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You are surrounded by an aura of dim light in a 10-foot radius as you conjure an iron chain that extends out to a creature you can see within 30 feet. The creature must make a successful Dexterity saving throw or be grappled (escape DC equal to your spell save DC). While grappled in this way, the creature is also restrained. A creature that’s restrained at the start of its turn takes 4d6 psychic damage. You can have only one creature restrained in this way at a time.\n\nAs an action, you can scan the mind of the creature that’s restrained by your chain. If the creature gets a failure on a Wisdom saving throw, you learn one discrete piece of information of your choosing known by the creature (such as a name, a password, or an important number). The effect is otherwise harmless.\n"
+},
+{
+  "id": "chains_of_the_goddess",
+  "name": "Chains of the Goddess",
+  "level": 5,
+  "school": "enchantment",
+  "class": [],
+  "castTime": "1 action",
+  "range": "90 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "Choose a creature you can see within 90 feet. The target must make a successful Wisdom saving throw or be restrained by chains of psychic force and take 6d8 bludgeoning damage. A restrained creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a successful save. While restrained in this way, the creature also takes 6d8 bludgeoning damage at the start of each of your turns."
+},
+{
+  "id": "champion_s_weapon",
+  "name": "Champion’s Weapon",
+  "level": 2,
+  "school": "conjuration",
+  "class": [],
+  "castTime": "1 bonus action",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Up to 10 minutes",
+  "description": "A spectral version of a melee weapon of your choice materializes in your hand. It has standard statistics for a weapon of its kind, but it deals force damage instead of its normal damage type and it sheds dim light in a 10-foot radius. You have proficiency with this weapon for the spell’s duration. The weapon can be wielded only by the caster; the spell ends if the weapon is held by a creature other than you or if you start your turn more than 10 feet from the weapon.\n"
+},
+{
+  "id": "chaotic_form",
+  "name": "Chaotic Form",
+  "level": 4,
+  "school": "transmutation",
+  "class": [
+    "Bard",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "10 minutes",
+  "description": "You cause the form of a willing creature to become malleable, dripping and flowing according to the target’s will as if the creature were a vaguely humanoid-shaped ooze. The creature is not affected by difficult terrain, it has advantage on Dexterity (Acrobatics) checks made to escape a grapple, and it suffers no penalties when squeezing through spaces one size smaller than itself. The target’s movement is halved while it is affected by **chaotic form**.\n"
+},
+{
+  "id": "chaotic_vitality",
+  "name": "Chaotic Vitality",
+  "level": 2,
+  "school": "conjuration",
+  "class": [
+    "Bard",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "Make a melee spell attack against a creature that has a number of Hit Dice no greater than your level and has at least 1 hit point. On a hit, you conjure pulsating waves of chaotic energy within the creature and yourself. After a brief moment that seems to last forever, your hit point total changes, as does the creature’s. Roll a d100 and increase or decrease the number rolled by any number up to your spellcasting level, then find the result on the Hit Point Flux table. Apply that result both to yourself and the target creature. Any hit points gained beyond a creature’s normal maximum are temporary hit points that last for 1 round per caster level.\n\nFor example, a 3rd-level spellcaster who currently has 17 of her maximum 30 hit points casts **chaotic vitality** on a creature with 54 hit points and rolls a 75 on the Hit Point Flux table. The two creatures have a combined total of 71 hit points. A result of 75 indicates that both creatures get 50 percent of the total, so the spellcaster and the target end up with 35 hit points each. In the spellcaster’s case, 5 of those hit points are temporary and will last for 3 rounds.\n"
+},
+{
+  "id": "chaotic_world",
+  "name": "Chaotic World",
+  "level": 6,
+  "school": "illusion",
+  "class": [
+    "Bard",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, M",
+  "duration": "Up to 1 minute",
+  "description": "You throw a handful of colored cloth into the air while screaming a litany of disjointed phrases. A moment later, a 30-foot cube centered on a point within range fills with multicolored light, cacophonous sound, overpowering scents, and other confusing sensory information. The effect is dizzying and overwhelming. Each enemy within the cube must make a successful Intelligence saving throw or become blinded and deafened, and fall prone. An affected enemy cannot stand up or recover from the blindness or deafness while within the area, but all three conditions end immediately for a creature that leaves the spell’s area."
+},
+{
+  "id": "charm_monster",
+  "name": "Charm Monster",
+  "level": 4,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Druid",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "1 hour",
+  "description": "You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.\n\nThe spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends."
+},
+{
+  "id": "charm_person",
+  "name": "Charm Person",
+  "level": 1,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "1 hour",
+  "description": "You attempt to charm a humanoid you can see within range. It must make a wisdom saving throw, and does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is charmed by you until the spell ends or until you or your companions do anything harmful to it. The charmed creature regards you as a friendly acquaintance. When the spell ends, the creature knows it was charmed by you."
+},
+{
+  "id": "charm_person",
+  "name": "Charm Person",
+  "level": 1,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Druid",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "1 hour",
+  "description": "You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.\n\nThe spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends."
+},
+{
+  "id": "charming_aesthetics",
+  "name": "Charming Aesthetics",
+  "level": 3,
+  "school": "enchantment",
+  "class": [
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "60 Feet",
+  "components": "V, S, M",
+  "duration": "1 Day",
+  "description": "You affect a group of the same plants or animals within range, giving them a harmless and attractive appearance. If a creature studies one of the enchanted plants or animals, it must make a Wisdom saving throw. If it fails the saving throw, it is charmed by the plant or animal until the spell ends or until another creature other than one of its allies does anything harmful to it. While the creature is charmed and stays within sight of the enchanted plants or animals, it has disadvantage on Wisdom (Perception) checks as well as checks to notice signs of danger. If the charmed creature attempts to move out of sight of the spell's subject, it must make a second Wisdom saving throw. If it fails the saving throw, it refuses to move out of sight of the spell's subject. It can repeat this save once per minute. If it succeeds, it can move away, but it remains charmed."
+},
+{
+  "id": "child_of_light_and_darkness",
+  "name": "Child of Light and Darkness",
+  "level": 8,
+  "school": "transmutation",
+  "class": [
+    "Wizard",
+    "Sorceror",
+    "Cleric"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "1 Minute",
+  "description": "Roll a d20 at the end of each of your turns for the duration of the spell. On a roll of 1-10, you take the form of a humanoid made of pure, searing light. On a roll of 11-20, you take the form of a humanoid made of bone-chilling darkness. In both forms, you have immunity to bludgeoning, piercing, and slashing damage from nonmagical attacks, and a creature that attacks you has disadvantage on the attack roll. You gain additional benefits while in each form: Light Form. You shed bright light in a 60-foot radius and dim light for an additional 60 feet, you are immune to fire damage, and you have resistance to radiant damage. Once per turn, as a bonus action, you can teleport to a space you can see within the light you shed. Darkness Form. You are immune to cold damage, and you have resistance to necrotic damage. Once per turn, as a bonus action, you can target up to three Large or smaller creatures within 30 feet of you. Each target must succeed on a Strength saving throw or be pulled or pushed (your choice) up to 20 feet straight toward or away from you."
+},
+{
+  "id": "chill_touch",
+  "name": "Chill Touch",
+  "level": 6,
+  "school": "Necromancy",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S",
+  "duration": "1 round",
+  "description": "You create a ghostly, skeletal hand in the space of a creature within range. Make a ranged spell attack against the creature to assail it with the chill of the grave. On a hit, the target takes 1d8 necrotic damage, and it can't regain hit points until the start of your next turn. Until then, the hand clings to the target. If you hit an undead target, it also has disadvantage on attack rolls against you until the end of your next turn."
+},
+{
+  "id": "chill_touch",
+  "name": "Chill Touch",
+  "level": 6,
+  "school": "Necromancy",
+  "class": [
+    "Artificer",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S",
+  "duration": "1 round",
+  "description": "You reach out with a spectral hand that carries the chill of death. Make a ranged spell attack. On a hit, the target takes 1d8 necrotic damage, and it cannot regain hit points until the start of your next turn. The hand remains visibly clutching onto the target for the duration. If the target you hit is undead, it makes attack rolls against you with disadvantage until the end of your next turn."
+},
+{
+  "id": "chilling_words",
+  "name": "Chilling Words",
+  "level": 3,
+  "school": "enchantment",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "You utter a short phrase and designate a creature within range to be affected by it. The target must make a Wisdom saving throw to avoid the spell. On a failed save, the target is susceptible to the phrase for the duration of the spell. At any later time while the spell is in effect, you and any of your allies within range when you cast the spell can use an action to utter the phrase, which causes the target to freeze in fear. Each of you can use the phrase against the target once only, and the target must be within 30 feet of the speaker for the phrase to be effective.\n\nWhen the target hears the phrase, it must make a successful Constitution saving throw or take 1d6 psychic damage and become restrained for 1 round. Whether this saving throw succeeds or fails, the target can’t be affected by the phrase for 1 minute afterward.\n\nYou can end the spell early by making a final utterance of the phrase (even if you’ve used the phrase on this target previously). On hearing this final utterance, the target takes 4d6 psychic damage and is restrained for 1 minute or, with a successful Constitution saving throw, it takes half the damage and is restrained for 1 round."
+},
+{
+  "id": "chronal_lance",
+  "name": "Chronal Lance",
+  "level": 1,
+  "school": "transmutation",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "1 minute",
+  "description": "You inflict the ravages of aging on up to three creatures within range, temporarily discomfiting them and making them appear elderly for a time. Each target must make a successful Wisdom saving throw, or its walking speed is halved (round up to the nearest 5-foot increment) and it has disadvantage on Dexterity checks (but not saving throws). An affected creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.\n"
+},
+{
+  "id": "circle_of_death",
+  "name": "Circle of Death",
+  "level": 6,
+  "school": "Necromancy",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "150 feet",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "A sphere of negative energy ripples out in a 60-foot-radius sphere from a point within range. Each creature in that area must make a constitution saving throw. A target takes 8d6 necrotic damage on a failed save, or half as much damage on a successful one."
+},
+{
+  "id": "circle_of_death",
+  "name": "Circle of Death",
+  "level": 6,
+  "school": "Necromancy",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "A sphere of negative energy sucks life from the area.\n\nCreatures in the area take 9d6 necrotic damage."
+},
+{
+  "id": "circle_of_devestation",
+  "name": "Circle of Devestation",
+  "level": 9,
+  "school": "evocation",
+  "class": [
+    "Sorceror",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "1 Miles",
+  "components": "V, S, M",
+  "duration": "1 Minute",
+  "description": "You create a 10-foot tall, 20-foot radius ring of destructive energy around a point you can see within range. The area inside the ring is difficult terrain. When you cast the spell and as a bonus action on each of your turns, you can choose one of the following damage types: cold, fire, lightning, necrotic, or radiant. Creatures and objects that touch the ring, that are inside it when it's created, or that end their turn inside the ring take 6d6 damage of the chosen type, or half damage with a successful Constitution saving throw. A creature or object reduced to 0 hit points by the spell is reduced to fine ash. At the start of each of your subsequent turns, the ring's radius expands by 20 feet. Any creatures or objects touched by the expanding ring are subject to its effects immediately."
+},
+{
+  "id": "circle_of_wind",
+  "name": "Circle of Wind",
+  "level": 1,
+  "school": "abjuration",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "8 hours",
+  "description": "Light wind encircles you, leaving you in the center of a mild vortex. For the duration, you gain a +2 bonus to your AC against ranged attacks. You also have advantage on saving throws against extreme environmental heat and against harmful gases, vapors, and inhaled poisons."
+},
+{
+  "id": "circular_breathing",
+  "name": "Circular Breathing",
+  "level": 6,
+  "school": "Transmutation",
+  "class": [
+    "Bard"
+  ],
+  "castTime": "1 bonus action",
+  "range": "self",
+  "components": "S, M",
+  "duration": "5 minutes",
+  "description": "You begin carefully regulating your breath so that you can continue playing longer or keep breathing longer in adverse conditions.\n\nUntil the spell ends, you can breathe underwater, and you can utilize bardic performances that would normally require breathable air. In addition, you have advantage on saving throws against gases and environments with adverse breathing conditions."
+},
+{
+  "id": "clairvoyance",
+  "name": "Clairvoyance",
+  "level": 3,
+  "school": "Divination",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "10 minutes",
+  "range": "1 mile",
+  "components": "V, S, M",
+  "duration": "Up to 10 minutes",
+  "description": "You create an invisible sensor within range in a location familiar to you (a place you have visited or seen before) or in an obvious location that is unfamiliar to you (such as behind a door, around a corner, or in a grove of trees). The sensor remains in place for the duration, and it can't be attacked or otherwise interacted with. When you cast the spell, you choose seeing or hearing. You can use the chosen sense through the sensor as if you were in its space. As your action, you can switch between seeing and hearing. A creature that can see the sensor (such as a creature benefiting from see invisibility or truesight) sees a luminous, intangible orb about the size of your fist."
+},
+{
+  "id": "clairvoyance",
+  "name": "Clairvoyance",
+  "level": 3,
+  "school": "Divination",
+  "class": [
+    "Artificer",
+    "Bard",
+    "Cleric",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "10 minutes",
+  "range": "1 mile",
+  "components": "V, S, M",
+  "duration": "Up to 10 minutes",
+  "description": "An invisible sensor is created within the spell's range. The sensor remains there for the duration, and it cannot be targeted or attacked.\n\nChoose seeing or hearing when you cast the spell.\n\nYou may use that sense through the sensor as if you were there. As an action, you may switch which sense you are using through the sensor.\n\nA creature able to see invisible things (from the see invisibility spell or truesight, for instance) sees a 4-inch diameter glowing, ethereal orb."
+},
+{
+  "id": "clash_of_glaciers",
+  "name": "Clash of Glaciers",
+  "level": 5,
+  "school": "evocation",
+  "class": [
+    "Druid",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self (100-foot line)",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "You conjure up icy boulders that crush creatures in a line 100 feet long. Each creature in the area takes 5d6 bludgeoning damage plus 5d6 cold damage, or half the damage with a successful Dexterity saving throw.\n"
+},
+{
+  "id": "claws_of_darkness",
+  "name": "Claws of Darkness",
+  "level": 6,
+  "school": "Evocation",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "You shape shadows into claws that grow from your fingers and drip inky blackness. The claws have a reach of 10 feet. While the spell lasts, you can make a melee spell attack with them that deals 1d10 cold damage."
+},
+{
+  "id": "claws_of_the_earth_dragon",
+  "name": "Claws of the Earth Dragon",
+  "level": 5,
+  "school": "evocation",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V",
+  "duration": "Instantaneous",
+  "description": "You summon the power of the earth dragon and shoot a ray at one target within 60 feet. The target falls prone and takes 6d8 bludgeoning damage from being slammed to the ground. If the target was flying or levitating, it takes an additional 1d6 bludgeoning damage per 10 feet it falls. If the target makes a successful Strength saving throw, damage is halved, it doesn’t fall, and it isn’t knocked prone.\n"
+},
+{
+  "id": "clear_the_board",
+  "name": "Clear the Board",
+  "level": 7,
+  "school": "conjuration",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 Feet",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "You send your allies and your enemies to opposite sides of the battlefield. Pick a cardinal direction. With a shout and a gesture, you and up to five willing friendly creatures within range are teleported up to 90 feet in that direction to spaces you can see. At the same time, up to six hostile creatures within range must make a Wisdom saving throw. On a failed save, the hostile creature is teleported up to 90 feet in the opposite direction of where you teleport yourself and the friendly creatures to spaces you can see. You can't teleport a target into dangerous terrain, such as lava or off the edge of a cliff, and each target must be teleported to an unoccupied space that is on the ground or on a floor."
+},
+{
+  "id": "clearing_the_field",
+  "name": "Clearing the Field",
+  "level": 2,
+  "school": "transmutation",
+  "class": [
+    "Druid",
+    "Ranger",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "40 feet",
+  "components": "V, S",
+  "duration": "1 hour",
+  "description": "With a harsh word and a vicious chopping motion, you cause every tree, shrub, and stump within 40 feet of you to sink into the ground, leaving the vacated area clear of plant life that might otherwise hamper movement or obscure sight. Overgrown areas that counted as difficult terrain become clear ground and no longer hamper movement. The original plant life instantly rises from the ground again when the spell ends or is dispelled. Plant creatures are not affected by **clearing the field**.\n"
+},
+{
+  "id": "cloak_of_shadow",
+  "name": "Cloak of Shadow",
+  "level": 1,
+  "school": "illusion",
+  "class": [],
+  "castTime": "1 bonus action",
+  "range": "Self",
+  "components": "V",
+  "duration": "Up to 1 minute",
+  "description": "You cloak yourself in shadow, giving you advantage on Dexterity (Stealth) checks against creatures that rely on sight."
+},
+{
+  "id": "clockwork_bolt",
+  "name": "Clockwork Bolt",
+  "level": 6,
+  "school": "Evocation",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "1 round",
+  "description": "You imbue an arrow or crossbow bolt with clockwork magic just as you fire it at your target; spinning blades materialize on the missile after it strikes to further mutilate your enemy.\n\nAs part of the action used to cast this spell, you make a ranged weapon attack with a bow or a crossbow against one creature within range. If the attack hits, the missile embeds in the target. Unless the target (or an ally of it within 5 feet) uses an action to remove the projectile (which deals no additional damage), the target takes an additional 1d8 slashing damage at the end of its next turn from spinning blades that briefly sprout from the missile’s shaft. Afterward, the projectile reverts to normal."
+},
+{
+  "id": "clone",
+  "name": "Clone",
+  "level": 8,
+  "school": "Necromancy",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 hour",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "This spell grows an inert duplicate of a living creature as a safeguard against death. This clone forms inside a sealed vessel and grows to full size and maturity after 120 days; you can also choose to have the clone be a younger version of the same creature. It remains inert and endures indefinitely, as long as its vessel remains undisturbed. At any time after the clone matures, if the original creature dies, its soul transfers to the clone, provided that the soul is free and willing to return. The clone is physically identical to the original and has the same personality, memories, and abilities, but none of the original's equipment. The original creature's physical remains, if they still exist, become inert and can't thereafter be restored to life, since the creature's soul is elsewhere."
+},
+{
+  "id": "clone",
+  "name": "Clone",
+  "level": 8,
+  "school": "Necromancy",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 hour",
+  "range": "touch",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "This spell grows a duplicate of the target that remains inert indefinitely as long as its vessel is sealed.\n\nThe clone grows inside the sealed vessel and matures over the course of 120 days. You can choose to have the clone be a younger version of the target.\n\nOnce the clone has matured, when the target dies its soul is transferred to the clone so long as it is free and willing. The clone is identical to the target (except perhaps in age) and has the same personality, memories, and abilities, but it is without the target's equipment. The target's original body cannot be brought back to life by magic since its soul now resides within the cloned body."
+},
+{
+  "id": "closing_in",
+  "name": "Closing In",
+  "level": 3,
+  "school": "illusion",
+  "class": [
+    "Bard",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "Choose a creature you can see within range. The target must succeed on a Wisdom saving throw, which it makes with disadvantage if it’s in an enclosed space. On a failed save, the creature believes the world around it is closing in and threatening to crush it. Even in open or clear terrain, the creature feels as though it is sinking into a pit, or that the land is rising around it. The creature has disadvantage on ability checks and attack rolls for the duration, and it takes 2d6 psychic damage at the end of each of its turns. An affected creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.\n"
+},
+{
+  "id": "cloudkill",
+  "name": "Cloudkill",
+  "level": 5,
+  "school": "Conjuration",
+  "class": [
+    "Druid",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S",
+  "duration": "Up to 10 minutes",
+  "description": "You create a 20-foot-radius sphere of poisonous, yellow-green fog centered on a point you choose within range. The fog spreads around corners. It lasts for the duration or until strong wind disperses the fog, ending the spell. Its area is heavily obscured. When a creature enters the spell's area for the first time on a turn or starts its turn there, that creature must make a constitution saving throw. The creature takes 5d8 poison damage on a failed save, or half as much damage on a successful one. Creatures are affected even if they hold their breath or don't need to breathe. The fog moves 10 feet away from you at the start of each of your turns, rolling along the surface of the ground. The vapors, being heavier than air, sink to the lowest level of the land, even pouring down openings."
+},
+{
+  "id": "cloudkill",
+  "name": "Cloudkill",
+  "level": 5,
+  "school": "Conjuration",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S",
+  "duration": "Up to 10 minutes",
+  "description": "You create a sphere of poisonous, sickly green fog, which can spread around corners but not change shape. The area is heavily obscured. A strong wind disperses the fog, ending the spell early.\n\nUntil the spell ends, when a creature enters the area for the first time on its turn or starts its turn there, it takes 5d8 poison damage.\n\nThe fog moves away from you 10 feet at the start of each of your turns, flowing along the ground. The fog is thicker than air, sinks to the lowest level in the land, and can even flow down openings and pits."
+},
+{
+  "id": "cloying_darkness",
+  "name": "Cloying Darkness",
+  "level": 1,
+  "school": "necromancy",
+  "class": [
+    "Sorceror",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 Feet",
+  "components": "V, S",
+  "duration": "1 Round",
+  "description": "You reach out with a hand of decaying shadows. Make a ranged spell attack. If it hits, the target takes 2d8 necrotic damage and must make a Constitution saving throw. If it fails, its visual organs are enveloped in shadow until the start of your next turn, causing it to treat all lighting as if it's one step lower in intensity (it treats bright light as dim, dim light as darkness, and darkness as magical darkness)."
+},
+{
+  "id": "cobra_fangs",
+  "name": "Cobra Fangs",
+  "level": 1,
+  "school": "transmutation",
+  "class": [],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "1 minute",
+  "description": "The spell causes the target to grow great, snake-like fangs. An unwilling creature must make a Wisdom saving throw to avoid the effect. The spell fails if the target already has a bite attack that deals poison damage.\n\nIf the target doesn’t have a bite attack, it gains one. The target is proficient with the bite, and it adds its Strength modifier to the attack and damage rolls. The damage is piercing and the damage die is a d4.\n\nWhen the target hits a creature with its bite attack, the creature must make a Constitution saving throw, taking 3d6 poison damage on a failed save, or half as much damage on a successful one.\n"
+},
+{
+  "id": "cobra_s_spit",
+  "name": "Cobra's Spit",
+  "level": 3,
+  "school": "Conjuration",
+  "class": [],
+  "castTime": "1 action",
+  "range": "self",
+  "components": "S, M",
+  "duration": "Up to 1 minute",
+  "description": "Until the spell ends, you can use an action to spit venom, making a ranged spell attack at a creature or object within 30 feet. On a hit, the venom deals 4d8 poison damage, and if the target is a creature it is poisoned until the end of its next turn."
+},
+{
+  "id": "color_spray",
+  "name": "Color Spray",
+  "level": 1,
+  "school": "Illusion",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "1 round",
+  "description": "A dazzling array of flashing, colored light springs from your hand. Roll 6d10; the total is how many hit points of creatures this spell can effect. Creatures in a 15-foot cone originating from you are affected in ascending order of their current hit points (ignoring unconscious creatures and creatures that can't see). Starting with the creature that has the lowest current hit points, each creature affected by this spell is blinded until the spell ends. Subtract each creature's hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total for that creature to be affected."
+},
+{
+  "id": "color_spray",
+  "name": "Color Spray",
+  "level": 1,
+  "school": "Illusion",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "self",
+  "components": "V, S, M",
+  "duration": "1 round",
+  "description": "A blast of dazzling multicolored light flashes from your hand to blind your targets until the start of your next turn. Starting with the target with the lowest hit points (ignoring unconscious creatures), targets within the area are blinded, in ascending order according to their hit points.\n\nWhen a target is blinded, subtract its hit points from the total before moving on to the next target.\n\nA target's hit points must be equal to or less than the total remaining for the spell to have any affect."
+},
+{
+  "id": "command",
+  "name": "Command",
+  "level": 1,
+  "school": "Enchantment",
+  "class": [
+    "Cleric",
+    "Paladin",
+    "Warlock"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V",
+  "duration": "1 round",
+  "description": "You speak a one-word command to a creature you can see within range. The target must succeed on a wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if it doesn't understand your language, or if your command is directly harmful to it. Some typical commands and their effects follow. You might issue a command other than one described here. If you do so, the DM determines how the target behaves. If the target can't follow your command, the spell ends\n\n **Approach.** The target moves toward you by the shortest and most direct route, ending its turn if it moves within 5 feet of you.\n\n**Drop** The target drops whatever it is holding and then ends its turn.\n\n**Flee.** The target spends its turn moving away from you by the fastest available means.\n\n**Grovel.** The target falls prone and then ends its turn.\n\n**Halt.** The target doesn't move and takes no actions. A flying creature stays aloft, provided that it is able to do so. If it must move to stay aloft, it flies the minimum distance needed to remain in the air."
+},
+{
+  "id": "command",
+  "name": "Command",
+  "level": 1,
+  "school": "Enchantment",
+  "class": [
+    "Cleric",
+    "Herald"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V",
+  "duration": "1 round",
+  "description": "You only require line of sight to the target (not line of effect). On its next turn the target follows a one-word command of your choosing. The spell fails if the target is undead, if it does not understand your command, or if the command is immediately harmful to it.\n\nBelow are example commands, but at the Narrator's discretion you may give any one-word command.\n\n* **Approach/Come/Here:** The target uses its action to take the Dash action and move toward you by the shortest route, ending its turn if it reaches within 5 feet of you.\n* **Bow/Grovel/Kneel:** The target falls prone and ends its turn.\n* **Drop:** The target drops anything it is holding and ends its turn.\n* **Flee/Run:** The target uses its action to Dash and moves away from you as far as it can.\n* **Halt:** The target remains where it is and takes no actions. A flying creature that cannot hover moves the minimum distance needed to remain aloft."
+},
+{
+  "id": "commander_s_pavilion",
+  "name": "Commander's Pavilion",
+  "level": 3,
+  "school": "conjuration",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "24 Hours",
+  "description": "Creates a command tent 30 feet by 30 feet with a peak height of 20 feet. It is filled with items a military commander might require of a headquarters tent on a campaign, such as maps of the area, a spyglass, a sandglass, materials for correspondence, references for coding and decoding messages, books on history and strategy relevant to the area, banners, spare uniforms, and badges of rank. Such minor mundane items dissipate once the spell's effect ends. Recasting the spell on subsequent days maintains the existing tent for another 24 hours."
+},
+{
+  "id": "commune",
+  "name": "Commune",
+  "level": 5,
+  "school": "Divination",
+  "class": [
+    "Cleric",
+    "Paladin",
+    "Ritual Caster"
+  ],
+  "castTime": "1 minute",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "1 minute",
+  "description": "You contact your deity or a divine proxy and ask up to three questions that can be answered with a yes or no. You must ask your questions before the spell ends. You receive a correct answer for each question. Divine beings aren't necessarily omniscient, so you might receive \"unclear\" as an answer if a question pertains to information that lies beyond the deity's knowledge. In a case where a one-word answer could be misleading or contrary to the deity's interests, the DM might offer a short phrase as an answer instead. If you cast the spell two or more times before finishing your next long rest, there is a cumulative 25 percent chance for each casting after the first that you get no answer. The DM makes this roll in secret."
+},
+{
+  "id": "commune",
+  "name": "Commune",
+  "level": 5,
+  "school": "Divination",
+  "class": [
+    "Cleric",
+    "Warlock"
+  ],
+  "castTime": "1 minute",
+  "range": "self",
+  "components": "V, S, M",
+  "duration": "1 minute",
+  "description": "You contact your deity, a divine proxy, or a personified source of divine power and ask up to 3 questions that could be answered with a yes or a no. You must complete your questions before the spell ends. You receive a correct answer for each question, unless the being does not know. When the being does not know, you receive \"unclear\" as an answer. The being does not try to deceive, and the Narrator may offer a short phrase as an answer if necessary.\n\nWhen you cast this spell again before finishing a long rest, the chance of getting a no answer increases.\n\nThe Narrator makes the following roll in secret: second casting —25%, third casting —50%, fourth casting—75%, fifth casting—100%."
+},
+{
+  "id": "commune_with_nature",
+  "name": "Commune with Nature",
+  "level": 5,
+  "school": "Divination",
+  "class": [
+    "Druid",
+    "Paladin",
+    "Ranger",
+    "Ritual Caster"
+  ],
+  "castTime": "1 minute",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "You briefly become one with nature and gain knowledge of the surrounding territory. In the outdoors, the spell gives you knowledge of the land within 3 miles of you. In caves and other natural underground settings, the radius is limited to 300 feet. The spell doesn't function where nature has been replaced by construction, such as in dungeons and towns. You instantly gain knowledge of up to three facts of your choice about any of the following subjects as they relate to the area: \n- terrain and bodies of water \n- prevalent plants, minerals, animals, or peoples \n- powerful celestials, fey, fiends, elementals, or undead \n- influence from other planes of existence \n- buildings For example, you could determine the location of powerful undead in the area, the location of major sources of safe drinking water, and the location of any nearby towns."
+},
+{
+  "id": "commune_with_nature",
+  "name": "Commune with Nature",
+  "level": 5,
+  "school": "Divination",
+  "class": [
+    "Druid",
+    "Warlock"
+  ],
+  "castTime": "1 minute",
+  "range": "self",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "description": "Until the spell ends, your spirit bonds with that of nature and you learn about the surrounding land.\n\nWhen cast outdoors the spell reaches 3 miles around you, and in natural underground settings it reaches only 300 feet. The spell fails if you are in a heavily constructed area, such as a dungeon or town.\n\nYou learn up to 3 facts of your choice about the surrounding area:\n\n* Terrain and bodies of water\n* Common flora, fauna, minerals, and peoples\n* Any unnatural creatures in the area\n* Weaknesses in planar boundaries\n* Built structures"
+},
+{
+  "id": "compelled_movement",
+  "name": "Compelled Movement",
+  "level": 3,
+  "school": "enchantment",
+  "class": [
+    "Bard",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "Choose two living creatures (not constructs or undead) you can see within range. Each must make a Charisma saving throw. On a failed save, a creature is compelled to use its movement to move toward the other creature. Its route must be as direct as possible, but it avoids dangerous terrain and enemies. If the creatures are within 5 feet of each other at the end of either one’s turn, their bodies fuse together. Fused creatures still take their own turns, but they can’t move, can’t use reactions, and have disadvantage on attack rolls, Dexterity saving throws, and Constitution checks to maintain concentration.\n\nA fused creature can use its action to make a Charisma saving throw. On a success, the creature breaks free and can move as it wants. It can become fused again, however, if it’s within 5 feet of a creature that’s still under the spell’s effect at the end of either creature’s turn.\n\n**Compelled movement** doesn’t affect a creature that can’t be charmed or that is incorporeal.\n"
+},
+{
+  "id": "compelling_fate",
+  "name": "Compelling Fate",
+  "level": 3,
+  "school": "divination",
+  "class": [],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, M",
+  "duration": "1 round",
+  "description": "You view the actions of a single creature you can see through the influence of the stars, and you read what is written there. If the target fails a Charisma saving throw, you can predict that creature’s actions. This has the following effects:\n* You have advantage on attack rolls against the target.\n* For every 5 feet the target moves, you can move 5 feet (up to your normal movement) on the target’s turn when it has completed its movement. This is deducted from your next turn’s movement.\n* As a reaction at the start of the target’s turn, you can warn yourself and allies that can hear you of the target’s offensive intentions; any creature targeted by the target’s next attack gains a +2 bonus to AC or to its saving throw against that attack.\n"
+},
+{
+  "id": "comprehend_languages",
+  "name": "Comprehend Languages",
+  "level": 1,
+  "school": "Divination",
+  "class": [
+    "Bard",
+    "Ritual Caster",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "1 hour",
+  "description": "For the duration, you understand the literal meaning of any spoken language that you hear. You also understand any written language that you see, but you must be touching the surface on which the words are written. It takes about 1 minute to read one page of text. This spell doesn't decode secret messages in a text or a glyph, such as an arcane sigil, that isn't part of a written language."
+},
+{
+  "id": "comprehend_languages",
+  "name": "Comprehend Languages",
+  "level": 1,
+  "school": "Divination",
+  "class": [
+    "Artificer",
+    "Bard",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "self",
+  "components": "V, S, M",
+  "duration": "1 hour",
+  "description": "You gain a +10 bonus on Insight checks made to understand the meaning of any spoken language that you hear, or any written language that you can touch. Typically interpreting an unknown language is a DC 20 check, but the Narrator may use DC 15 for a language closely related to one you know, DC 25 for a language that is particularly unfamiliar or ancient, or DC 30 for a lost or dead language. This spell doesn't uncover secret messages or decode cyphers, and it does not assist in uncovering lies."
+},
+{
+  "id": "comprehend_wild_shape",
+  "name": "Comprehend Wild Shape",
+  "level": 2,
+  "school": "divination",
+  "class": [],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "1 hour",
+  "description": "Give one of the carved totems to an ally while keeping the other yourself. For the duration of the spell, you and whoever holds the other totem can communicate while either of you is in a beast shape. This isn’t a telepathic link; you simply understand each other’s verbal communication, similar to the effect of a speak with animals spell. This effect doesn’t allow a druid in beast shape to cast spells.\n"
+},
+{
+  "id": "compulsion",
+  "name": "Compulsion",
+  "level": 4,
+  "school": "Enchantment",
+  "class": [
+    "Bard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S",
+  "duration": "Up to 1 minute",
+  "description": "Creatures of your choice that you can see within range and that can hear you must make a Wisdom saving throw. A target automatically succeeds on this saving throw if it can't be charmed. On a failed save, a target is affected by this spell. Until the spell ends, you can use a bonus action on each of your turns to designate a direction that is horizontal to you. Each affected target must use as much of its movement as possible to move in that direction on its next turn. It can take its action before it moves. After moving in this way, it can make another Wisdom saving throw to try to end the effect. A target isn't compelled to move into an obviously deadly hazard, such as a fire or pit, but it will provoke opportunity attacks to move in the designated direction."
+},
+{
+  "id": "cone_of_cold",
+  "name": "Cone of Cold",
+  "level": 5,
+  "school": "Evocation",
+  "class": [
+    "Druid",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "A blast of cold air erupts from your hands. Each creature in a 60-foot cone must make a constitution saving throw. A creature takes 8d8 cold damage on a failed save, or half as much damage on a successful one. A creature killed by this spell becomes a frozen statue until it thaws."
+},
+{
+  "id": "cone_of_cold",
+  "name": "Cone of Cold",
+  "level": 5,
+  "school": "Evocation",
+  "class": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "self",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "Frigid cold blasts from your hands. Each creature in the area takes 8d8 cold damage. Creatures killed by this spell become frozen statues until they thaw."
+},
+{
+  "id": "confound_senses",
+  "name": "Confound Senses",
+  "level": 3,
+  "school": "enchantment",
+  "class": [
+    "Cleric",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Up to 10 minutes",
+  "description": "This spell befuddles the minds of up to six creatures that you can see within range, causing the creatures to see images of shifting terrain. Each target that fails an Intelligence saving throw is reduced to half speed until the spell ends because of confusion over its surroundings, and it makes ranged attack rolls with disadvantage.\n\nAffected creatures also find it impossible to keep track of their location. They automatically fail Wisdom (Survival) checks to avoid getting lost. Whenever an affected creature must choose between one or more paths, it chooses at random and immediately forgets which direction it came from."
+},
+{
+  "id": "confusion",
+  "name": "Confusion",
+  "level": 4,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "90 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "This spell assaults and twists creatures' minds, spawning delusions and provoking uncontrolled action. Each creature in a 10 foot radius sphere centered on a point you choose within range must succeed on a Wisdom saving throw when you cast this spell or be affected by it.\n\nAn affected target can't take reactions and must roll a d10 at the start of each of its turns to determine its behavior for that turn.\n\n| d10 | Behavior |\n|---|---|\n| 1 | The creature uses all its movement to move in a random direction. To determine the direction, roll a d8 and assign a direction to each die face. The creature doesn’t take an action this turn. |\n| 2-6 | The creature doesn’t move or take actions this turn. |\n| 7-8 | The creature uses its action to make a melee attack against a randomly determined creature within its reach. If there is no creature within its reach, the creature does nothing this turn. |\n| 9-10 | The creature can act and move normally. |\n\nAt the end of each of its turns, an affected target can make a Wisdom saving throw. If it succeeds, this effect ends for that target."
+},
+{
+  "id": "confusion",
+  "name": "Confusion",
+  "level": 4,
+  "school": "Enchantment",
+  "class": [
+    "Bard",
+    "Druid",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "120 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 minute",
+  "description": "You assault the minds of your targets, filling them with delusions and making them confused until the spell ends. On a successful saving throw, a target is rattled for 1 round. At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it."
+},
+{
+  "id": "conjure_animals",
+  "name": "Conjure Animals",
+  "level": 3,
+  "school": "Conjuration",
+  "class": [
+    "Druid",
+    "Ranger"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You summon fey spirits that take the form of beasts and appear in unoccupied spaces that you can see within range. Choose one of the following options for what appears: \n- One beast of challenge rating 2 or lower \n- Two beasts of challenge rating 1 or lower \n- Four beasts of challenge rating 1/2 or lower \n- Eight beasts of challenge rating 1/4 or lower \n- Each beast is also considered fey, and it disappears when it drops to 0 hit points or when the spell ends. The summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions. The DM has the creatures' statistics."
+},
+{
+  "id": "conjure_animals",
+  "name": "Conjure Animals",
+  "level": 3,
+  "school": "Conjuration",
+  "class": [
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You summon forth the spirit of a beast that takes the physical form of your choosing in unoccupied spaces you can see.\n\nChoose one of the following:\n\n* One beast of CR 2 or less\n* Two beasts of CR 1 or less\n* Three beasts of CR 1/2 or less\n\n Beasts summoned this way are allied to you and your companions. While it is within 60 feet you can use a bonus action to mentally command a summoned beast. When you command multiple beasts using this spell, you must give them all the same command. You may decide the action the beast takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, a conjured beast only defends itself."
+},
+{
+  "id": "conjure_celestial",
+  "name": "Conjure Celestial",
+  "level": 7,
+  "school": "Conjuration",
+  "class": [
+    "Cleric"
+  ],
+  "castTime": "1 minute",
+  "range": "90 feet",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You summon a celestial of challenge rating 4 or lower, which appears in an unoccupied space that you can see within range. The celestial disappears when it drops to 0 hit points or when the spell ends. The celestial is friendly to you and your companions for the duration. Roll initiative for the celestial, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you), as long as they don't violate its alignment. If you don't issue any commands to the celestial, it defends itself from hostile creatures but otherwise takes no actions. The DM has the celestial's statistics."
+},
+{
+  "id": "conjure_celestial",
+  "name": "Conjure Celestial",
+  "level": 7,
+  "school": "Conjuration",
+  "class": [
+    "Cleric"
+  ],
+  "castTime": "1 minute",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You summon a creature from the realms celestial.\n\nThis creature uses the statistics of a celestial creature (detailed below) with certain traits determined by your choice of its type: an angel of battle, angel of protection, or angel of vengeance.\n\nThe creature is friendly to you and your companions and takes its turn immediately after yours.\n\nIt obeys your verbal commands. Without such commands, the creature only defends itself.\n\nThe creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of the celestial creature, which becomes hostile and might attack you and your companions. An uncontrolled creature disappears 1 hour after you summoned it."
+},
+{
+  "id": "conjure_construct",
+  "name": "Conjure Construct",
+  "level": 6,
+  "school": "conjuration",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 Feet",
+  "components": "V, M",
+  "duration": "Up to 1 minute",
+  "description": "You summon a construct of challenge rating 5 or lower to harry your foes. It appears in an unoccupied space you can see within range. It disappears when it drops to 0 hit points or when the spell ends.\n  The construct is friendly to you and your companions for the duration. Roll initiative for the construct, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you). If you don't issue any commands to the construct, it defends itself from hostile creatures but otherwise takes no actions.\n  If your concentration is broken, the construct doesn't disappear. Instead, you lose control of the construct, it becomes hostile toward you and your companions, and it might attack. An uncontrolled construct can't be dismissed by you, and it disappears 1 hour after you summoned it.\n  The construct deals double damage to objects and structures.\n  The GM has the construct's statistics."
+},
+{
+  "id": "conjure_elemental",
+  "name": "Conjure Elemental",
+  "level": 5,
+  "school": "Conjuration",
+  "class": [
+    "Druid",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "90 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "You call forth an elemental servant. Choose an area of air, earth, fire, or water that fills a 10-foot cube within range. An elemental of challenge rating 5 or lower appropriate to the area you chose appears in an unoccupied space within 10 feet of it. For example, a fire elemental emerges from a bonfire, and an earth elemental rises up from the ground. The elemental disappears when it drops to 0 hit points or when the spell ends. The elemental is friendly to you and your companions for the duration. Roll initiative for the elemental, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you). If you don't issue any commands to the elemental, it defends itself from hostile creatures but otherwise takes no actions. If your concentration is broken, the elemental doesn't disappear. Instead, you lose control of the elemental, it becomes hostile toward you and your companions, and it might attack. An uncontrolled elemental can't be dismissed by you, and it disappears 1 hour after you summoned it. The DM has the elemental's statistics."
+},
+{
+  "id": "conjure_elemental",
+  "name": "Conjure Elemental",
+  "level": 5,
+  "school": "Conjuration",
+  "class": [
+    "Druid",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "You summon a creature from the Elemental Planes. This creature uses the statistics of a conjured elemental creature (detailed below) with certain traits determined by your choice of its type: air, earth, fire, or water.\n\nThe creature is friendly to you and your companions and takes its turn immediately after yours.\n\nIt obeys your verbal commands. Without such commands, the creature only defends itself.\n\nThe creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of the elemental creature, which becomes hostile and might attack you and your companions. An uncontrolled creature disappears 1 hour after you summoned it."
+},
+{
+  "id": "conjure_fey",
+  "name": "Conjure Fey",
+  "level": 6,
+  "school": "Conjuration",
+  "class": [
+    "Druid",
+    "Warlock"
+  ],
+  "castTime": "1 minute",
+  "range": "90 feet",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You summon a fey creature of challenge rating 6 or lower, or a fey spirit that takes the form of a beast of challenge rating 6 or lower. It appears in an unoccupied space that you can see within range. The fey creature disappears when it drops to 0 hit points or when the spell ends. The fey creature is friendly to you and your companions for the duration. Roll initiative for the creature, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you), as long as they don't violate its alignment. If you don't issue any commands to the fey creature, it defends itself from hostile creatures but otherwise takes no actions. If your concentration is broken, the fey creature doesn't disappear. Instead, you lose control of the fey creature, it becomes hostile toward you and your companions, and it might attack. An uncontrolled fey creature can't be dismissed by you, and it disappears 1 hour after you summoned it. The DM has the fey creature's statistics."
+},
+{
+  "id": "conjure_fey",
+  "name": "Conjure Fey",
+  "level": 6,
+  "school": "Conjuration",
+  "class": [
+    "Druid",
+    "Warlock"
+  ],
+  "castTime": "1 minute",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You summon a creature from The Dreaming.\n\nThis creature uses the statistics of a fey creature (detailed below) with certain traits determined by your choice of its type: hag, hound, or redcap.\n\nThe creature is friendly to you and your companions and takes its turn immediately after yours.\n\nIt obeys your verbal commands. Without such commands, the creature only defends itself.\n\nThe summoned creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of the summoned creature, which becomes hostile and might attack you and your companions. An uncontrolled creature disappears at the end of the spell's maximum duration."
+},
+{
+  "id": "conjure_fey_hound",
+  "name": "Conjure Fey Hound",
+  "level": 5,
+  "school": "conjuration",
+  "class": [
+    "Druid",
+    "Ranger",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "You summon a fey hound to fight by your side. A [hound of the night](https://api.open5e.com/monsters/hound-of-the-night) appears in an unoccupied space that you can see within range. The hound disappears when it drops to 0 hit points or when the spell ends.\n\nThe summoned hound is friendly to you and your companions. Roll initiative for the summoned hound, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you). If you don’t issue any commands to the hound, it stands by your side and attacks nearby creatures that are hostile to you but otherwise takes no actions.\n"
+},
+{
+  "id": "conjure_forest_defender",
+  "name": "Conjure Forest Defender",
+  "level": 6,
+  "school": "conjuration",
+  "class": [],
+  "castTime": "1 hour",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Until destroyed",
+  "description": "When you cast this spell in a forest, you fasten sticks and twigs around a body. The body comes to life as a [forest defender](https://api.open5e.com/monsters/forest-defender). The forest defender is friendly to you and your companions. Roll initiative for the forest defender, which has its own turns. It obeys any verbal or mental commands that you issue to it (no action required by you), as long as you remain within its line of sight. If you don’t issue any commands to the forest defender, if you are out of its line of sight, or if you are unconscious, it defends itself from hostile creatures but otherwise takes no actions. A body sacrificed to form the forest defender is permanently destroyed and can be restored to life only by means of a [true resurrection](https://api.open5e.com/spells/true-resurrection) or a [wish](https://api.open5e.com/spells/wish) spell. You can have only one forest defender under your control at a time. If you cast this spell again, the previous forest defender crumbles to dust.\n"
+},
+{
+  "id": "conjure_greater_spectral_dead",
+  "name": "Conjure Greater Spectral Dead",
+  "level": 7,
+  "school": "conjuration",
+  "class": [
+    "Cleric",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "You summon an incorporeal undead creature that appears in an unoccupied space you can see within range. You choose one of the following options for what appears:\n* One [wraith](https://api.open5e.com/monsters/wraith)\n* One [spectral guardian](https://api.open5e.com/monsters/spectral-guardian)\n* One [wolf spirit swarm](https://api.open5e.com/monsters/wolf-spirit-swarm)\nSummoned creatures disappear when they drop to 0 hit points or when the spell ends.\n\nThe summoned creature doesn’t attack you or your companions for the duration. Roll initiative for the summoned creature, which has its own turns. The creature attacks your enemies and tries to stay within 60 feet of you, but it otherwise controls its own actions. The summoned creature despises being bound and might harm or impede you and your companions by any means at its disposal other than direct attacks if the opportunity arises. At the beginning of the creature’s turn, you can use your reaction to verbally command it. The creature obeys your commands for that turn, and you take 1d6 psychic damage at the end of the turn. If your concentration is broken, the creature doesn’t disappear. Instead, you can no longer command it, it becomes hostile to you and your companions, and it attacks you and your allies if it believes it has a chance to win the fight or to inflict meaningful harm; otherwise it flees. You can’t dismiss the uncontrolled creature, but it disappears 1 hour after you summoned it.\n"
+},
+{
+  "id": "conjure_manabane_swarm",
+  "name": "Conjure Manabane Swarm",
+  "level": 4,
+  "school": "conjuration",
+  "class": [],
+  "castTime": "1 action",
+  "range": "60 Feet",
+  "components": "V, S, M",
+  "duration": "1 Minute",
+  "description": "Deep Magic: summoning You summon a swarm of manabane scarabs that has just 40 hit points. The swarm appears at a spot you choose within 60 feet and attacks the closest enemy. You can conjure the swarm to appear in an enemy's space. If you prefer, you can summon two full-strength, standard swarms of insects (including beetles, centipedes, spiders, or wasps) instead."
+},
+{
+  "id": "conjure_minor_elementals",
+  "name": "Conjure Minor Elementals",
+  "level": 4,
+  "school": "Conjuration",
+  "class": [
+    "Druid",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "90 feet",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You summon elementals that appear in unoccupied spaces that you can see within range. You choose one the following options for what appears: \n- One elemental of challenge rating 2 or lower \n- Two elementals of challenge rating 1 or lower \n- Four elementals of challenge rating 1/2 or lower \n- Eight elementals of challenge rating 1/4 or lower. An elemental summoned by this spell disappears when it drops to 0 hit points or when the spell ends. The summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions. The DM has the creatures' statistics."
+},
+{
+  "id": "conjure_minor_elementals",
+  "name": "Conjure Minor Elementals",
+  "level": 4,
+  "school": "Conjuration",
+  "class": [
+    "Druid",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "60 feet",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You summon up to 3 creatures from the Elemental Planes. These creatures use the statistics of a minor elemental (detailed below) with certain traits determined by your choice of its type: air, earth, fire, or water. If you summon only 2 creatures with this spell, increase its effective slot level by 1 when determining the minor elemental's statistics, and if you summon a single creature with this spell its effective slot level is increased by 2 instead.\n\nThe summoned creatures are friendly to you and your companions and take their turns immediately after yours. They obey your verbal commands. When you command multiple minor elementals using this spell, you must give them all the same command.\n\nWithout such commands, a minor elemental only defends itself.\n\nThe summoned creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of any summoned creatures, which become hostile and might attack you and your companions. An uncontrolled creature disappears at the end of the spell's maximum duration."
+},
+{
+  "id": "conjure_minor_voidborn",
+  "name": "Conjure Minor Voidborn",
+  "level": 5,
+  "school": "conjuration",
+  "class": [],
+  "castTime": "1 minute",
+  "range": "90 feet",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You summon fiends or aberrations that appear in unoccupied spaces you can see within range. You choose one of the following options:\n* One creature of challenge rating 2 or lower\n* Two creatures of challenge rating 1 or lower\n* Four creatures of challenge rating 1/2 or lower\n* Eight creatures of challenge rating 1/4 or lower\nSummoned creatures disappear when they drop to 0 hit points or when the spell ends.\n\nThe summoned creatures do not directly attack you or your companions. Roll initiative for the summoned creatures as a group; they take their own turns on their initiative result. They attack your enemies and try to stay within 90 feet of you, but they control their own actions. The summoned creatures despise being bound, so they might harm or impede you and your companions with secondary effects (but not direct attacks) if the opportunity arises. At the beginning of the creatures’ turn, you can use your reaction to verbally command them. They obey your commands on that turn, and you take 1d6 psychic damage at the end of the turn.\n\nIf your concentration is broken, the spell ends but the creatures don’t disappear. Instead, you can no longer command them, and they become hostile to you and your companions. They will attack you and your allies if they believe they have a chance to win the fight or to inflict meaningful harm, but they won’t fight if they fear it would mean their own death. You can’t dismiss the creatures, but they disappear 1 hour after being summoned.\n"
+},
+{
+  "id": "conjure_scarab_swarm",
+  "name": "Conjure Scarab Swarm",
+  "level": 2,
+  "school": "conjuration",
+  "class": [
+    "Cleric",
+    "Druid",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 10 minutes",
+  "description": "You summon swarms of scarab beetles to attack your foes. Two swarms of insects (beetles) appear in unoccupied spaces that you can see within range.\n\nEach swarm disappears when it drops to 0 hit points or when the spell ends. The swarms are friendly to you and your allies. Make one initiative roll for both swarms, which have their own turns. They obey verbal commands that you issue to them (no action required by you). If you don’t issue any commands to them, they defend themselves from hostile creatures but otherwise take no actions."
+},
+{
+  "id": "conjure_shadow_titan",
+  "name": "Conjure Shadow Titan",
+  "level": 7,
+  "school": "conjuration",
+  "class": [
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "90 feet",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You summon a shadow titan, which appears in an unoccupied space that you can see within range. The shadow titan’s statistics are identical to a [stone giant’s](https://api.open5e.com/monsters/stone-giant), with two differences: its camouflage ability works in dim light instead of rocky terrain, and the “rocks” it hurls are composed of shadow-stuff and cause cold damage.\n\nThe shadow titan is friendly to you and your companions. Roll initiative for the shadow titan; it acts on its own turn. It obeys verbal or telepathic commands that you issue to it (giving a command takes no action on your part). If you don’t issue any commands to the shadow titan, it defends itself from hostile creatures but otherwise takes no actions.\n\nThe shadow titan disappears when it drops to 0 hit points or when the spell ends."
+},
+{
+  "id": "conjure_spectral_allies",
+  "name": "Conjure Spectral Allies",
+  "level": 7,
+  "school": "necromancy",
+  "class": [
+    "Cleric",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 action",
+  "range": "60 Feet",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "description": "You sprinkle some graveyard dirt before you and call forth vengeful spirits. The spirits erupt from the ground at a point you choose within range and sweep outward. Each creature in a 30-foot-radius sphere centered on that point must make a Wisdom saving throw. On a failed save, a creature takes 6d10 necrotic damage and becomes frightened for 1 minute. On a successful save, the creature takes half as much damage and isn't frightened.\n  At the end of each of its turns, a creature frightened by this spell can make another saving throw. On a success, this spell ends on the creature."
+},
+{
+  "id": "conjure_spectral_dead",
+  "name": "Conjure Spectral Dead",
+  "level": 2,
+  "school": "conjuration",
+  "class": [
+    "Cleric",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "You summon a [shroud](https://api.open5e.com/monsters/shroud) to do your bidding. The creature appears in an unoccupied space that you can see within range. The creature is friendly to you and your allies for the duration. Roll initiative for the creature, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you). If you don't issue any commands to the creature, it defends itself from hostile creatures but otherwise takes no actions. The creature disappears when it drops to 0 hit points or when the spell ends.\n"
+},
+{
+  "id": "conjure_undead",
+  "name": "Conjure Undead",
+  "level": 3,
+  "school": "conjuration",
+  "class": [
+    "Cleric",
+    "Druid",
+    "Ranger"
+  ],
+  "castTime": "1 minute",
+  "range": "30 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "You summon a [shadow](https://api.open5e.com/monsters/shadow) to do your bidding. The creature appears in an unoccupied space that you can see within range. The creature is friendly to you and your allies for the duration. Roll initiative for the shadow, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you). If you don’t issue any commands to the creature, it defends itself from hostile creatures but otherwise takes no actions. The shadow disappears when the spell ends.\n"
+},
+{
+  "id": "conjure_voidborn",
+  "name": "Conjure Voidborn",
+  "level": 7,
+  "school": "conjuration",
+  "class": [],
+  "castTime": "1 action",
+  "range": "90 feet",
+  "components": "V, S",
+  "duration": "Up to 1 hour",
+  "description": "You summon a fiend or aberration of challenge rating 6 or lower, which appears in an unoccupied space that you can see within range. The creature disappears when it drops to 0 hit points or when the spell ends.\n\nRoll initiative for the creature, which takes its own turns. It attacks the nearest creature on its turn. At the start of the fiend’s turn, you can use your reaction to command the creature by speaking in Void Speech. It obeys your verbal command, and you take 2d6 psychic damage at the end of the creature’s turn.\n\nIf your concentration is broken, the spell ends but the creature doesn’t disappear. Instead, you can no longer issue commands to the fiend, and it becomes hostile to you and your companions. It will attack you and your allies if it believes it has a chance to win the fight or to inflict meaningful harm, but it won’t fight if it fears doing so would mean its own death. You can’t dismiss the creature, but it disappears 1 hour after you summoned it.\n"
+},
+{
+  "id": "conjure_woodland_beings",
+  "name": "Conjure Woodland Beings",
+  "level": 4,
+  "school": "Conjuration",
+  "class": [
+    "Druid",
+    "Ranger"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "You summon fey creatures that appear in unoccupied spaces that you can see within range. Choose one of the following options for what appears: \n- One fey creature of challenge rating 2 or lower \n- Two fey creatures of challenge rating 1 or lower \n- Four fey creatures of challenge rating 1/2 or lower \n- Eight fey creatures of challenge rating 1/4 or lower A summoned creature disappears when it drops to 0 hit points or when the spell ends. The summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which have their own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions. The DM has the creatures' statistics."
+},
+{
+  "id": "conjure_woodland_beings",
+  "name": "Conjure Woodland Beings",
+  "level": 4,
+  "school": "Conjuration",
+  "class": [
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "60 feet",
+  "components": "V, S, M",
+  "duration": "Up to 1 hour",
+  "description": "You summon up to 3 creatures from The Dreaming. These creatures use the statistics of a woodland being (detailed below) with certain traits determined by your choice of its type: blink dog, satyr, or sprite. If you summon only 2 creatures with this spell, increase its effective slot level by 1 when determining the minor woodland being's statistics, and if you summon a single creature with this spell its effective slot level is increased by 2 instead.\n\nThe summoned creatures are friendly to you and your companions and take their turns immediately after yours. They obey your verbal commands. When you command multiple woodland beings using this spell, you must give them all the same command.\n\nWithout such commands, a summoned creature only defends itself.\n\nThe summoned creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of any summoned creatures, which become hostile and might attack you and your companions. An uncontrolled creature disappears at the end of the spell's maximum duration."
+},
+{
+  "id": "consult_the_storm",
+  "name": "Consult the Storm",
+  "level": 4,
+  "school": "divination",
+  "class": [
+    "Cleric",
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "90 feet",
+  "components": "V",
+  "duration": "Instantaneous",
+  "description": "You ask a question of an entity connected to storms, such as an elemental, a deity, or a primal spirit, and the entity replies with destructive fury.\n\nAs part of the casting of the spell, you must speak a question consisting of fifteen words or fewer. Choose a point within range. A short, truthful answer to your question booms from that point. It can be heard clearly by any creature within 600 feet. Each creature within 15 feet of the point takes 7d6 thunder damage, or half as much damage with a successful Constitution saving throw.\n"
+},
+{
+  "id": "contact_other_plane",
+  "name": "Contact Other Plane",
+  "level": 5,
+  "school": "Divination",
+  "class": [
+    "Ritual Caster",
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "Self",
+  "components": "V",
+  "duration": "1 minute",
+  "description": "You mentally contact a demigod, the spirit of a long-dead sage, or some other mysterious entity from another plane. Contacting this extraplanar intelligence can strain or even break your mind. When you cast this spell, make a DC 15 intelligence saving throw. On a failure, you take 6d6 psychic damage and are insane until you finish a long rest. While insane, you can't take actions, can't understand what other creatures say, can't read, and speak only in gibberish. A greater restoration spell cast on you ends this effect. On a successful save, you can ask the entity up to five questions. You must ask your questions before the spell ends. The DM answers each question with one word, such as \"yes,\" \"no,\" \"maybe,\" \"never,\" \"irrelevant,\" or \"unclear\" (if the entity doesn't know the answer to the question). If a one-word answer would be misleading, the DM might instead offer a short phrase as an answer."
+},
+{
+  "id": "contact_other_plane",
+  "name": "Contact Other Plane",
+  "level": 5,
+  "school": "Divination",
+  "class": [
+    "Warlock",
+    "Wizard"
+  ],
+  "castTime": "1 minute",
+  "range": "self",
+  "components": "V",
+  "duration": "1 minute",
+  "description": "You consult an otherworldly entity, risking your very mind in the process. Make a DC 15 Intelligence saving throw. On a failure, you take 6d6 psychic damage and suffer four levels of strife until you finish a long rest. A _greater restoration_ spell ends this effect.\n\nOn a successful save, you can ask the entity up to 5 questions before the spell ends. When possible the entity responds with one-word answers: yes, no, maybe, never, irrelevant, or unclear. At the Narrator's discretion, it may instead provide a brief but truthful answer when necessary."
+},
+{
+  "id": "contagion",
+  "name": "Contagion",
+  "level": 5,
+  "school": "Necromancy",
+  "class": [
+    "Cleric",
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "7 days",
+  "description": "Your touch inflicts disease. Make a melee spell attack against a creature within your reach. On a hit, you afflict the creature with a disease of your choice from any of the ones described below. At the end of each of the target's turns, it must make a constitution saving throw. After failing three of these saving throws, the disease's effects last for the duration, and the creature stops making these saves. After succeeding on three of these saving throws, the creature recovers from the disease, and the spell ends. Since this spell induces a natural disease in its target, any effect that removes a disease or otherwise ameliorates a disease's effects apply to it.\n\n**Blinding Sickness.** Pain grips the creature's mind, and its eyes turn milky white. The creature has disadvantage on wisdom checks and wisdom saving throws and is blinded.\n\n**Filth Fever.** A raging fever sweeps through the creature's body. The creature has disadvantage on strength checks, strength saving throws, and attack rolls that use Strength.\n\n**Flesh Rot.** The creature's flesh decays. The creature has disadvantage on Charisma checks and vulnerability to all damage.\n\n**Mindfire.** The creature's mind becomes feverish. The creature has disadvantage on intelligence checks and intelligence saving throws, and the creature behaves as if under the effects of the confusion spell during combat.\n\n**Seizure.** The creature is overcome with shaking. The creature has disadvantage on dexterity checks, dexterity saving throws, and attack rolls that use Dexterity.\n\n**Slimy Doom.** The creature begins to bleed uncontrollably. The creature has disadvantage on constitution checks and constitution saving throws. In addition, whenever the creature takes damage, it is stunned until the end of its next turn."
+},
+{
+  "id": "contagion",
+  "name": "Contagion",
+  "level": 5,
+  "school": "Necromancy",
+  "class": [
+    "Cleric",
+    "Druid"
+  ],
+  "castTime": "1 action",
+  "range": "touch",
+  "components": "V, S",
+  "duration": "7 days",
+  "description": "Your touch inflicts a hideous disease. Make a melee spell attack. On a hit, you afflict the target with a disease chosen from the list below.\n\nThe target must make a Constitution saving throw at the end of each of its turns. After three failed saves, the disease lasts for the duration and the creature stops making saves, or after three successful saves, the creature recovers and the spell ends. A greater restoration spell or similar effect also ends the disease.\n\n* **Blinding Sickness:** The target's eyes turn milky white. It is blinded and has disadvantage on Wisdom checks and saving throws.\n* **Filth Fever:** The target is wracked by fever. It has disadvantage when using Strength for an ability check, attack roll, or saving throw.\n* **Flesh Rot:** The target's flesh rots. It has disadvantage on Charisma ability checks and becomes vulnerable to all damage.\n* **Mindfire:** The target hallucinates. During combat it is confused, and it has disadvantage when using Intelligence for an ability check or saving throw.\n* **Rattling Cough:** The target becomes discombobulated as it hacks with body-wracking coughs. It is rattled and has disadvantage when using Dexterity for an ability check, attack roll, or saving throw.\n* **Slimy Doom:** The target bleeds uncontrollably. It has disadvantage when using Constitution for an ability check or saving throw. Whenever it takes damage, the target is stunned until the end of its next turn."
+},
+{
+  "id": "contingency",
+  "name": "Contingency",
+  "level": 6,
+  "school": "Evocation",
+  "class": [
+    "Wizard"
+  ],
+  "castTime": "10 minutes",
+  "range": "Self",
+  "components": "V, S, M",
+  "duration": "10 days",
+  "description": "Choose a spell of 5th level or lower that you can cast, that has a casting time of 1 action, and that can target you. You cast that spell-called the contingent spell-as part of casting contingency, expending spell slots for both, but the contingent spell doesn't come into effect. Instead, it takes effect when a certain circumstance occurs. You describe that circumstance when you cast the two spells. For example, a contingency cast with water breathing might stipulate that water breathing comes into effect when you are engulfed in water or a similar liquid. The contingent spell takes effect immediately after the circumstance is met for the first time, whether or not you want it to. and then contingency ends. The contingent spell takes effect only on you, even if it can normally target others. You can use only one contingency spell at a time. If you cast this spell again, the effect of another contingency spell on you ends. Also, contingency ends on you if its material component is ever not on your person."
+}
 ];

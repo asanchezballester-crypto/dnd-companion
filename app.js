@@ -2467,7 +2467,7 @@ function setupDefaultSpellSlots(char) {
   ];
 
   if (!char.spellSlots) char.spellSlots = {};
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 9; i++) {
     char.spellSlots[i] = { current: 0, max: 0 };
   }
   char.pactSlots = { level: 0, current: 0, max: 0 };
@@ -2496,16 +2496,16 @@ function setupDefaultSpellSlots(char) {
 
   if (effectiveLevel > 0) {
     const fullCasterSlots = {
-      1: [2, 0, 0, 0, 0], 2: [3, 0, 0, 0, 0], 3: [4, 2, 0, 0, 0], 4: [4, 3, 0, 0, 0], 5: [4, 3, 2, 0, 0],
-      6: [4, 3, 3, 0, 0], 7: [4, 3, 3, 1, 0], 8: [4, 3, 3, 2, 0], 9: [4, 3, 3, 3, 1], 10: [4, 3, 3, 3, 2],
-      11: [4, 3, 3, 3, 2], 12: [4, 3, 3, 3, 2], 13: [4, 3, 3, 3, 2], 14: [4, 3, 3, 3, 2], 15: [4, 3, 3, 3, 2],
-      16: [4, 3, 3, 3, 2], 17: [4, 3, 3, 3, 2], 18: [4, 3, 3, 3, 3], 19: [4, 3, 3, 3, 3], 20: [4, 3, 3, 3, 3]
+      1: [2, 0, 0, 0, 0, 0, 0, 0, 0], 2: [3, 0, 0, 0, 0, 0, 0, 0, 0], 3: [4, 2, 0, 0, 0, 0, 0, 0, 0], 4: [4, 3, 0, 0, 0, 0, 0, 0, 0], 5: [4, 3, 2, 0, 0, 0, 0, 0, 0],
+      6: [4, 3, 3, 0, 0, 0, 0, 0, 0], 7: [4, 3, 3, 1, 0, 0, 0, 0, 0], 8: [4, 3, 3, 2, 0, 0, 0, 0, 0], 9: [4, 3, 3, 3, 1, 0, 0, 0, 0], 10: [4, 3, 3, 3, 2, 0, 0, 0, 0],
+      11: [4, 3, 3, 3, 2, 1, 0, 0, 0], 12: [4, 3, 3, 3, 2, 1, 0, 0, 0], 13: [4, 3, 3, 3, 2, 1, 1, 0, 0], 14: [4, 3, 3, 3, 2, 1, 1, 0, 0], 15: [4, 3, 3, 3, 2, 1, 1, 1, 0],
+      16: [4, 3, 3, 3, 2, 1, 1, 1, 0], 17: [4, 3, 3, 3, 2, 1, 1, 1, 1], 18: [4, 3, 3, 3, 3, 1, 1, 1, 1], 19: [4, 3, 3, 3, 3, 2, 1, 1, 1], 20: [4, 3, 3, 3, 3, 2, 2, 1, 1]
     };
     
     const lvlKey = Math.min(20, effectiveLevel);
-    const slots = fullCasterSlots[lvlKey] || [0, 0, 0, 0, 0];
+    const slots = fullCasterSlots[lvlKey] || [0, 0, 0, 0, 0, 0, 0, 0, 0];
     
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 9; i++) {
       char.spellSlots[i].max = slots[i-1];
       char.spellSlots[i].current = slots[i-1];
     }
@@ -4637,8 +4637,8 @@ function performShortRest(char) {
   });
   if (warlockClass && char.spellSlots) {
     let slotsRecovered = false;
-    for (let i = 1; i <= 5; i++) {
-      if (char.spellSlots[i].max > 0 && char.spellSlots[i].current < char.spellSlots[i].max) {
+    for (let i = 1; i <= 9; i++) {
+        if (char.spellSlots[i].max > 0 && char.spellSlots[i].current < char.spellSlots[i].max) {
         char.spellSlots[i].current = char.spellSlots[i].max;
         slotsRecovered = true;
       }
@@ -4699,7 +4699,7 @@ function performLongRest(char) {
   const oldHP = char.hpCurrent;
   char.hpCurrent = char.hpMax;
 
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 9; i++) {
     if (char.spellSlots[i]) {
       char.spellSlots[i].current = char.spellSlots[i].max;
     }
