@@ -1724,6 +1724,7 @@ function renderActiveCharacter() {
   renderClassChoices(char);
   renderWildShapeSection(char);
   renderSkills(char);
+  renderSavingThrows(char);
   renderPortrait(char);
   applySectionVisibility();
 }
@@ -2479,12 +2480,23 @@ function createCharacterSubmit(e) {
 }
 
 function setupDefaultSpellSlots(char) {
-  const fullcasters = ["Mago", "Hechicero", "Clérigo", "Bardo", "Druida"];
-  const halfcasters = ["Paladín", "Explorador"];
-  const thirdcasters = [
-    { class: "Guerrero", subclass: "Caballero Arcano" },
-    { class: "Pícaro", subclass: "Embaucador Arcano" }
-  ];
+  const isFullCaster = (cls) => {
+    const c = (cls || "").trim().toLowerCase();
+    return ["mago", "wizard", "hechicero", "sorcerer", "clérigo", "cleric", "bardo", "bard", "druida", "druid"].includes(c);
+  };
+  const isHalfCaster = (cls) => {
+    const c = (cls || "").trim().toLowerCase();
+    return ["paladín", "paladin", "explorador", "ranger", "artífice", "artificer"].includes(c);
+  };
+  const isThirdCaster = (cls, sub) => {
+    const c = (cls || "").trim().toLowerCase();
+    const s = (sub || "").trim().toLowerCase();
+    const isFighter = ["guerrero", "fighter"].includes(c);
+    const isEldritch = ["caballero arcano", "eldritch knight"].includes(s);
+    const isRogue = ["pícaro", "picaro", "rogue"].includes(c);
+    const isTrickster = ["embaucador arcano", "arcane trickster"].includes(s);
+    return (isFighter && isEldritch) || (isRogue && isTrickster);
+  };
 
   if (!char.spellSlots) char.spellSlots = {};
   // Guardar los current actuales antes de recalcular (no resetear lo que el jugador ya usó)
@@ -2496,44 +2508,90 @@ function setupDefaultSpellSlots(char) {
   const savedPactCurrent = char.pactSlots ? (char.pactSlots.current ?? 0) : 0;
   char.pactSlots = { level: 0, current: 0, max: 0 };
 
-  let effectiveLevel = 0;
-  let warlockLvl = 0;
-  
   const classes = window.getAllClasses ? window.getAllClasses(char) : [{class: char.class, subclass: char.subclass, level: char.level}];
+  
+  const activeCasters = [];
+  let warlockLvl = 0;
   
   classes.forEach(c => {
     const lvl = parseInt(c.level) || 1;
-    if (fullcasters.includes(c.class)) {
-      effectiveLevel += lvl;
-    } else if (halfcasters.includes(c.class)) {
-      effectiveLevel += Math.ceil(lvl / 2);
-    } else {
-      const isThird = thirdcasters.some(tc => tc.class === c.class && tc.subclass === c.subclass);
-      if (isThird) {
-        effectiveLevel += Math.ceil(lvl / 3);
-      }
+    if (isFullCaster(c.class)) {
+      activeCasters.push({ type: "full", level: lvl });
+    } else if (isHalfCaster(c.class)) {
+      activeCasters.push({ type: "half", level: lvl });
+    } else if (isThirdCaster(c.class, c.subclass)) {
+      activeCasters.push({ type: "third", level: lvl });
     }
-    if (c.class === "Brujo") {
+    const clsLower = (c.class || "").trim().toLowerCase();
+    if (clsLower === "brujo" || clsLower === "warlock") {
       warlockLvl += lvl;
     }
   });
 
-  if (effectiveLevel > 0) {
-    const fullCasterSlots = {
-      1: [2, 0, 0, 0, 0, 0, 0, 0, 0], 2: [3, 0, 0, 0, 0, 0, 0, 0, 0], 3: [4, 2, 0, 0, 0, 0, 0, 0, 0], 4: [4, 3, 0, 0, 0, 0, 0, 0, 0], 5: [4, 3, 2, 0, 0, 0, 0, 0, 0],
-      6: [4, 3, 3, 0, 0, 0, 0, 0, 0], 7: [4, 3, 3, 1, 0, 0, 0, 0, 0], 8: [4, 3, 3, 2, 0, 0, 0, 0, 0], 9: [4, 3, 3, 3, 1, 0, 0, 0, 0], 10: [4, 3, 3, 3, 2, 0, 0, 0, 0],
-      11: [4, 3, 3, 3, 2, 1, 0, 0, 0], 12: [4, 3, 3, 3, 2, 1, 0, 0, 0], 13: [4, 3, 3, 3, 2, 1, 1, 0, 0], 14: [4, 3, 3, 3, 2, 1, 1, 0, 0], 15: [4, 3, 3, 3, 2, 1, 1, 1, 0],
-      16: [4, 3, 3, 3, 2, 1, 1, 1, 0], 17: [4, 3, 3, 3, 2, 1, 1, 1, 1], 18: [4, 3, 3, 3, 3, 1, 1, 1, 1], 19: [4, 3, 3, 3, 3, 2, 1, 1, 1], 20: [4, 3, 3, 3, 3, 2, 2, 1, 1]
-    };
-    
+  const fullCasterSlots = {
+    1: [2, 0, 0, 0, 0, 0, 0, 0, 0], 2: [3, 0, 0, 0, 0, 0, 0, 0, 0], 3: [4, 2, 0, 0, 0, 0, 0, 0, 0], 4: [4, 3, 0, 0, 0, 0, 0, 0, 0], 5: [4, 3, 2, 0, 0, 0, 0, 0, 0],
+    6: [4, 3, 3, 0, 0, 0, 0, 0, 0], 7: [4, 3, 3, 1, 0, 0, 0, 0, 0], 8: [4, 3, 3, 2, 0, 0, 0, 0, 0], 9: [4, 3, 3, 3, 1, 0, 0, 0, 0], 10: [4, 3, 3, 3, 2, 0, 0, 0, 0],
+    11: [4, 3, 3, 3, 2, 1, 0, 0, 0], 12: [4, 3, 3, 3, 2, 1, 0, 0, 0], 13: [4, 3, 3, 3, 2, 1, 1, 0, 0], 14: [4, 3, 3, 3, 2, 1, 1, 0, 0], 15: [4, 3, 3, 3, 2, 1, 1, 1, 0],
+    16: [4, 3, 3, 3, 2, 1, 1, 1, 0], 17: [4, 3, 3, 3, 2, 1, 1, 1, 1], 18: [4, 3, 3, 3, 3, 1, 1, 1, 1], 19: [4, 3, 3, 3, 3, 2, 1, 1, 1], 20: [4, 3, 3, 3, 3, 2, 2, 1, 1]
+  };
+
+  const halfCasterSlots = {
+    1: [2, 0, 0, 0, 0, 0, 0, 0, 0],
+    2: [3, 0, 0, 0, 0, 0, 0, 0, 0],
+    3: [3, 0, 0, 0, 0, 0, 0, 0, 0],
+    4: [3, 0, 0, 0, 0, 0, 0, 0, 0],
+    5: [4, 2, 0, 0, 0, 0, 0, 0, 0],
+    6: [4, 2, 0, 0, 0, 0, 0, 0, 0],
+    7: [4, 3, 0, 0, 0, 0, 0, 0, 0],
+    8: [4, 3, 0, 0, 0, 0, 0, 0, 0],
+    9: [4, 3, 2, 0, 0, 0, 0, 0, 0],
+    10: [4, 3, 2, 0, 0, 0, 0, 0, 0],
+    11: [4, 3, 3, 0, 0, 0, 0, 0, 0],
+    12: [4, 3, 3, 0, 0, 0, 0, 0, 0],
+    13: [4, 3, 3, 1, 0, 0, 0, 0, 0],
+    14: [4, 3, 3, 1, 0, 0, 0, 0, 0],
+    15: [4, 3, 3, 2, 0, 0, 0, 0, 0],
+    16: [4, 3, 3, 2, 0, 0, 0, 0, 0],
+    17: [4, 3, 3, 3, 1, 0, 0, 0, 0],
+    18: [4, 3, 3, 3, 1, 0, 0, 0, 0],
+    19: [4, 3, 3, 3, 2, 0, 0, 0, 0],
+    20: [4, 3, 3, 3, 2, 0, 0, 0, 0]
+  };
+
+  const thirdCasterSlots = {
+    1: [0, 0, 0, 0, 0, 0, 0, 0, 0], 2: [0, 0, 0, 0, 0, 0, 0, 0, 0], 3: [2, 0, 0, 0, 0, 0, 0, 0, 0], 4: [3, 0, 0, 0, 0, 0, 0, 0, 0], 5: [3, 0, 0, 0, 0, 0, 0, 0, 0],
+    6: [3, 0, 0, 0, 0, 0, 0, 0, 0], 7: [4, 2, 0, 0, 0, 0, 0, 0, 0], 8: [4, 2, 0, 0, 0, 0, 0, 0, 0], 9: [4, 2, 0, 0, 0, 0, 0, 0, 0], 10: [4, 3, 0, 0, 0, 0, 0, 0, 0],
+    11: [4, 3, 0, 0, 0, 0, 0, 0, 0], 12: [4, 3, 0, 0, 0, 0, 0, 0, 0], 13: [4, 3, 2, 0, 0, 0, 0, 0, 0], 14: [4, 3, 2, 0, 0, 0, 0, 0, 0], 15: [4, 3, 2, 0, 0, 0, 0, 0, 0],
+    16: [4, 3, 3, 0, 0, 0, 0, 0, 0], 17: [4, 3, 3, 0, 0, 0, 0, 0, 0], 18: [4, 3, 3, 0, 0, 0, 0, 0, 0], 19: [4, 3, 3, 1, 0, 0, 0, 0, 0], 20: [4, 3, 3, 1, 0, 0, 0, 0, 0]
+  };
+
+  let slots = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  if (activeCasters.length === 1) {
+    const caster = activeCasters[0];
+    let slotsTable = fullCasterSlots;
+    if (caster.type === "half") slotsTable = halfCasterSlots;
+    else if (caster.type === "third") slotsTable = thirdCasterSlots;
+    const lvlKey = Math.min(20, caster.level);
+    slots = slotsTable[lvlKey] || [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  } else if (activeCasters.length > 1) {
+    let effectiveLevel = 0;
+    activeCasters.forEach(caster => {
+      if (caster.type === "full") {
+        effectiveLevel += caster.level;
+      } else if (caster.type === "half") {
+        effectiveLevel += Math.ceil(caster.level / 2);
+      } else if (caster.type === "third") {
+        effectiveLevel += Math.ceil(caster.level / 3);
+      }
+    });
     const lvlKey = Math.min(20, effectiveLevel);
-    const slots = fullCasterSlots[lvlKey] || [0, 0, 0, 0, 0, 0, 0, 0, 0];
-    
-    for (let i = 1; i <= 9; i++) {
-      char.spellSlots[i].max = slots[i-1];
-      // Restaurar current guardado antes del reset (cap al nuevo max)
-      char.spellSlots[i].current = Math.min(savedCurrents[i] || 0, slots[i-1]);
-    }
+    slots = fullCasterSlots[lvlKey] || [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  }
+
+  for (let i = 1; i <= 9; i++) {
+    char.spellSlots[i].max = slots[i - 1];
+    // Restaurar current guardado antes del reset (cap al nuevo max)
+    char.spellSlots[i].current = Math.min(savedCurrents[i] || 0, slots[i - 1]);
   }
 
   if (warlockLvl > 0) {
@@ -5870,11 +5928,183 @@ function renderSkills(char) {
     div.style.borderRadius = "6px";
     div.style.fontSize = "12px";
     div.style.minWidth = "0"; // Asegurar que flex-box pueda encogerse si es necesario
+    div.style.cursor = "pointer";
+    div.title = lang === "en" ? `Click to roll ${skillName} check` : `Haga clic para tirar control de ${skillName}`;
+    div.onclick = () => rollSkillCheck(skillKey);
     
     div.innerHTML = `
       <div style="display:flex; align-items:center; gap:6px; min-width:0; overflow:hidden; flex-grow:1;">
         <span style="color:${color}; font-size:14px; line-height:1; width:14px; text-align:center; flex-shrink:0;">${icon}</span>
         <span style="color:var(--text-light); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex-grow:1; min-width:0;" title="${skillName}">${skillName} <span style="color:var(--text-dim); font-size:10px; flex-shrink:0;">(${skillDef.attr.toUpperCase()})</span></span>
+      </div>
+      <div style="font-weight:bold; color:var(--gold); flex-shrink:0; margin-left:8px;">${modStr}</div>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+function rollD20Check(title, mod, details = "") {
+  const rawRoll = Math.floor(Math.random() * 20) + 1;
+  const total = rawRoll + mod;
+  let type = "normal";
+  if (rawRoll === 20) type = "critical";
+  else if (rawRoll === 1) type = "fumble";
+  
+  const modSign = mod >= 0 ? `+${mod}` : `${mod}`;
+  const mathStr = `1d20 (${rawRoll}) ${modSign} = ${total}`;
+  showDiceRollResult(title, mathStr, total, details, type, rawRoll);
+}
+window.rollD20Check = rollD20Check;
+
+function rollAttributeCheck(attrName) {
+  const char = getActiveCharacter();
+  if (!char) return;
+  const eff = getEffectiveAttributes(char);
+  const score = eff[attrName] || 10;
+  const mod = calcModifier(score);
+  
+  const attrLabels = {
+    str: { es: "Fuerza", en: "Strength" },
+    dex: { es: "Destreza", en: "Dexterity" },
+    con: { es: "Constitución", en: "Constitution" },
+    int: { es: "Inteligencia", en: "Intelligence" },
+    wis: { es: "Sabiduría", en: "Wisdom" },
+    cha: { es: "Carisma", en: "Charisma" }
+  };
+  
+  const lang = localStorage.getItem("dnd55_language") || "es";
+  const name = attrLabels[attrName][lang];
+  const title = lang === "en" ? `${name} Check` : `Control de ${name}`;
+  
+  rollD20Check(title, mod, `${char.name}`);
+}
+window.rollAttributeCheck = rollAttributeCheck;
+
+function rollSkillCheck(skillKey) {
+  const char = getActiveCharacter();
+  if (!char) return;
+  
+  const skillDef = DND_SKILLS[skillKey];
+  if (!skillDef) return;
+  
+  const lang = localStorage.getItem("dnd55_language") || "es";
+  const skillName = lang === "en" ? skillDef.en : skillDef.es;
+  const mod = calculateSkillModifier(skillKey, char);
+  
+  const title = lang === "en" ? `${skillName} (${skillDef.attr.toUpperCase()})` : `${skillName} (${skillDef.attr.toUpperCase()})`;
+  rollD20Check(title, mod, `${char.name}`);
+}
+window.rollSkillCheck = rollSkillCheck;
+
+function rollSavingThrow(attrName) {
+  const char = getActiveCharacter();
+  if (!char) return;
+  const eff = getEffectiveAttributes(char);
+  const profSaves = getClassSavingThrowProficiencies(char.class);
+  const isProf = profSaves.includes(attrName);
+  const mod = calcModifier(eff[attrName] || 10);
+  const prof = char.profBonus || 2;
+  const finalMod = mod + (isProf ? prof : 0);
+  
+  const attrLabels = {
+    str: { es: "Fuerza", en: "Strength" },
+    dex: { es: "Destreza", en: "Dexterity" },
+    con: { es: "Constitución", en: "Constitution" },
+    int: { es: "Inteligencia", en: "Intelligence" },
+    wis: { es: "Sabiduría", en: "Wisdom" },
+    cha: { es: "Carisma", en: "Charisma" }
+  };
+  
+  const lang = localStorage.getItem("dnd55_language") || "es";
+  const name = attrLabels[attrName][lang];
+  const title = lang === "en" ? `${name} Saving Throw` : `Salvación de ${name}`;
+  
+  rollD20Check(title, finalMod, `${char.name}`);
+}
+window.rollSavingThrow = rollSavingThrow;
+
+function toggleSavingThrowsPanel() {
+  const wrapper = document.getElementById("savingThrowsGridWrapper");
+  const icon = document.getElementById("savingThrowsToggleIcon");
+  if (!wrapper) return;
+  
+  if (wrapper.style.display === "none") {
+    wrapper.style.display = "block";
+    if (icon) icon.textContent = "▼";
+  } else {
+    wrapper.style.display = "none";
+    if (icon) icon.textContent = "▶";
+  }
+}
+window.toggleSavingThrowsPanel = toggleSavingThrowsPanel;
+
+function renderSavingThrows(char) {
+  const grid = document.getElementById("savingThrowsGrid");
+  if (!grid) return;
+  grid.innerHTML = "";
+
+  const lang = localStorage.getItem("dnd55_language") || "es";
+  
+  // Actualizar título
+  const header = document.getElementById("lblSavingThrowsHeader");
+  if (header) {
+    header.textContent = lang === "en" ? "Saving Throws" : "Tiradas de Salvación";
+  }
+
+  const attrKeys = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
+  const attrShort = {
+    str: lang === "en" ? "STR" : "FUE",
+    dex: lang === "en" ? "DEX" : "DES",
+    con: lang === "en" ? "CON" : "CON",
+    int: lang === "en" ? "INT" : "INT",
+    wis: lang === "en" ? "WIS" : "SAB",
+    cha: lang === "en" ? "CHA" : "CAR"
+  };
+  const attrLong = {
+    str: lang === "en" ? "Strength" : "Fuerza",
+    dex: lang === "en" ? "Dexterity" : "Destreza",
+    con: lang === "en" ? "Constitution" : "Constitución",
+    int: lang === "en" ? "Intelligence" : "Inteligencia",
+    wis: lang === "en" ? "Wisdom" : "Sabiduría",
+    cha: lang === "en" ? "Charisma" : "Carisma"
+  };
+
+  const eff = getEffectiveAttributes(char);
+  const profSaves = getClassSavingThrowProficiencies(char.class);
+  const prof = char.profBonus || 2;
+
+  attrKeys.forEach(attr => {
+    const isProf = profSaves.includes(attr);
+    const mod = calcModifier(eff[attr] || 10);
+    const finalMod = mod + (isProf ? prof : 0);
+    const modStr = finalMod >= 0 ? `+${finalMod}` : `${finalMod}`;
+    
+    let icon = "○";
+    let color = "var(--text-dim)";
+    if (isProf) {
+      icon = "●";
+      color = "var(--gold)";
+    }
+    
+    const div = document.createElement("div");
+    div.style.display = "flex";
+    div.style.justifyContent = "space-between";
+    div.style.alignItems = "center";
+    div.style.padding = "4px 8px";
+    div.style.background = "var(--bg-input)";
+    div.style.borderRadius = "6px";
+    div.style.fontSize = "12px";
+    div.style.minWidth = "0";
+    div.style.cursor = "pointer";
+    div.title = lang === "en" ? `Click to roll ${attrLong[attr]} saving throw` : `Haga clic para tirar salvación de ${attrLong[attr]}`;
+    div.onclick = () => rollSavingThrow(attr);
+    
+    div.innerHTML = `
+      <div style="display:flex; align-items:center; gap:6px; min-width:0; overflow:hidden; flex-grow:1;">
+        <span style="color:${color}; font-size:14px; line-height:1; width:14px; text-align:center; flex-shrink:0;">${icon}</span>
+        <span style="color:var(--text-light); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex-grow:1; min-width:0;">
+          ${attrLong[attr]} <span style="color:var(--text-dim); font-size:10px; flex-shrink:0;">(${attrShort[attr]})</span>
+        </span>
       </div>
       <div style="font-weight:bold; color:var(--gold); flex-shrink:0; margin-left:8px;">${modStr}</div>
     `;
@@ -8501,6 +8731,14 @@ function changeLanguage(lang, save = true) {
   if (lblSecAttributes) {
     lblSecAttributes.textContent = lang === "en" ? "Attributes" : "Atributos";
   }
+  const lblSecSavingThrows = document.getElementById("lblSecSavingThrows");
+  if (lblSecSavingThrows) {
+    lblSecSavingThrows.textContent = lang === "en" ? "Saving Throws" : "Tiradas de Salvación";
+  }
+  const lblSecSkillsToggle = document.getElementById("lblSecSkillsToggle");
+  if (lblSecSkillsToggle) {
+    lblSecSkillsToggle.textContent = lang === "en" ? "Skills" : "Habilidades";
+  }
   const lblSecResources = document.getElementById("lblSecResources");
   if (lblSecResources) {
     lblSecResources.textContent = lang === "en" ? "Resources & Rests" : "Recursos y Descansos";
@@ -8641,6 +8879,7 @@ function applySectionVisibility() {
 
   char.visibleSections = char.visibleSections || {
     attributes: true,
+    savingThrows: true,
     skills: true,
     resources: true,
     details: true,
@@ -8650,12 +8889,16 @@ function applySectionVisibility() {
     classChoices: true
   };
 
+  if (char.visibleSections.savingThrows === undefined) {
+    char.visibleSections.savingThrows = true;
+  }
   if (char.visibleSections.skills === undefined) {
     char.visibleSections.skills = true;
   }
 
   const sections = {
     attributes: document.getElementById("secAttributes"),
+    savingThrows: document.getElementById("secSavingThrows"),
     skills: document.getElementById("secSkills"),
     resources: document.getElementById("secResources"),
     details: document.getElementById("secDetails"),
@@ -8667,6 +8910,7 @@ function applySectionVisibility() {
 
   const checkboxes = {
     attributes: document.getElementById("toggleSecAttributes"),
+    savingThrows: document.getElementById("toggleSecSavingThrows"),
     skills: document.getElementById("toggleSecSkills"),
     resources: document.getElementById("toggleSecResources"),
     details: document.getElementById("toggleSecDetails"),
@@ -8699,6 +8943,8 @@ function toggleSectionVisibility(sectionKey, isVisible) {
 
   char.visibleSections = char.visibleSections || {
     attributes: true,
+    savingThrows: true,
+    skills: true,
     resources: true,
     details: true,
     attacks: true,

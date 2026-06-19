@@ -191,35 +191,48 @@
       
       <!-- Atributos -->
       <div class="grid-attributes" id="secAttributes">
-        <div class="attr-card" id="attr-str">
+        <div class="attr-card" id="attr-str" onclick="rollAttributeCheck('str')" title="Tirar control de Fuerza" style="cursor: pointer;">
           <div class="attr-name">Fuerza</div>
           <div class="attr-mod">+0</div>
-          <div class="attr-score-container" onclick="editAttribute('str')" title="Haga clic para cambiar">10</div>
+          <div class="attr-score-container" onclick="editAttribute('str'); event.stopPropagation();" title="Haga clic para cambiar">10</div>
         </div>
-        <div class="attr-card" id="attr-dex">
+        <div class="attr-card" id="attr-dex" onclick="rollAttributeCheck('dex')" title="Tirar control de Destreza" style="cursor: pointer;">
           <div class="attr-name">Destreza</div>
           <div class="attr-mod">+0</div>
-          <div class="attr-score-container" onclick="editAttribute('dex')" title="Haga clic para cambiar">10</div>
+          <div class="attr-score-container" onclick="editAttribute('dex'); event.stopPropagation();" title="Haga clic para cambiar">10</div>
         </div>
-        <div class="attr-card" id="attr-con">
+        <div class="attr-card" id="attr-con" onclick="rollAttributeCheck('con')" title="Tirar control de Constitución" style="cursor: pointer;">
           <div class="attr-name">Constitución</div>
           <div class="attr-mod">+0</div>
-          <div class="attr-score-container" onclick="editAttribute('con')" title="Haga clic para cambiar">10</div>
+          <div class="attr-score-container" onclick="editAttribute('con'); event.stopPropagation();" title="Haga clic para cambiar">10</div>
         </div>
-        <div class="attr-card" id="attr-int">
+        <div class="attr-card" id="attr-int" onclick="rollAttributeCheck('int')" title="Tirar control de Inteligencia" style="cursor: pointer;">
           <div class="attr-name">Inteligencia</div>
           <div class="attr-mod">+0</div>
-          <div class="attr-score-container" onclick="editAttribute('int')" title="Haga clic para cambiar">10</div>
+          <div class="attr-score-container" onclick="editAttribute('int'); event.stopPropagation();" title="Haga clic para cambiar">10</div>
         </div>
-        <div class="attr-card" id="attr-wis">
+        <div class="attr-card" id="attr-wis" onclick="rollAttributeCheck('wis')" title="Tirar control de Sabiduría" style="cursor: pointer;">
           <div class="attr-name">Sabiduría</div>
           <div class="attr-mod">+0</div>
-          <div class="attr-score-container" onclick="editAttribute('wis')" title="Haga clic para cambiar">10</div>
+          <div class="attr-score-container" onclick="editAttribute('wis'); event.stopPropagation();" title="Haga clic para cambiar">10</div>
         </div>
-        <div class="attr-card" id="attr-cha">
+        <div class="attr-card" id="attr-cha" onclick="rollAttributeCheck('cha')" title="Tirar control de Carisma" style="cursor: pointer;">
           <div class="attr-name">Carisma</div>
           <div class="attr-mod">+0</div>
-          <div class="attr-score-container" onclick="editAttribute('cha')" title="Haga clic para cambiar">10</div>
+          <div class="attr-score-container" onclick="editAttribute('cha'); event.stopPropagation();" title="Haga clic para cambiar">10</div>
+        </div>
+      </div>
+
+      <!-- Salvaciones (Desplegable) -->
+      <div id="secSavingThrows" class="sheet-details mt-3" style="padding:0; border-radius:10px; overflow:hidden;">
+        <div id="savingThrowsToggleHeader" onclick="toggleSavingThrowsPanel()" style="display:flex; justify-content:space-between; align-items:center; padding:12px 15px; cursor:pointer; user-select:none;">
+          <h2 style="font-size:15px;margin:0;color:var(--gold);" id="lblSavingThrowsHeader">Tiradas de Salvación</h2>
+          <span id="savingThrowsToggleIcon" style="color:var(--gold); font-size:18px; transition:transform 0.3s ease;">▶</span>
+        </div>
+        <div id="savingThrowsGridWrapper" style="display:none; padding:0 15px 15px 15px;">
+          <div id="savingThrowsGrid" class="skills-grid">
+            <!-- Generado por JS -->
+          </div>
         </div>
       </div>
 
@@ -1506,6 +1519,10 @@
             <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; text-shadow: none; font-weight: normal; color: var(--text-light); margin: 0;">
               <input type="checkbox" id="toggleSecAttributes" onchange="toggleSectionVisibility('attributes', this.checked)" checked style="accent-color: var(--gold); width: 16px; height: 16px; margin: 0;">
               <span id="lblSecAttributes">Atributos</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; text-shadow: none; font-weight: normal; color: var(--text-light); margin: 0;">
+              <input type="checkbox" id="toggleSecSavingThrows" onchange="toggleSectionVisibility('savingThrows', this.checked)" checked style="accent-color: var(--gold); width: 16px; height: 16px; margin: 0;">
+              <span id="lblSecSavingThrows">Tiradas de Salvación</span>
             </label>
             <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; text-shadow: none; font-weight: normal; color: var(--text-light); margin: 0;">
               <input type="checkbox" id="toggleSecSkills" onchange="toggleSectionVisibility('skills', this.checked)" checked style="accent-color: var(--gold); width: 16px; height: 16px; margin: 0;">
