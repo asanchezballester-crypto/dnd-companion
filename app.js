@@ -38,6 +38,23 @@ let currentTab = 'ficha';
 // Base de datos de hechizos activa (se asigna en changeLanguage)
 var SPELLS_DB = [];
 
+// IDs de hechizos que pueden lanzarse como Ritual (SRD D&D 5e)
+// La DB no tiene campo "ritual", así que usamos una lista fija
+const RITUAL_SPELL_IDS = new Set([
+  "alarma", "augrio", "boca_magica", "caminar_sobre_el_agua",
+  "comunion", "comunion_con_la_naturaleza", "contactar_con_otro_plano",
+  "detectar_magia", "detectar_trampas", "detectar_venenos_y_enfermedades",
+  "disco_flotante_de_tenser", "don_de_lenguas", "dulce_descanso",
+  "encontrar_familiar", "entender_idiomas", "fingir_muerte",
+  "fuego_feerico", "hablar_con_los_animales", "hablar_con_los_muertos",
+  "hablar_con_las_plantas", "identificar", "ilusion_menor",
+  "llama_permanente", "mansion_magnifica_de_mordenkainen",
+  "mensajero_animal", "pequena_choza_de_leomund", "purificar_comida_y_bebida",
+  "respirar_bajo_el_agua", "sirviente_invisible", "saber_druidico",
+  "texto_ilusorio", "truco_de_la_cuerda", "ver_invisibilidad",
+  "zona_de_la_verdad", "enlace_telepatico_de_rary"
+]);
+
 // Habilidades de D&D 2024
 const DND_SKILLS = {
   acrobatics: { attr: 'dex', en: 'Acrobatics', es: 'Acrobacias' },
@@ -1503,6 +1520,7 @@ function setupEventListeners() {
   document.getElementById("spellSearch")?.addEventListener("input", renderSpellsTab);
   document.getElementById("filterSpellLvl")?.addEventListener("change", renderSpellsTab);
   document.getElementById("filterSpellClass")?.addEventListener("change", renderSpellsTab);
+  document.getElementById("filterSpellRitual")?.addEventListener("change", renderSpellsTab);
 
   // Escuchadores para cambio de clase y actualización de subclases
   const newCharClass = document.getElementById("newCharClass");
@@ -3464,7 +3482,7 @@ function renderSpellsTab() {
     const matchesQuery = !hasQuery || norm(spell.name).includes(normQuery) || norm(spell.description).includes(normQuery);
     const matchesLvl = selectedLvl === "all" || spell.level === parseInt(selectedLvl);
     const matchesClass = selectedClass === "all" || (Array.isArray(spell.class) && spell.class.some(c => norm(c).includes(normClass)));
-    const isRitual = spell.castTime && spell.castTime.toLowerCase().includes("ritual");
+    const isRitual = RITUAL_SPELL_IDS.has(spell.id);
     const matchesRitual = !onlyRituals || isRitual;
     return matchesQuery && matchesLvl && matchesClass && matchesRitual;
   });
@@ -3636,7 +3654,7 @@ function createSpellRowHTML(spell, listType, isFav, isAdded = false) {
   
   const char = getActiveCharacter();
   const isPrep = char && char.preparedSpells && char.preparedSpells.includes(spell.id);
-  const isRitual = spell.castTime && spell.castTime.toLowerCase().includes("ritual");
+  const isRitual = RITUAL_SPELL_IDS.has(spell.id);
   
   let rowClasses = "spell-row";
   if (isRitual) rowClasses += " spell-ritual-glow";
