@@ -1704,29 +1704,33 @@
 
   <script>
     // Evitar problemas de caché persistente en desarrollo local (localhost / 127.0.0.1)
+    // También desactivar en file:// (APK Android WebView) donde el SW causa problemas de caché
     const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const isFileProtocol = window.location.protocol === 'file:';
     
-    if (isLocalhost) {
-      // Omitir y limpiar Service Worker en desarrollo local para cargar siempre lo último
+    if (isLocalhost || isFileProtocol) {
+      // Omitir y limpiar Service Worker en desarrollo local / APK Android
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(registrations => {
           for (let registration of registrations) {
             registration.unregister().then(() => {
-              console.log('Service Worker desregistrado para desarrollo local.');
+              console.log('Service Worker desregistrado (localhost/file://).');
             });
           }
         });
       }
       // Limpiar todas las cachés
-      caches.keys().then(keys => {
-        keys.forEach(key => {
-          caches.delete(key).then(() => {
-            console.log('Caché local borrada:', key);
+      if (window.caches) {
+        caches.keys().then(keys => {
+          keys.forEach(key => {
+            caches.delete(key).then(() => {
+              console.log('Caché local borrada:', key);
+            });
           });
         });
-      });
+      }
     } else {
-      // Registro normal del Service Worker para PWA en producción (funcionamiento offline)
+      // Registro normal del Service Worker para PWA en producción HTTP/HTTPS
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('sw.js')

@@ -35,6 +35,9 @@ let characters = [];
 let activeCharId = null;
 let currentTab = 'ficha';
 
+// Base de datos de hechizos activa (se asigna en changeLanguage)
+var SPELLS_DB = [];
+
 // Habilidades de D&D 2024
 const DND_SKILLS = {
   acrobatics: { attr: 'dex', en: 'Acrobatics', es: 'Acrobacias' },
@@ -1325,18 +1328,16 @@ function loadData() {
       setupSubclassResources(char);
       updated = true;
       
-      if (!char.spellSlots) {
-        char.spellSlots = {};
-        for (let i = 1; i <= 9; i++) char.spellSlots[i] = { current: 0, max: 0 };
-        setupDefaultSpellSlots(char);
-        updated = true;
-      } else if (!char.spellSlots[6]) {
-        // Migración: personaje existente solo tiene slots 1-5, hay que añadir 6-9
-        for (let i = 6; i <= 9; i++) char.spellSlots[i] = { current: 0, max: 0 };
-        // Recalcular todos los slots para aplicar la nueva tabla de nivel 11-20
-        setupDefaultSpellSlots(char);
-        updated = true;
+      // Garantizar que los spellSlots 1-9 existen en la estructura
+      if (!char.spellSlots) char.spellSlots = {};
+      for (let i = 1; i <= 9; i++) {
+        if (!char.spellSlots[i]) char.spellSlots[i] = { current: 0, max: 0 };
       }
+      if (!char.pactSlots) char.pactSlots = { level: 0, current: 0, max: 0 };
+      // SIEMPRE recalcular los máximos de hechizos en cada carga
+      // (así cualquier cambio de nivel o clase se aplica automáticamente)
+      setupDefaultSpellSlots(char);
+      updated = true;
       if (char.autoAC === undefined) {
         char.autoAC = true;
         updated = true;
@@ -2468,9 +2469,13 @@ function setupDefaultSpellSlots(char) {
   ];
 
   if (!char.spellSlots) char.spellSlots = {};
+  // Guardar los current actuales antes de recalcular (no resetear lo que el jugador ya usó)
+  const savedCurrents = {};
   for (let i = 1; i <= 9; i++) {
+    savedCurrents[i] = char.spellSlots[i] ? (char.spellSlots[i].current ?? 0) : 0;
     char.spellSlots[i] = { current: 0, max: 0 };
   }
+  const savedPactCurrent = char.pactSlots ? (char.pactSlots.current ?? 0) : 0;
   char.pactSlots = { level: 0, current: 0, max: 0 };
 
   let effectiveLevel = 0;
@@ -2508,7 +2513,8 @@ function setupDefaultSpellSlots(char) {
     
     for (let i = 1; i <= 9; i++) {
       char.spellSlots[i].max = slots[i-1];
-      char.spellSlots[i].current = slots[i-1];
+      // Restaurar current guardado antes del reset (cap al nuevo max)
+      char.spellSlots[i].current = Math.min(savedCurrents[i] || 0, slots[i-1]);
     }
   }
 
@@ -2522,7 +2528,8 @@ function setupDefaultSpellSlots(char) {
     };
     const pactInfo = warlockSlotsByLvl[Math.min(20, warlockLvl)] || { count: 1, level: 1 };
     char.pactSlots.max = pactInfo.count;
-    char.pactSlots.current = pactInfo.count;
+    // Restaurar current del pacto (cap al nuevo max)
+    char.pactSlots.current = Math.min(savedPactCurrent || pactInfo.count, pactInfo.count);
     char.pactSlots.level = pactInfo.level;
   }
 }
@@ -3258,6 +3265,14 @@ function renderSpellSlots() {
 
   slotsGrid.innerHTML = "";
 
+  // DIAGNÓSTICO: mostrar estado de slots al renderizar
+  const slotSummary = {};
+  for (let ii = 1; ii <= 9; ii++) {
+    const sl = char.spellSlots[ii] || { current: 0, max: 0 };
+    if (sl.max > 0) slotSummary['N' + ii] = sl.current + '/' + sl.max;
+  }
+  console.log('[Slots] char=', char.name, 'lvl=', char.level, 'class=', char.class, 'slots=', JSON.stringify(slotSummary));
+
   for (let i = 1; i <= 9; i++) {
     const slot = char.spellSlots[i] || { current: 0, max: 0 };
     
@@ -3420,31 +3435,43 @@ function renderSpellsTab() {
 
   // --- 3. RENDERIZAR CONJUROS DE BÚSQUEDA ---
   listSearch.innerHTML = "";
-  
+
+  // Verificar que la base de datos está cargada
+  if (!Array.isArray(SPELLS_DB) || SPELLS_DB.length === 0) {
+    listSearch.innerHTML = `<div class="text-center mt-2" style="color:#ff4444;font-weight:bold;font-size:13px;">⚠️ Base de datos de conjuros no cargada. Reinicia la app.</div>`;
+    return;
+  }
+
+  // Determinar si hay algún filtro activo
+  const hasQuery = query.length >= 2;
+  const hasLvlFilter = selectedLvl !== "all";
+  const hasClassFilter = selectedClass !== "all";
+  const hasFilter = hasQuery || hasLvlFilter || hasClassFilter || onlyRituals;
+
+  // Si no hay ningún filtro activo, mostrar mensaje de ayuda
+  if (!hasFilter) {
+    listSearch.innerHTML = `<div class="text-center mt-2" style="color:var(--text-dim);font-style:italic;font-size:13px;padding:16px;">🔍 Escribe el nombre de un conjuro, o usa los filtros de nivel y clase para buscar.</div>`;
+    return;
+  }
+
+  // Normalizar texto quitando acentos (resuelve problema de codificación en spells_db.js)
+  const norm = s => (s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  const normQuery = norm(query);
+  const normClass = norm(selectedClass);
+
   // Filtrar base de datos completa según términos de búsqueda
   const filteredDbSpells = SPELLS_DB.filter(spell => {
-    // Filtro texto
-    const matchesQuery = spell.name.toLowerCase().includes(query) || spell.description.toLowerCase().includes(query);
-    // Filtro nivel
+    const matchesQuery = !hasQuery || norm(spell.name).includes(normQuery) || norm(spell.description).includes(normQuery);
     const matchesLvl = selectedLvl === "all" || spell.level === parseInt(selectedLvl);
-    // Filtro clase
-    const matchesClass = selectedClass === "all" || spell.class.includes(selectedClass) || (typeof TRANSLATION_MAP !== "undefined" && TRANSLATION_MAP[selectedClass] && spell.class.includes(TRANSLATION_MAP[selectedClass]));
-    // Filtro ritual
+    const matchesClass = selectedClass === "all" || (Array.isArray(spell.class) && spell.class.some(c => norm(c).includes(normClass)));
     const isRitual = spell.castTime && spell.castTime.toLowerCase().includes("ritual");
     const matchesRitual = !onlyRituals || isRitual;
-
     return matchesQuery && matchesLvl && matchesClass && matchesRitual;
   });
 
   if (filteredDbSpells.length === 0) {
-    const dbLen = Array.isArray(SPELLS_DB) ? SPELLS_DB.length : 0;
-    if (dbLen === 0) {
-      listSearch.innerHTML = `<div class="text-center mt-2" style="color:#ff4444;font-weight:bold;font-size:13px;">⚠️ Error: La base de datos de conjuros está vacía (SPELLS_DB=${dbLen}). Recarga con Ctrl+Shift+R.</div>`;
-    } else {
-      listSearch.innerHTML = `<div class="text-center mt-2" style="color:var(--text-dim);font-style:italic;font-size:13px;">No se encontraron conjuros con estos filtros. (Total DB: ${dbLen}) [Q: '${query}', L: '${selectedLvl}', C: '${selectedClass}', R: ${onlyRituals}]</div>`;
-    }
+    listSearch.innerHTML = `<div class="text-center mt-2" style="color:var(--text-dim);font-style:italic;font-size:13px;">No se encontraron conjuros con estos filtros.</div>`;
   } else {
-    // Mostrar lista completa resultante
     try {
       filteredDbSpells.forEach(spell => {
         const isAdded = mySpellIds.includes(spell.id);
@@ -8317,11 +8344,12 @@ function changeLanguage(lang, save = true) {
     console.warn('[Lang] Primary spell DB empty, trying fallback...');
     newSpellsDb = isEn ? spellsEs : spellsEn;
   }
-  // Only overwrite if we got something valid
+  // Only overwrite if we got something valid (always use window. to guarantee global scope)
   if (newSpellsDb && newSpellsDb.length > 0) {
+    window.SPELLS_DB = newSpellsDb;
     SPELLS_DB = newSpellsDb;
   } else {
-    console.error('[Lang] Both spell databases are empty! SPELLS_DB not changed. Current length:', (typeof SPELLS_DB !== 'undefined' ? SPELLS_DB.length : 'undefined'));
+    console.error('[Lang] Both spell databases are empty! SPELLS_DB not changed. Current length:', SPELLS_DB.length);
   }
   console.log('[Lang] SPELLS_DB after swap:', SPELLS_DB.length, 'spells');
 
